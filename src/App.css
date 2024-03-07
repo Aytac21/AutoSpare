@@ -1,0 +1,521 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  /* border: 1px solid red; */
+}
+
+.login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-div {
+  width: 568px;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.login-nav {
+  display: flex;
+  border-bottom: 1px solid #ebebeb;
+  padding: 20px 0;
+}
+
+.login-text,
+.login-finish,
+.login-signup {
+  color: black;
+}
+
+.login-div > button i {
+  font-size: 16px;
+  background-color: none;
+}
+
+.login-nav > p {
+  margin: 0 auto;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.login-main,
+.login-email,
+.login-email-main {
+  margin: 20px 0;
+  padding: 32px, 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-email > p:first-of-type {
+  font-size: 22px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.login-main select {
+  width: 100%;
+}
+
+.login-city {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.login-main p span {
+  color: black;
+  text-decoration: underline;
+}
+
+.placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px 12px;
+  color: #999;
+  font-size: 15px;
+}
+
+.login-city select {
+  padding: 20px 7px;
+  width: 100%;
+  background-color: #ffffff;
+  font-size: 16px;
+  border: 1px solid #dddddd;
+  top: 20px;
+  border-radius: 8px 8px 0px 0px;
+  outline: none;
+}
+
+.login-city select option {
+  font-family: "DM Sans", sans-serif;
+  position: absolute;
+  top: 40px;
+  outline: none;
+}
+
+.login-city select:focus + .placeholder {
+  display: none;
+}
+
+.login-city input {
+  padding: 20px 12px;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid #dddddd;
+  outline: none;
+}
+
+.login-phone-number input,
+.login-photo input {
+  border-radius: 0 0 8px 8px !important;
+}
+
+.login-main p:nth-of-type(2) {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  color: #717171;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 1.2%;
+}
+
+.next {
+  background: linear-gradient(0deg, #ff385c, #ff385c),
+    linear-gradient(
+      90deg,
+      rgba(230, 30, 77, 0) 0%,
+      rgba(227, 28, 95, 0.5) 35.42%,
+      #d70466 100%
+    );
+  padding: 14px 24px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  font-family: DM Sans;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+.next a {
+  color: #fff;
+}
+
+.hr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hr hr {
+  width: 100%;
+}
+
+.hr p {
+  font-family: DM Sans;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 4%;
+  padding: 0 20px;
+  white-space: nowrap;
+}
+
+.gmail {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.gmail button {
+  display: flex;
+  background: none;
+  padding: 14px 24px;
+  border: 1px solid #222222;
+  border-radius: 8px;
+}
+.gmail button p {
+  margin: 0 auto;
+  font-family: DM Sans;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.login-mail {
+  position: relative;
+  border-radius: 8px;
+}
+
+.login-mail input {
+  padding: 20px 12px;
+  width: 100%;
+}
+.error-message {
+  display: inline-block;
+  color: red;
+  padding-left: 13px;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  background: none;
+  border: none;
+  font-size: 12px;
+}
+
+.loading {
+  background: #dddddd;
+  color: white;
+}
+
+.login-city .name input:first-of-type {
+  border-radius: 8px 8px 0 0;
+}
+
+.login-city .name input:last-of-type {
+  border-radius: 0 0 8px 8px;
+}
+
+.login-city > input,
+.login-mail input,
+.login-city .password input,
+.date-picker {
+  border-radius: 8px;
+}
+
+.login-text p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  color: #717171;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 1.2%;
+  margin: 10px 0 20px 0;
+}
+
+.login-city .password {
+  position: relative;
+}
+
+.login-city .password button {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+}
+
+.error-messages {
+  display: block;
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.error-list li {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 1.2%;
+}
+
+.error-list {
+  margin-top: 10px;
+}
+
+.error-date-picker {
+  border-color: red !important;
+  border-radius: 8px;
+}
+
+.login-nav-community p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 20px;
+  color: #222222;
+}
+
+.login-main-community {
+  margin: 20px 0;
+  padding: 32px, 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-main-community > p:first-of-type {
+  font-family: DM Sans;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.012em;
+  text-align: left;
+  margin-top: 15px;
+}
+
+.login-main-community > p:nth-of-type(2) {
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+.login-main-community > p:last-of-type {
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-decoration: underline;
+}
+
+.decline {
+  background-color: inherit;
+  padding: 14px 24px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #222222;
+  font-family: DM Sans;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.login-main-community > p i {
+  color: #222222;
+  font-size: 12px;
+  margin-left: 3px;
+}
+
+.login-main-create p {
+  font-family: DM Sans;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin: 25px 0 15px 0;
+}
+
+.next-create {
+  background-color: #222222;
+  padding: 14px 24px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  font-family: DM Sans;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+.login-comfirm-phone hr {
+  border: 1px solid #dddddd;
+  margin: 10px 0;
+}
+
+.login-comfirm-phone .checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-comfirm-phone label {
+  font-family: DM Sans;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.012em;
+  text-align: left;
+}
+
+.next-comfirm-photo {
+  background-color: #dddddd;
+  padding: 14px 24px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  font-family: DM Sans;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+.next-comfirm-photo div {
+  display: flex;
+  align-items: center;
+}
+
+.next-comfirm-photo i {
+  text-align: left;
+  margin-right: 0.5em;
+}
+
+.next-comfirm-photo span {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loading-comfirm {
+  background: #222222;
+  color: white;
+}
+
+.confirm-later {
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  text-decoration: underline;
+  margin: 15px 0;
+}
+
+.comfirmstep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.comfirmstep p:first-of-type {
+  font-family: DM Sans;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  margin-top: 15px;
+}
+
+.comfirmstep p:last-of-type {
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #222222;
+  margin-bottom: 20px;
+}
+
+.login-photo i {
+  font-size: 150px;
+  color: #9999995d;
+}
+
+.login-photo img {
+  width: 300px;
+  height: max-content;
+}
+
+.login-done {
+  background-color: #222222;
+  padding: 14px 24px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  font-family: DM Sans;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+.change-photo {
+  background-color: inherit;
+  padding: 14px 24px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  color: #222222;
+  border: 1px solid #222222;
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 15px 0;
+}
+
+.change-photo a {
+  color: inherit;
+}
+
+.login-email-main > p {
+  font-size: 22px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  margin: 10px 0;
+}
