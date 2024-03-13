@@ -11,7 +11,7 @@ import CreateProfile from "./components/Logins/CreateProfile";
 import ComfirmPhoto from "./components/Logins/ComfirmPhoto";
 import ProfilePhotoDone from "./components/Logins/ProfilePhotoDone";
 import Home from "./pages/Home";
-import Cart from "./pages/Cart";
+import Card from "./pages/Card";
 
 function App() {
   useEffect(() => {
@@ -31,7 +31,7 @@ function App() {
         <Route path="/comfirmphoto/" element={<ComfirmPhoto />} />
         <Route path="/profilephotodone/" element={<ProfilePhotoDone />} />
         {/* <Route path="/" element={<Home />} />*/}
-        <Route path="/cart/" element={<Cart />} />
+        <Route path="/card/" element={<Card />} />
       </Routes>
     </>
   );

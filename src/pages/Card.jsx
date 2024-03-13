@@ -1,6 +1,6 @@
 import React from "react";
 import img from "../assets/S5_Category-1.svg";
-function Cart() {
+function Card() {
   // Tüm input elementlerini seçin
   const inputs = document.querySelectorAll(
     '.delivery-sort input[type="radio"]'
@@ -17,7 +17,7 @@ function Cart() {
   });
 
   return (
-    <div className="cart-page container">
+    <div className="card-page container">
       <div>
         <div>
           <div className="order-header">
@@ -69,7 +69,7 @@ function Cart() {
           </div>
         </div>
       </div>
-      <div className="cart-summary">
+      <div className="card-summary">
         <p>Səbətin xülasəsi</p>
         <div className="delivery-sort">
           <div>
@@ -110,4 +110,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default Card;
