@@ -10,6 +10,8 @@ import CommunictyCommitment from "./components/Logins/CommunictyCommitment";
 import CreateProfile from "./components/Logins/CreateProfile";
 import ComfirmPhoto from "./components/Logins/ComfirmPhoto";
 import ProfilePhotoDone from "./components/Logins/ProfilePhotoDone";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
 
 function App() {
   useEffect(() => {
@@ -28,6 +30,8 @@ function App() {
         <Route path="/createprofile/" element={<CreateProfile />} />
         <Route path="/comfirmphoto/" element={<ComfirmPhoto />} />
         <Route path="/profilephotodone/" element={<ProfilePhotoDone />} />
+        {/* <Route path="/" element={<Home />} />*/}
+        <Route path="/cart/" element={<Cart />} />
       </Routes>
     </>
   );

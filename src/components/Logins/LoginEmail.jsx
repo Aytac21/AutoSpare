@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const LoginEmail = () => {
+const LoginEmail = ({ onClose, onOpenEmailModal, onOpenFinishingSignup }) => {
   const [email, setEmail] = useState("");
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,13 +38,15 @@ const LoginEmail = () => {
       setIsLoading(false);
       navigate("/finishingsignup");
     }, 3000);
+    onClose();
+    onOpenFinishingSignup();
   };
 
   return (
     <div className="login">
       <div className="login-div">
         <div className="login-nav">
-          <i className="fa-solid fa-xmark"></i>
+          <FontAwesomeIcon icon={faTimes} className="close" onClick={onClose} />
           <p className="login-signup">Log in or sign up</p>
         </div>
         <div className="login-email-main">

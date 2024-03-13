@@ -1,11 +1,30 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const LoginPhoneNumber = () => {
+const LoginPhoneNumber = ({ onClose, onOpenEmailModal }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const handleContinue = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      navigate("/loginemail");
+    }, 3000);
+  };
+
+  // const handleContinue = () => {
+  //   onClose();
+  //   onOpenEmailModal();
+  // };
+
   return (
     <div className="login">
       <div className="login-div">
         <div className="login-nav">
-          <i className="fa-solid fa-xmark"></i>
+          <FontAwesomeIcon icon={faTimes} className="close" onClick={onClose} />
           <p className="login-signup">Log in or sign up</p>
         </div>
         <div className="login-email">
@@ -21,8 +40,11 @@ const LoginPhoneNumber = () => {
             We will send you a message to confirm your number. Standard message
             and data rates apply.<span>Privacy Policy</span>
           </p>
-          <button className="next">
-            <Link to={"/loginemail"}>Continue</Link>
+          <button
+            className={`next ${isLoading ? "loading" : ""}`}
+            onClick={handleContinue}
+          >
+            {isLoading ? "..." : "Continue"}
           </button>
           <div className="hr">
             <hr />
