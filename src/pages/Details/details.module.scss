@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+.details {
+  background-color: #f6f7f9;
+  padding-bottom: 30px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  .app {
+    .main {
+      overflow: hidden;
+      width: 100%;
+      height: 270px;
+      border-radius: 5px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+      }
+    }
+    .otherIMG {
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 10px;
+      .img {
+        width: 100%;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 9px;
+        cursor: pointer;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  .info {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    .name {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      .head {
+        h3 {
+          color: #1a202c;
+          font-weight: 700;
+          font-size: 32px;
+          line-height: 20px;
+          letter-spacing: -3%;
+        }
+        .rate {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 8px;
+          .star {
+            span {
+              svg {
+                color: #fbad39;
+                width: 17px;
+                height: 16px;
+              }
+            }
+          }
+          .comment {
+            span {
+              font-weight: 500;
+              font-size: 14px;
+              color: #596780;
+            }
+          }
+        }
+      }
+      .fav {
+        span {
+          svg {
+            width: 24px;
+            height: 24px;
+            color: #ed3f3f;
+          }
+        }
+      }
+    }
+    .about {
+      margin-top: 30px;
+      p {
+        font-size: 15px;
+        line-height: 25px;
+        color: #596780;
+      }
+    }
+    .type {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 50px;
+      .list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 30px;
+        span {
+          font-size: 16px;
+          font-weight: 400;
+          color: #90a3bf;
+        }
+        p {
+          color: #596780;
+          font-weight: 600;
+          font-size: 16px;
+        }
+      }
+    }
+    .buy {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 30px;
+      .price {
+        p {
+          color: #1a202c;
+          font-size: 20px;
+          font-weight: 700;
+          line-height: 5px;
+          .azn {
+            font-size: 13px;
+            color: #1a202c;
+            font-weight: 600;
+          }
+          .day {
+            color: #90a3bf;
+            font-size: 13px;
+            font-weight: 400;
+          }
+        }
+        del {
+          color: #90a3bf;
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+      .button {
+        button {
+          border: none;
+          background-color: #528c8c;
+          color: #f6f7f9;
+          border-radius: 4px;
+          padding: 10px 30px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .review {
+    margin-top: 70px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px 25px;
+    p {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a202c;
+    }
+    .comments {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      .comment {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 10px;
+        .icon {
+          span {
+            svg {
+              color: #528c8c;
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+        .user {
+          max-width: 900px;
+          p {
+            font-size: 18px;
+            line-height: 10px;
+          }
+          span {
+            color: #596780;
+            font-size: 14px;
+            line-height: 25px;
+          }
+        }
+        .dateANDrate {
+          p {
+            font-size: 14px;
+            color: #90a3bf;
+            font-weight: 500;
+            line-height: 5px;
+          }
+          .star {
+            span {
+              svg {
+                color: #fbad39;
+              }
+            }
+          }
+        }
+      }
+    }
+    .show {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+      a {
+        font-weight: 600;
+        font-size: 16px;
+        text-decoration: none;
+        color: #90a3bf;
+        cursor: pointer;
+      }
+    }
+  }
+  .head {
+    h3 {
+      color: #90a3bf;
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+}

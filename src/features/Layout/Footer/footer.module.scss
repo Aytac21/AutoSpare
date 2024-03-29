@@ -1,0 +1,54 @@
+.footer {
+  padding-top: 70px;
+  padding-bottom: 200px;
+  .logo {
+    h2 {
+      font-size: 30px;
+      font-weight: 600;
+      span {
+        color: #f86338;
+      }
+    }
+  }
+  .lists {
+    .list {
+      h3 {
+        color: #0a142f;
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+      .listElements {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        a {
+          text-decoration: none;
+          color: #0a142f;
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+      .icon {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        span {
+          font-size: 30px;
+          svg {
+            color: #0a142f;
+          }
+        }
+      }
+    }
+  }
+}
+.line{
+    .author{
+        p{
+            text-align: center;
+            color: #0a142f;
+            font-size: 16px;
+            font-weight: 400;
+        }
+      }
+}

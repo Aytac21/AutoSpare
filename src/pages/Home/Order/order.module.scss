@@ -1,0 +1,37 @@
+.order{
+    .block{
+        background-color: #000000;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 60px 80px;
+        .text{
+            h2{
+                color: #F86338;
+                font-size: 48px;
+                font-weight: 600;
+                span{
+                    color: #FDCEC1;
+                }
+            }
+            h3{
+                font-weight: 500;
+                font-size: 48px;
+                color: #FAFAFA;
+            }
+            button{
+                font-size: 16px;
+                font-weight: 500;
+                color: #FAFAFA;
+                background-color: #F86338;
+                border: none;
+                border-radius: 4px;
+                padding: 16px 48px;
+                margin-top: 130px;
+            }
+        }
+        .image{
+        }
+    }
+}

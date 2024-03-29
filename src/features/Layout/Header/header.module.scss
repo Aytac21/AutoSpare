@@ -1,0 +1,87 @@
+.head {
+  margin-top: 30px;
+  .logo {
+    cursor: pointer;
+    h3 {
+      font-size: 23px;
+      font-weight: 600;
+      .orange {
+        color: #f86338;
+      }
+    }
+  }
+  .info {
+    display: flex;
+    justify-content: flex-end;
+    .tel,
+    .delivery {
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      flex-direction: row;
+      align-items: center;
+      .icon {
+        color: #f86338;
+        font-size: 18px;
+      }
+      .text {
+        font-size: 15px;
+        color: #000000;
+        font-weight: 400;
+      }
+    }
+    .card {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      span {
+        color: #495057;
+        font-weight: 700;
+        font-size: 22px;
+      }
+    }
+    .user {
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #b9bdc0;
+      border-radius: 18px;
+      padding-right: 7px;
+      padding-bottom: 5px;
+      &:hover {
+        .list {
+          visibility: visible;
+          transition: 0.3s ease-in-out;
+        }
+      }
+      span {
+        font-size: 20px;
+      }
+      .icon {
+        color: #f86338;
+      }
+      .list {
+        visibility: hidden;
+        position: absolute;
+        top: 32px;
+        right: 0;
+        background-color: #ffffff;
+        border: 1px solid #f7f7f7;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        width: 160px;
+        a {
+          padding: 10px 10px 10px 14px;
+          font-weight: 500;
+          text-decoration: none;
+          color: #222222;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

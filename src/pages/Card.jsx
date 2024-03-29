@@ -1,7 +1,6 @@
 import React from "react";
 import img from "../assets/S5_Category-1.svg";
 function Card() {
-  // Tüm input elementlerini seçin
   const inputs = document.querySelectorAll(
     '.delivery-sort input[type="radio"]'
   );
