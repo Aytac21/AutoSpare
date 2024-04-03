@@ -1,0 +1,52 @@
+
+footer {
+    width: 90vw;
+    height: 24vw;
+    font-family: 'Plus Jakarta Sans';
+    position: relative;
+    margin: 0 auto;
+}
+
+.footerMain {
+    display: flex;
+    gap: 2.8vw;
+    justify-content: flex-end;
+    margin-right: 4vw;
+    margin-top: 5.56vw;
+}
+
+.footerMain .title {
+    margin-bottom: 3.9vw;
+    font-weight: 600;
+    font-size: 1.4vw;
+    line-height: 2.1vw;
+}
+
+.footerMain .content {
+    display: flex;
+    flex-direction: column;
+    gap:2.2vw;
+}
+
+.footerMain .content p{
+    font-weight: 500;
+    font-size: 1.11vw;
+    line-height: 1.67vw;
+    color:rgba(19, 19, 19, 0.6);
+}
+
+.footerLogo{
+    position: absolute;
+    top:2vw;
+    left: 1.2vw;
+}
+
+.footerBottom{
+    margin-top: 1.67vw;
+    display: flex;
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 600;
+    font-size: 1.11vw;
+    line-height: 1.67vw;
+    gap: 55vw;
+}

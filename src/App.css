@@ -1501,7 +1501,7 @@ svg:not(:host).svg-inline--fa {
 }
 
 .shops-navigation a:last-of-type {
-  color: #68a834;
+  color: #fb5607;
 }
 
 .shops-navigation i {
@@ -1565,7 +1565,6 @@ svg:not(:host).svg-inline--fa {
 }
 
 .shops-car img {
-  height: 8rem;
   margin: 1rem 0;
   object-fit: contain;
   height: 3rem;
@@ -1584,7 +1583,7 @@ svg:not(:host).svg-inline--fa {
 .shops-car p {
   font-size: 14px;
   font-weight: 400;
-  color: #68a834;
+  color: #fb5607;
   border-top: 1px solid #d0d0d0;
   padding-top: 30px;
   width: 100%;
@@ -1596,4 +1595,241 @@ svg:not(:host).svg-inline--fa {
 }
 
 .shops-type-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.shops-type-detail-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.shops-type-detail-text > div:first-of-type {
+  display: flex;
+  gap: 50px;
+}
+
+.shops-type-detail-text > div:last-of-type ul {
+  display: flex;
+  gap: 20px;
+  margin: 30px 0 !important;
+  padding: 0 !important;
+}
+
+.shops-type-detail-text > div:last-of-type ul li {
+  cursor: pointer;
+}
+
+.shops-type-detail-text > div:first-of-type > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shops-type-detail-text > div > div > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.shops-type-detail-text > div > div > div p {
+  margin: 0 !important;
+}
+
+.shops-type-detail-img img {
+  width: 20rem;
+  height: max-content;
+}
+
+.shops-type-site-detail h1 {
+  color: #111;
+  font-family: "Raleway", sans-serif;
+  font-size: 45px;
+  font-weight: bold;
+  margin: 20px 0;
+  line-height: 1;
+  text-align: center;
+}
+
+.shops-type-detail-text > div > div > div {
+  align-items: center;
+  color: black;
+  display: flex;
+  font-size: 14px;
+  font-weight: 300;
+  gap: 0.7rem;
+  line-height: 2rem;
+}
+
+.shops-type-detail-text > div > div > div a {
+  align-items: center;
+  color: black;
+  display: flex;
+  font-size: 14px;
+  font-weight: 300;
+  gap: 0.7rem;
+  line-height: 2rem;
+  text-decoration: none;
+}
+
+.shop-type-product-number {
+  padding: 10px 2rem;
+}
+
+.shop-type-product-number p {
+  color: #545454;
+  line-height: 15px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.shop-type-product-number p span {
+  font-weight: bold;
+}
+
+.shops-shop-type-products {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1.5rem;
+  margin-bottom: 30px;
+  padding: 2rem;
+}
+
+.shop-type-product {
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-type-product ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 !important;
+  padding: 5px 8px;
+}
+
+.shop-type-product {
+  border: 1px solid #d0d0d0;
+  border-radius: 5px;
+  transition: all 400ms ease;
+}
+
+.shop-type-product p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.shop-type-product:hover {
+  background: #fff;
+  border: 1px solid transparent;
+  box-shadow: 3px 4px 9px rgba(36, 36, 36, 0.15);
+  transition: all 400ms ease;
+}
+
+.shop-type-product ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop-type-product ul li p {
+  color: #545454;
+  line-height: 15px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.shop-type-product div img {
+  height: 8rem;
+  width: 100%;
+  object-fit: contain;
+}
+.shop-type-product ul li:first-of-type p {
+  font-weight: bold;
+  margin: 0 !important;
+}
+
+.shop-type-product ul li:first-of-type button {
+  background-color: #fb5407c0;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1rem;
+  padding: 0.6rem 0.8rem;
+  transition: all 400ms ease;
+  border: none;
+}
+
+.shop-type-product ul li:first-of-type button:hover {
+  opacity: 0.9;
+}
+
+.shop-type-product ul li:nth-of-type(3) {
+  margin: 5px 0;
+}
+
+.shop-type-product ul li:nth-of-type(3) p {
+  color: #979797;
+  font-size: 12px;
+}
+
+.shop-type-product div {
+  position: relative;
+}
+
+.shop-type-product div i {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 100;
+  color: rgb(204, 204, 204);
+  transition: all 400ms ease;
+}
+
+.shop-type-product div i:hover {
+  color: rgb(184, 178, 178);
+  transition: all 400ms ease;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

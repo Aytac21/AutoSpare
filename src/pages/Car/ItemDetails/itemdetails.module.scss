@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+.itemDetails {
+    margin-top: 100px;
+    margin-bottom: 200px;
+    .pictures {
+      overflow: hidden;
+      .mainImage {
+        border: 1px solid #e0d8d8;
+        border-radius: 10px;
+        width: 90%;
+        overflow: hidden;
+        padding: 20px 20px 100px 20px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          cursor: pointer;
+        }
+      }
+      .image {
+        padding: 20px;
+        width: 200px;
+        overflow: hidden;
+        background-color: #f4f4ff;
+        border-radius: 10px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          cursor: pointer;
+        }
+      }
+    }
+    .info {
+      .name {
+        h2 {
+          font-family: "DM Sans", sans-serif;
+          font-weight: 600;
+          font-size: 56px;
+          line-height: 40px;
+        }
+        h5{
+          margin-top: 10px;
+          font-family: "DM Sans", sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          color: #000000;
+        }
+      }
+      .icon {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        margin-top: 10px;
+        span {
+          svg {
+            font-size: 35px;
+            color: #f3692e;
+          }
+        }
+      }
+      .price {
+        margin-top: 20px;
+        p {
+          font-family: "DM Sans", sans-serif;
+          font-weight: 600;
+          font-size: 55px;
+          color: #f3692e;
+          span {
+            font-family: "DM Sans", sans-serif;
+            font-size: 16px;
+            color: #000000;
+          }
+        }
+      }
+      .about {
+        margin-top: 20px;
+        h3 {
+          font-family: "DM Sans", sans-serif;
+          font-weight: 700;
+          font-size: 24px;
+        }
+        p {
+          font-family: "DM Sans", sans-serif;
+          color: #666666;
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+      .count {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 200px;
+        .name {
+          p {
+            font-family: "DM Sans", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+          }
+        }
+        .increaseANDdecrease {
+          display: flex;
+          flex-direction: row;
+          gap: 15px;
+          button {
+            font-family: "DM Sans", sans-serif;
+            background-color: transparent;
+            border: none;
+            font-size: 16px;
+            svg {
+              cursor: pointer;
+            }
+          }
+          span{
+            font-size: 20px;
+          }
+        }
+      }
+      .sum {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        span {
+          font-family: "DM Sans", sans-serif;
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+      .buttons {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+        .button1 {
+          border: 3px solid #f86338;
+          padding: 14px  48px 14px 24px;
+          border-radius: 10px;
+          position: relative;
+          cursor: pointer;
+          button {
+            border: none;
+            background-color: transparent;
+            color: #f86338;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: "DM Sans", sans-serif;
+          }
+          span {
+            font-family: "DM Sans", sans-serif;
+            position: absolute;
+            font-size: 30px;
+            color: #f86338;
+            top: 4px;
+            right:3px;
+          }
+        }
+        .button2{
+          background-color: #f86338;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding:0px 30px;
+          cursor: pointer;
+          button{
+            background-color: transparent;
+            border: none;
+            color: #f4f4ff;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: "DM Sans", sans-serif;
+          }
+          span{
+            font-family: "DM Sans", sans-serif;
+            font-size: 30px;
+            color: #f4f4ff;
+          }
+        }
+      }
+    }
+  }

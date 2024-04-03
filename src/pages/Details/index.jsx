@@ -9,7 +9,9 @@ import { FaCircleUser } from "react-icons/fa6";
 import { IoIosArrowDown } from "react-icons/io";
 import car from "../../assets/detailsIMG/Car.svg";
 import { MdPeopleAlt } from "react-icons/md";
-import wheel from "../../assets/detailsIMG/Car.png";
+import wheel from "../../assets/detailsIMG/Car.png"
+import { FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Details = () => {
   const imgs = [
@@ -25,6 +27,7 @@ const Details = () => {
     setSliderData(slider);
   };
   return (
+    <Link to="/detailsMashinTap">
     <section className={styled.details}>
       <div className="container">
         <div className="row g-5">
@@ -224,48 +227,44 @@ const Details = () => {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-lg-12">
-            <div className={styled.head}>
-              <h3>Önərilən Maşınlar</h3>
-            </div>
+        <div className="col-lg-12">
+              <div className={styled.cardHead}>
+                <h3>Önərilən Maşınlar</h3>
+                <h5>Hamısına bax</h5>
+              </div>
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3">
+        <div className="col-lg-3">
             <div className={styled.card}>
               <div className={styled.header}>
-                <div className={styled.name}>
-                  <h3>MG ZX Excite</h3>
-                  <p>Hatchback</p>
-                </div>
-                <div className={styled.fav}>
-                  <span>
-                    <FaHeart />
-                  </span>
-                </div>
+               <div className={styled.name}>
+                <h3>MG ZX Excite</h3>
+                <p>Hatchback</p>
+               </div>
+               <div className={styled.fav}>
+                <span><FaRegHeart /></span>
+               </div>
               </div>
               <div className={styled.image}>
                 <img src={car} alt="" />
               </div>
-              <div className={styled.info}>
+              <div className={styled.props}>
                 <div className={styled.wheel}>
-                  <img src={wheel} alt="" />
-                  <span>Avtomat</span>
+                <img src={wheel} alt="" />
+                <span className={styled.text}>Avtomat</span>
                 </div>
                 <div className={styled.seat}>
-                  <span>
-                    <MdPeopleAlt />
-                  </span>
-                  <span>4 oturacaq</span>
+                <span><MdPeopleAlt /></span>
+                <span className={styled.text}>4 oturacaq</span>
                 </div>
               </div>
               <div className={styled.buy}>
                 <div className={styled.price}>
                   <p>
-                    <span className={styled.azn}>AZN</span> 80.00/
+                    <span><span className={styled.azn}>AZN</span> 80.00/</span>
                     <span className={styled.day}>gün</span>
                   </p>
-                  <del>AZN 100</del>
                 </div>
                 <div className={styled.button}>
                   <button>Bron Et</button>
@@ -276,38 +275,33 @@ const Details = () => {
           <div className="col-lg-3">
             <div className={styled.card}>
               <div className={styled.header}>
-                <div className={styled.name}>
-                  <h3>MG ZX Excite</h3>
-                  <p>Hatchback</p>
-                </div>
-                <div className={styled.fav}>
-                  <span>
-                    <FaHeart />
-                  </span>
-                </div>
+               <div className={styled.name}>
+                <h3>MG ZX Excite</h3>
+                <p>Hatchback</p>
+               </div>
+               <div className={styled.fav}>
+                <span><FaRegHeart /></span>
+               </div>
               </div>
               <div className={styled.image}>
                 <img src={car} alt="" />
               </div>
-              <div className={styled.info}>
+              <div className={styled.props}>
                 <div className={styled.wheel}>
-                  <img src={wheel} alt="" />
-                  <span>Avtomat</span>
+                <img src={wheel} alt="" />
+                <span className={styled.text}>Avtomat</span>
                 </div>
                 <div className={styled.seat}>
-                  <span>
-                    <MdPeopleAlt />
-                  </span>
-                  <span>4 oturacaq</span>
+                <span><MdPeopleAlt /></span>
+                <span className={styled.text}>4 oturacaq</span>
                 </div>
               </div>
               <div className={styled.buy}>
                 <div className={styled.price}>
                   <p>
-                    <span className={styled.azn}>AZN</span> 80.00/
+                    <span><span className={styled.azn}>AZN</span> 80.00/</span>
                     <span className={styled.day}>gün</span>
                   </p>
-                  <del>AZN 100</del>
                 </div>
                 <div className={styled.button}>
                   <button>Bron Et</button>
@@ -318,38 +312,33 @@ const Details = () => {
           <div className="col-lg-3">
             <div className={styled.card}>
               <div className={styled.header}>
-                <div className={styled.name}>
-                  <h3>MG ZX Excite</h3>
-                  <p>Hatchback</p>
-                </div>
-                <div className={styled.fav}>
-                  <span>
-                    <FaHeart />
-                  </span>
-                </div>
+               <div className={styled.name}>
+                <h3>MG ZX Excite</h3>
+                <p>Hatchback</p>
+               </div>
+               <div className={styled.fav}>
+                <span><FaRegHeart /></span>
+               </div>
               </div>
               <div className={styled.image}>
                 <img src={car} alt="" />
               </div>
-              <div className={styled.info}>
+              <div className={styled.props}>
                 <div className={styled.wheel}>
-                  <img src={wheel} alt="" />
-                  <span>Avtomat</span>
+                <img src={wheel} alt="" />
+                <span className={styled.text}>Avtomat</span>
                 </div>
                 <div className={styled.seat}>
-                  <span>
-                    <MdPeopleAlt />
-                  </span>
-                  <span>4 oturacaq</span>
+                <span><MdPeopleAlt /></span>
+                <span className={styled.text}>4 oturacaq</span>
                 </div>
               </div>
               <div className={styled.buy}>
                 <div className={styled.price}>
                   <p>
-                    <span className={styled.azn}>AZN</span> 80.00/
+                    <span><span className={styled.azn}>AZN</span> 80.00/</span>
                     <span className={styled.day}>gün</span>
                   </p>
-                  <del>AZN 100</del>
                 </div>
                 <div className={styled.button}>
                   <button>Bron Et</button>
@@ -360,38 +349,33 @@ const Details = () => {
           <div className="col-lg-3">
             <div className={styled.card}>
               <div className={styled.header}>
-                <div className={styled.name}>
-                  <h3>MG ZX Excite</h3>
-                  <p>Hatchback</p>
-                </div>
-                <div className={styled.fav}>
-                  <span>
-                    <FaHeart />
-                  </span>
-                </div>
+               <div className={styled.name}>
+                <h3>MG ZX Excite</h3>
+                <p>Hatchback</p>
+               </div>
+               <div className={styled.fav}>
+                <span><FaRegHeart /></span>
+               </div>
               </div>
               <div className={styled.image}>
                 <img src={car} alt="" />
               </div>
-              <div className={styled.info}>
+              <div className={styled.props}>
                 <div className={styled.wheel}>
-                  <img src={wheel} alt="" />
-                  <span>Avtomat</span>
+                <img src={wheel} alt="" />
+                <span className={styled.text}>Avtomat</span>
                 </div>
                 <div className={styled.seat}>
-                  <span>
-                    <MdPeopleAlt />
-                  </span>
-                  <span>4 oturacaq</span>
+                <span><MdPeopleAlt /></span>
+                <span className={styled.text}>4 oturacaq</span>
                 </div>
               </div>
               <div className={styled.buy}>
                 <div className={styled.price}>
                   <p>
-                    <span className={styled.azn}>AZN</span> 80.00/
+                    <span><span className={styled.azn}>AZN</span> 80.00/</span>
                     <span className={styled.day}>gün</span>
                   </p>
-                  <del>AZN 100</del>
                 </div>
                 <div className={styled.button}>
                   <button>Bron Et</button>
@@ -402,6 +386,7 @@ const Details = () => {
         </div>
       </div>
     </section>
+    </Link>
   );
 };
 

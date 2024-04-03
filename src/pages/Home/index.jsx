@@ -1,13 +1,12 @@
 import React from "react";
 import Car from "../Car";
-import Advertisement from "./Advertisement";
 import Store from "./Store";
-import Order from "./Order";
 import BestSelling from "./BestSelling";
 import Choose from "./Choose";
+import RegistrationMark from "../RegistrationMark";
+import OrderGoods from "./OrderGoods";
 import Navbar from "../../components/Navbar";
 import Category from "../Category";
-import Details from "../Details";
 
 const Home = () => {
   return (
@@ -15,12 +14,11 @@ const Home = () => {
       <Navbar />
       <Category />
       <Car />
-      <Order />
+      <OrderGoods />
       <BestSelling />
       <Choose />
-      <Advertisement />
       <Store />
-      <Details />
+      <RegistrationMark />
     </>
   );
 };

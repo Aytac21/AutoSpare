@@ -1,11 +1,92 @@
 import React from "react";
-import { routers } from "../Routers.jsx";
-import { RouterProvider } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import "./Responsive.css";
+import Layout from "./features/Layout";
+import Card from "./pages/Card";
+import Results from "./pages/Results";
+import Favorite from "./pages/Favorite";
+import MasintapCategory from "./pages/MasintapCategory";
+import Shops from "./pages/Shops";
+import ShopType from "./pages/ShopType";
+import MainPage from "./pages/MainPage/MainPage";
 
-const App = () => {
-  return <RouterProvider router={routers} />;
-};
+import FilterPage from "./components/FilterPage/FilterPage";
+import Home from "./pages/Home";
+import MarkDetails from "./pages/RegistrationMark/MarkDetails";
+import Details from "./pages/Details";
+import ItemDetails from "./pages/Car/ItemDetails";
+
+import LoginEmail from "./components/Logins/LoginEmail";
+import LoginPhoneNumber from "./components/Logins/LoginPhoneNumber";
+import ProfilePhotoDone from "./components/Logins/ProfilePhotoDone";
+import CreateProfile from "./components/Logins/CreateProfile";
+import CommunictyCommitment from "./components/Logins/CommunictyCommitment";
+import ComfirmPhoto from "./components/Logins/ComfirmPhoto";
+import FinishingSignup from "./components/Logins/FinishingSignup";
+
+import { useEffect, useState } from "react";
+import Footer from "./features/Layout/Footer";
+import Navbar from "./components/Navbar";
+import Header from "./features/Layout/Header";
+
+function App() {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  });
+
+  const { pathname } = useLocation();
+  const route = pathname.split("/")[1];
+  const routes = [
+    "",
+    "filter",
+    "detailsmashintap",
+    "community",
+    "itemDetails",
+    "card",
+    "results",
+    "favorite",
+    "shops",
+    "shoptype",
+    "masintapcategory",
+    "main",
+    "1",
+  ];
+
+  return (
+    <>
+      {routes.includes(route) && <Header />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/loginemail/" element={<LoginEmail />} />
+        <Route path="/login/" element={<LoginPhoneNumber />} />
+        <Route path="/profilephotodone/" element={<ProfilePhotoDone />} />
+        <Route path="/createprofile/" element={<CreateProfile />} />
+        <Route path="/commitment/" element={<CommunictyCommitment />} />
+        <Route path="/comfirmphoto/" element={<ComfirmPhoto />} />
+        <Route path="/finishingsignup/" element={<FinishingSignup />} />
+
+        {/* -------------------------------------------- */}
+        <Route path="/filter/" element={<FilterPage />} />
+        <Route path="/detailsmashintap/" element={<Details />} />
+        <Route path="/community/" element={<Details />} />
+        <Route path="/itemDetails/" element={<ItemDetails />} />
+        <Route path="/card/" element={<Card />} />
+        <Route path="/results/" element={<Results />} />
+        <Route path="/favorite/" element={<Favorite />} />
+        <Route path="/shops/" element={<Shops />} />
+        <Route path="/shoptype" element={<ShopType />} />
+        <Route path="/masintapcategory/" element={<MasintapCategory />} />
+        <Route path="/main/" element={<MainPage />} />
+        <Route path="/1/" element={<MarkDetails />} />
+
+        {/* -------------------------------------------- */}
+      </Routes>
+      {routes.includes(route) && <Footer />}
+    </>
+  );
+}
 
 export default App;

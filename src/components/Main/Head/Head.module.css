@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.main {
+    margin: 0;
+    padding: 0;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    background-color: #528C8C;
+}
+
+header {
+    display: flex;
+    font-weight: 800;
+}
+
+header h1 {
+    font-size: 2.5vw;
+    line-height: 3vw;
+    position: relative;
+    left: 4.44vw;
+    top: 2.22vw;
+}
+
+header h1 span {
+    font-size: 0.972vw;
+    padding-left: 0.5vw;
+}
+
+header .icon {
+    position: absolute;
+    width: 0.77vw;
+    height: 1.04vw;
+    top: 4.6514vw;
+    left: 15.4vw;
+}
+
+
+
+.route {
+    position: absolute;
+    left: 45.1vw;
+    top: 3.125vw;
+    display: flex;
+    font-size: 1.11vw;
+    line-height: 1.347vw;
+    gap: 5vw;
+}
+
+.favorites {
+    width: 3vw;
+    height: 3vw;
+    border: 0.03vw rgba(255, 252, 252, 0.8) solid;
+    border-radius: 2.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 1.94vw;
+    left: 86.25vw;
+}
+
+.favorites:hover path {
+    transition: fill 0.5s, stroke 0.5s;
+    fill: red;
+    stroke: red;
+}
+
+.menu {
+
+    position: absolute;
+    width: 6.27vw;
+    height: 3.33vw;
+    background-color: white;
+    left: 91.11vw;
+    top: 1.8vw;
+    border-radius: 6.94vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.56vw;
+}
+
+
+.content {}
+
+.content .carimages {
+    position: absolute;
+    top: 18.4vw;
+    left: 36.25vw;
+    width: 62.5vw;
+    height: 21.25vw;
+}
+
+.content .texts {
+    font-family: 'Plus Jakarta Sans';
+
+}
+
+.content .texts .first {
+    position: absolute;
+    font-weight: 500;
+    font-size: 0.97vw;
+    line-height: 1.18vw;
+    top: 17.22vw;
+    left: 4.44vw;
+    color: #FFFFFF;
+}
+
+.content .texts h2 {
+    font-weight: 800;
+    font-size: 2.5vw;
+    line-height: 3.03vw;
+    width: 33.8vw;
+    height: 9.17vw;
+    top:20.35vw;
+    left: 4.44vw;
+    position: absolute;
+}
+
+.content .texts .second {
+    font-weight: 500;
+    font-size: 1.11vw;
+    line-height: 1.78vw;
+    letter-spacing: -2%;
+    position: absolute;
+    opacity: 45%;
+    width: 31.81vw;
+    height: 5.42vw;
+    top:30.83vw;
+    left: 4.44vw;
+}
+
+.reserveButtons{
+    top:40vw;
+    position: absolute;
+    left: 4.44vw;
+    font-family: 'Plus Jakarta Sans';
+    font-size: 1.11vw;
+    line-height: 1.67vw;
+    display: flex;
+    gap:2.3vw;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.reserveButtons .reserveButton{
+
+    width: 10.42vw;
+    height: 3.05vw;
+    color: black;
+    border-radius: 0.28vw;
+    border: 0;
+    font-size: 1.11vw;
+    font-weight: 600;
+
+}
+
+.reserveButtons .reserveButton:hover{
+    opacity: 0.8;
+    transition:  opacity 0.2s;
+}
+
+
+.reserveButtons .showAllCars{
+ padding-top: 0.7vw;
+ font-weight: 600;
+
+}
+
+
+.reserveButtons .showAllCars:hover{
+    color: rgb(0, 255, 255,1);
+    transition: ease-in-out color 1s;
+}

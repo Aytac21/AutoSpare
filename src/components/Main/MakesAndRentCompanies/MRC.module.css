@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+.main {
+    margin-top: 50px;
+}
+
+.makes {
+    width: 87.2vw;
+    margin: 0 auto;
+    margin-top: 3.33vw;
+    display: flex;
+    gap: 6vw;
+}
+
+.rentServices {
+    margin: 0 auto;
+    width: 91.53vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 2.36vw;
+}
+
+.rentService {
+    width: 21.1vw;
+    height: 27vw;
+    font-weight: 700;
+    padding: 1.67vw;
+    border: .03vw #D9D9D9 solid;
+    margin-top: 2.8vw;
+    border-radius: 0.7vw;
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.rentServicesTitle {
+    font-family: 'DM Sans';
+    font-weight: 700;
+    font-size: 2.78vw;
+    line-height: 3.37vw;
+    margin-top: 6.25vw;
+    margin-left: 4.8vw;
+}
+
+.rentService .fav {
+    width: 1.67vw;
+    height: 1.67vw;
+    stroke: black;
+}
+
+.rentService .fav:hover {
+    fill: red;
+    stroke: red;
+    transition: ease-in-out fill 0.3s, stroke 0.2s;
+}
+
+
+.rentService .nameAndFav {
+    display: flex;
+    justify-content: space-between;
+    gap: 9vw;
+}
+
+.rentService .nameAndFav .name {
+    font-size: 1.4vw;
+    line-height: 2vw;
+}
+
+.rentServiceImg {
+    display: block;
+    margin: 0 auto;
+    margin-top: 3vw;
+}
+
+.rentServiceCatalog {
+    position: absolute;
+    bottom: 1.67vw;
+    right: 1.67vw;
+    width: 8vw;
+    height: 3vw;
+    background-color: #528C8C;
+    border-radius: 0.3vw;
+    border: 0;
+    color: white;
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 600;
+    font-size: 1.11vw;
+    line-height: 1.67vw;
+}
