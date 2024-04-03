@@ -6,15 +6,11 @@ import Layout from "./features/Layout";
 import Card from "./pages/Card";
 import Results from "./pages/Results";
 import Favorite from "./pages/Favorite";
-import MasintapCategory from "./pages/MasintapCategory";
 import Shops from "./pages/Shops";
 import ShopType from "./pages/ShopType";
-import MainPage from "./pages/MainPage/MainPage";
-
 import FilterPage from "./components/FilterPage/FilterPage";
 import Home from "./pages/Home";
 import MarkDetails from "./pages/RegistrationMark/MarkDetails";
-import Details from "./pages/Details";
 import ItemDetails from "./pages/Car/ItemDetails";
 
 import LoginEmail from "./components/Logins/LoginEmail";
@@ -27,7 +23,6 @@ import FinishingSignup from "./components/Logins/FinishingSignup";
 
 import { useEffect, useState } from "react";
 import Footer from "./features/Layout/Footer";
-import Navbar from "./components/Navbar";
 import Header from "./features/Layout/Header";
 
 function App() {
@@ -42,16 +37,12 @@ function App() {
   const routes = [
     "",
     "filter",
-    "detailsmashintap",
-    "community",
     "itemDetails",
     "card",
     "results",
     "favorite",
     "shops",
     "shoptype",
-    "masintapcategory",
-    "main",
     "1",
   ];
 
@@ -70,16 +61,12 @@ function App() {
 
         {/* -------------------------------------------- */}
         <Route path="/filter/" element={<FilterPage />} />
-        <Route path="/detailsmashintap/" element={<Details />} />
-        <Route path="/community/" element={<Details />} />
         <Route path="/itemDetails/" element={<ItemDetails />} />
         <Route path="/card/" element={<Card />} />
         <Route path="/results/" element={<Results />} />
         <Route path="/favorite/" element={<Favorite />} />
         <Route path="/shops/" element={<Shops />} />
         <Route path="/shoptype" element={<ShopType />} />
-        <Route path="/masintapcategory/" element={<MasintapCategory />} />
-        <Route path="/main/" element={<MainPage />} />
         <Route path="/1/" element={<MarkDetails />} />
 
         {/* -------------------------------------------- */}

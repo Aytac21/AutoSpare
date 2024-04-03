@@ -30,7 +30,7 @@ const LoginPhoneNumber = ({ onClose, onOpenEmailModal }) => {
         <div className="login-email">
           <p>Welcome to !</p>
           <div className="login-city login-phone-number">
-            <span className="placeholder">Country/Region</span>
+            <span className="placeholderlogin">Country/Region</span>
             <select name="" id="">
               <option value="">Azerbaijan (+994)</option>
             </select>

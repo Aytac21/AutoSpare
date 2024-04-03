@@ -84,13 +84,13 @@
   text-decoration: underline;
 }
 
-.placeholder {
+.login-city .placeholderlogin {
   position: absolute;
   top: 0;
   left: 0;
   padding: 5px 12px;
-  color: #999;
   font-size: 15px;
+  color: #999;
 }
 
 .login-city select {
@@ -111,7 +111,7 @@
   outline: none;
 }
 
-.login-city select:focus + .placeholder {
+.login-city select:focus + .placeholderlogin {
   display: none;
 }
 
@@ -949,7 +949,7 @@
 }
 .basket-class {
   background-color: #000;
-  padding: 20px;
+  padding: 20px 25px;
   display: flex;
   color: white;
   align-items: center;
@@ -958,6 +958,11 @@
   height: 41px;
   border-radius: 4px;
   margin-top: 15px;
+}
+
+.basket-class a {
+  display: flex;
+  width: 100%;
 }
 
 .basket-class img {
@@ -971,9 +976,10 @@
   font-weight: 400;
   line-height: 18px;
   text-align: left;
+  white-space: nowrap;
 }
 
-.favoritepage {
+.favoritepage a {
   display: flex;
   flex-direction: column;
   align-items: end;
@@ -981,7 +987,7 @@
 
 .favorite-page-text p {
   font-family: Poppins;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 26px;
   color: #000000;
@@ -992,11 +998,16 @@
   position: relative;
   display: flex;
   justify-content: end;
+  overflow: hidden;
 }
 
 .favoriteimg img {
   border-radius: 10px;
   border: 1px solid inherit !important;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 .favoriteimg p {
@@ -1794,6 +1805,13 @@ svg:not(:host).svg-inline--fa {
   color: rgb(184, 178, 178);
   transition: all 400ms ease;
 }
+
+.result-list a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ////////////////////////////////////// Şahin ///////////////////////////////////////////////////// */
 
 .App {
   text-align: center;

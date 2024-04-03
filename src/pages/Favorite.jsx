@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Car from "./Car/index";
-import styled from "./Car/car.module.scss";
+import styled from "./favorite.module.scss";
 import appcss from "../App";
 import image from "../assets/car.svg";
 import { TiTick } from "react-icons/ti";
 import { FaManatSign } from "react-icons/fa6";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import basketimage from "../assets/Cart1.svg";
+import { Link } from "react-router-dom";
 
 function Favorite() {
+  const [count, setCount] = useState(0);
+  const decreaseCount = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+  const increaseCount = () => {
+    setCount(count + 1);
+  };
+
   return (
     <div className="hr-add">
       <hr />
@@ -18,9 +29,9 @@ function Favorite() {
             Favorilər <span>(34)</span>
           </p>
         </div>
-        <section className={styled.car}>
-          <div className="row">
-            <div className="col-lg-3 favoritepage">
+        <section className={styled.favorite}>
+          <div className="row g-5">
+            <div className="col-lg-3 result-list favoritepage">
               <div className={styled.block}>
                 <div className="favoriteimg">
                   <img src={image} alt="" />
@@ -41,21 +52,33 @@ function Favorite() {
                   </div>
                   <div className={styled.priceANDcount}>
                     <div className={styled.price}>
-                      <span>
-                        <FaManatSign />
-                      </span>
-                      <span>6.99</span>
-                    </div>
-                    <div className={styled.count}>
-                      <span>1</span>
+                      <div className={styled.priceNumber}>
+                        <span>
+                          <FaManatSign />
+                        </span>
+                        <span>6.99</span>
+                      </div>
+                      <div className={styled.resultsCount}>
+                        <i
+                          onClick={decreaseCount}
+                          className="fa-solid fa-chevron-down"
+                        ></i>
+                        {count}
+                        <i
+                          onClick={increaseCount}
+                          className="fa-solid fa-chevron-up"
+                        ></i>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="basket-class">
-                <img src={basketimage} alt="image" />
-                <p>Səbətə at</p>
-              </div>
+              <Link to="/card">
+                <div className="basket-class">
+                  <img src={basketimage} alt="image" />
+                  <p>Səbətə at</p>
+                </div>
+              </Link>
             </div>
           </div>
         </section>

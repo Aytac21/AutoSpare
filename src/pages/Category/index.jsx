@@ -12,9 +12,9 @@ import img9 from "../../assets/Truck.svg";
 import { MdOutlineSort } from "react-icons/md";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Category = () => {
-
   return (
     <section className={styled.searchPage}>
       <div className="container">
@@ -22,40 +22,58 @@ const Category = () => {
           <div className="col-lg-9">
             <div className={styled.categories}>
               <div className={styled.category}>
-                <img src={img7} alt="" />
+                <Link to="/results">
+                  <img src={img7} alt="" />
                   <p className={styled.active}>Ümumi</p>
+                </Link>
               </div>
               <div className={styled.category}>
-                <img src={img9} alt="" />
+                <Link to="/results">
+                  <img src={img9} alt="" />
                   <p>Yük Maşını</p>
+                </Link>
               </div>
               <div className={styled.category}>
-                <img src={img5} alt="" />
+                <Link to="/results">
+                  <img src={img5} alt="" />
                   <p>Ekskavator</p>
+                </Link>
               </div>
               <div className={styled.category}>
-                <img src={img4} alt="" />
+                <Link to="/results">
+                  <img src={img4} alt="" />
                   <p>Motor Filtri</p>
+                </Link>
               </div>
               <div className={styled.category}>
-                <img src={img8} alt="" />
+                <Link to="/results">
+                  <img src={img8} alt="" />
                   <p>Yağ Filtri</p>
+                </Link>
               </div>
               <div className={styled.category}>
-                <img src={img2} alt="" />
+                <Link to="/results">
+                  <img src={img2} alt="" />
                   <p>Hava Filtri</p>
+                </Link>
               </div>
               <div className={styled.category}>
-                <img src={img1} alt="" />
+                <Link to="/results">
+                  <img src={img1} alt="" />
                   <p>Akkumlyator</p>
+                </Link>
               </div>
               <div className={styled.category}>
-                <img src={img3} alt="" />
+                <Link to="/results">
+                  <img src={img3} alt="" />
                   <p>Əyləc sistemi</p>
+                </Link>
               </div>
               <div className={styled.category}>
-                <img src={img6} alt="" />
+                <Link to="/results">
+                  <img src={img6} alt="" />
                   <p>Amortizator</p>
+                </Link>
               </div>
               <div className={styled.arrow}>
                 <span>

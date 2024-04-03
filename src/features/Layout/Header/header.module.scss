@@ -1,12 +1,16 @@
 .head {
   margin-top: 30px;
-  .logo {
-    cursor: pointer;
-    h3 {
-      font-size: 23px;
-      font-weight: 600;
-      .orange {
-        color: #f86338;
+  a {
+    color: inherit;
+    text-decoration: none;
+    .logo {
+      cursor: pointer;
+      h3 {
+        font-size: 23px;
+        font-weight: 600;
+        .orange {
+          color: #f86338;
+        }
       }
     }
   }

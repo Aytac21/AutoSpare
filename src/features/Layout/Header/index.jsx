@@ -5,6 +5,7 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { FaCircleUser } from "react-icons/fa6";
 import { LuMenu } from "react-icons/lu";
 import { PiShoppingCart } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -15,12 +16,14 @@ const Header = () => {
           style={{ display: "flex", justifyContent: "space-between" }}
         >
           <div className="col-lg-6">
-            <div className={styled.logo}>
-              <h3>
-                Auto<span className={styled.orange}>Spare</span>.
-                <span className={styled.orange}>az</span>
-              </h3>
-            </div>
+            <Link to="/">
+              <div className={styled.logo}>
+                <h3>
+                  Auto<span className={styled.orange}>Spare</span>.
+                  <span className={styled.orange}>az</span>
+                </h3>
+              </div>
+            </Link>
           </div>
           <div className="col-lg-6">
             <div className={styled.info}>
@@ -60,8 +63,8 @@ const Header = () => {
                         <FaCircleUser />
                       </span>
                       <div className={styled.list}>
-                        <a href="">Qeydiyyat</a>
-                        <a href="">Giriş</a>
+                        <Link to="/login">Qeydiyyat</Link>
+                        <Link to="/loginemail">Giriş</Link>
                         <hr />
                         <a href="">Favorilər</a>
                       </div>
