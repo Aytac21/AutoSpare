@@ -4,7 +4,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const LoginPhoneNumber = ({ onClose, onOpenEmailModal }) => {
+const LoginPhoneNumber = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const handleContinue = () => {
@@ -24,49 +24,51 @@ const LoginPhoneNumber = ({ onClose, onOpenEmailModal }) => {
     <div className="login">
       <div className="login-div">
         <div className="login-nav">
-          <FontAwesomeIcon icon={faTimes} className="close" onClick={onClose} />
-          <p className="login-signup">Log in or sign up</p>
+          <Link to="/">
+            <FontAwesomeIcon icon={faTimes} className="close" />
+          </Link>
+          <p className="login-signup">Daxil ol və ya qeydiyyatdan keç</p>
         </div>
         <div className="login-email">
-          <p>Welcome to !</p>
+          <p>Xoş gəlmisiniz!</p>
           <div className="login-city login-phone-number">
-            <span className="placeholderlogin">Country/Region</span>
+            <span className="placeholderlogin">Ölkə/Region</span>
             <select name="" id="">
-              <option value="">Azerbaijan (+994)</option>
+              <option value="">Azərbaycan (+994)</option>
             </select>
-            <input type="phone" placeholder="Phone number" />
+            <input type="phone" placeholder="Telefon nömrəsi" />
           </div>
-          <p>
-            We will send you a message to confirm your number. Standard message
-            and data rates apply.<span>Privacy Policy</span>
+          <p className="privacypolicy">
+            Nömrənizi təsdiqləmək üçün sizə mesaj göndərəcəyik. Standart mesaj
+            və məlumat tarifləri tətbiq edilir.<span>Məxfilik Siyasəti</span>
           </p>
           <button
             className={`next ${isLoading ? "loading" : ""}`}
             onClick={handleContinue}
           >
-            {isLoading ? "..." : "Continue"}
+            {isLoading ? "..." : "Davam edin"}
           </button>
           <div className="hr">
             <hr />
-            <p>or</p>
+            <p>və ya</p>
             <hr />
           </div>
           <div className="gmail">
             <button>
               <img src="fb.png" alt="" />
-              <p>Continue with Facebook</p>
+              <p>Facebook ilə davam edin</p>
             </button>
             <button>
               <img src="google.png" alt="" />
-              <p>Continue with Facebook Google</p>
+              <p>Google ilə davam edin</p>
             </button>
             <button>
               <img src="apple.png" alt="" />
-              <p>Continue with Facebook Apple</p>
+              <p>Apple ilə davam edin</p>
             </button>
             <button>
               <img src="mail.png" alt="" />
-              <p>Continue with Facebook Email</p>
+              <p>Email ilə davam edin</p>
             </button>
           </div>
         </div>

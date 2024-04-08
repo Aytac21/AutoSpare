@@ -9,7 +9,7 @@ const ProfilePhotoDone = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      navigate("/login");
+      navigate("/");
     }, 3000);
   };
 

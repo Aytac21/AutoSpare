@@ -26,11 +26,11 @@ import Footer from "./features/Layout/Footer";
 import Header from "./features/Layout/Header";
 
 function App() {
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-    });
-  });
+  // useEffect(() => {
+  //   window.scrollTo({
+  //     top: 0,
+  //   });
+  // });
 
   const { pathname } = useLocation();
   const route = pathname.split("/")[1];

@@ -1,5 +1,9 @@
 .favorite {
-  margin-top: 70px;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
   .head {
     display: flex;
     flex-direction: row;
@@ -21,7 +25,6 @@
   }
 
   .block {
-    margin-top: 30px;
     .img {
       overflow: hidden;
       border-radius: 10px;
@@ -75,15 +78,35 @@
           width: 100%;
 
           .priceNumber {
+            display: flex;
+            align-items: center;
+            gap: 2px;
             span {
               font-size: 18px;
               font-weight: 600;
+              display: flex;
+              svg {
+                vertical-align: baseline;
+              }
             }
           }
           .resultsCount {
             display: flex;
-            gap: 5px;
+            gap: 8px;
             align-items: center;
+            font-family: Inter;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 14.3px;
+            text-align: left;
+            color: #1d1e20;
+            i {
+              color: #8f959e;
+              border: 1px solid #dedede;
+              border-radius: 50% 50%;
+              font-size: 12px;
+              padding: 5px;
+            }
           }
         }
         .count {

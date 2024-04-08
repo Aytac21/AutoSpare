@@ -38,19 +38,19 @@ const FinishingSignup = ({ onClose }) => {
     const inputRights = [];
 
     if (!firstName.trim()) {
-      setFirstNameError("First name is required");
+      setFirstNameError("Ad tələb olunur");
     } else {
       setFirstNameError("");
     }
 
     if (!lastName.trim()) {
-      setLastNameError("Last name is required");
+      setLastNameError("Soyad tələb olunur");
     } else {
       setLastNameError("");
     }
 
     if (!birthdate) {
-      setBirthdateError("Birthdate is required");
+      setBirthdateError("Doğum tarixi tələb olunur");
     } else {
       setBirthdateError("");
     }
@@ -62,15 +62,15 @@ const FinishingSignup = ({ onClose }) => {
     }
 
     if (password.length < 8) {
-      inputErrors.push("At least 8 characters.");
+      inputErrors.push("Ən azı 8 simvol.");
     } else {
-      inputRights.push("It is 8 characters.");
+      inputRights.push("8 simvoldan ibarətdir.");
     }
 
     if (isSequential(password) || password.length < 8) {
-      inputErrors.push("Password strength: weak.");
+      inputErrors.push("Şifrə gücü: zəif.");
     } else {
-      inputRights.push("Password strength: good.");
+      inputRights.push("Şifrə gücü: yaxşı.");
     }
 
     if (
@@ -78,17 +78,15 @@ const FinishingSignup = ({ onClose }) => {
       password.toLowerCase().includes(lastName.toLowerCase()) ||
       password.toLowerCase().includes(email.toLowerCase())
     ) {
-      inputErrors.push("Can't contain your name or email address.");
+      inputErrors.push("Adınız və ya e-poçt ünvanınız ola bilməz.");
     } else {
-      inputRights.push("Not your name or email address.");
+      inputRights.push("Adınız və ya e-poçt ünvanınız deyil.");
     }
 
     if (!/\d/.test(password) || !/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-      inputErrors.push(
-        "Password must contain at least one number and one symbol."
-      );
+      inputErrors.push("Parolda ən azı bir rəqəm və bir simvol olmalıdır.");
     } else {
-      inputRights.push("Contains a number and symbol.");
+      inputRights.push("Rəqəm və simvoldan ibarətdir.");
     }
 
     setPasswordError(inputErrors.length > 0 ? inputErrors.join(", ") : "");
@@ -105,10 +103,10 @@ const FinishingSignup = ({ onClose }) => {
 
   const getErrorColor = (error) => {
     if (
-      error.includes("It is 8 characters.") ||
-      error.includes("Contains a number and symbol.") ||
-      error.includes("Password strength: good.") ||
-      error.includes("Not your name or email address.")
+      error.includes("8 simvoldan ibarətdir.") ||
+      error.includes("Rəqəm və simvoldan ibarətdir.") ||
+      error.includes("Şifrə gücü: yaxşı.") ||
+      error.includes("Adınız və ya e-poçt ünvanınız deyil.")
     ) {
       return "#568D48";
     } else {
@@ -167,17 +165,17 @@ const FinishingSignup = ({ onClose }) => {
     <div className="login">
       <div className="login-div">
         <div className="login-nav">
-          <Link to={"/finishingsignup"}>
+          <Link to={"/loginemail"}>
             <i className="fa-solid fa-chevron-left"></i>
           </Link>
-          <p className="login-finish">Finish signing up</p>
+          <p className="login-finish">Qeydiyyatı tamamlayın</p>
         </div>
         <div className="login-main login-text">
           <div className="login-city">
             <div className="name">
               <input
                 type="text"
-                placeholder="First name"
+                placeholder="Ad"
                 name="firstName"
                 value={firstName}
                 onChange={handleInputChange}
@@ -185,17 +183,20 @@ const FinishingSignup = ({ onClose }) => {
               />
               <input
                 type="text"
-                placeholder="Last name"
+                placeholder="Soyad"
                 name="lastName"
                 value={lastName}
                 onChange={handleInputChange}
                 style={{ borderColor: lastNameError ? "red" : "#ccc" }}
               />
             </div>
-            <p>Make sure it matches the name on your government ID.</p>
+            <p>
+              Məlumlatların şəxsiyyət vəsiqənizdəki ad və soyada uyğun
+              olduğundan əmin olun.
+            </p>
             <input
               type="text"
-              placeholder={birthdate ? birthdate : "Birthdate"}
+              placeholder={birthdate ? birthdate : "Doğum tarixi"}
               name="birthdate"
               value={birthdate}
               onChange={handleInputChange}
@@ -204,15 +205,16 @@ const FinishingSignup = ({ onClose }) => {
                 setBirthdateText(
                   birthdate
                     ? birthdate.split("-").reverse().join("/")
-                    : "Birthdate"
+                    : "Doğum tarixi"
                 )
               }
               style={{ borderColor: birthdateError ? "red" : "#ccc" }}
             />
 
             <p>
-              To sign up, you need to be at least 18. Your birthday won’t be
-              shared with other people who use Airbnb.
+              Qeydiyyatdan keçmək üçün ən azı 18 yaşınız olmalıdır. Doğum
+              tarixiniz Airbnb-dən istifadə edən digər insanlarla
+              paylaşılmayacaq.
             </p>
             <div className="login-mail">
               <input
@@ -229,18 +231,20 @@ const FinishingSignup = ({ onClose }) => {
                 </span>
               )}
             </div>
-            <p>We’ll email you trip confirmation and receipts.</p>
+            <p>
+              Təsdiqlənməsi ilə bağlı və qəbzlər üçün sizə e-poçta göndərəcəyik.
+            </p>
             <div className="password">
               <input
                 type={showPassword ? "text" : "password"}
-                placeholder="Password"
+                placeholder="Şifrə"
                 name="password"
                 value={password}
                 onChange={handleInputChange}
                 style={{ borderColor: passwordError ? "red" : "#ccc" }}
               />
               <button onClick={toggleShowPassword}>
-                {showPassword ? "Hide" : "Show"}
+                {showPassword ? "Gizlə" : "Göstər"}
               </button>
               {passwordError && (
                 <ul className="error-list">
@@ -264,10 +268,10 @@ const FinishingSignup = ({ onClose }) => {
               )}
             </div>
             <p>
-              By selecting Agree and continue, I agree to Airbnb’s
-              <a href="">Terms of Service, Payments Terms of Service</a> and
-              <a href="">Nondiscrimination Policy</a> and acknowledge the
-              <a href="">Privacy Policy.</a>
+              Razıyam və davam edin seçimini seçməklə mən Airbnb ilə razılaşıram
+              <a href="">Xidmət Şərtləri, Ödənişlər üzrə Xidmət Şərtləri</a> və
+              <a href="">Ayrıseçkiliyə qarşı Siyasət</a> və qəbul edin
+              <a href="">Məxfilik Siyasəti.</a>
             </p>
           </div>
           <button
@@ -275,7 +279,7 @@ const FinishingSignup = ({ onClose }) => {
             onClick={handleContinue}
             disabled={isLoading}
           >
-            {isLoading ? "..." : "Agree and continue"}
+            {isLoading ? "..." : "Razılaşın və davam edin"}
           </button>
         </div>
       </div>

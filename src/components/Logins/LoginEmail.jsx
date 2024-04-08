@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const LoginEmail = ({ onClose, onOpenEmailModal, onOpenFinishingSignup }) => {
+const LoginEmail = () => {
   const [email, setEmail] = useState("");
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -46,11 +46,13 @@ const LoginEmail = ({ onClose, onOpenEmailModal, onOpenFinishingSignup }) => {
     <div className="login">
       <div className="login-div">
         <div className="login-nav">
-          <FontAwesomeIcon icon={faTimes} className="close" onClick={onClose} />
-          <p className="login-signup">Log in or sign up</p>
+          <Link to="/">
+            <FontAwesomeIcon icon={faTimes} className="close" />
+          </Link>
+          <p className="login-signup">Daxil ol və ya qeydiyyatdan keç</p>
         </div>
         <div className="login-email-main">
-          <p>Welcome to !</p>
+          <p>Xoş gəlmisiniz!</p>
           <div className="login-city login-mail">
             <input
               type="email"
@@ -66,29 +68,29 @@ const LoginEmail = ({ onClose, onOpenEmailModal, onOpenFinishingSignup }) => {
             className={`next ${isLoading ? "loading" : ""}`}
             onClick={handleContinue}
           >
-            {isLoading ? "..." : "Continue"}
+            {isLoading ? "..." : "Davam edin"}
           </button>
           <div className="hr">
             <hr />
-            <p>or</p>
+            <p>və ya</p>
             <hr />
           </div>
           <div className="gmail">
             <button>
               <img src="fb.png" alt="" />
-              <p>Continue with Facebook</p>
+              <p>Facebook ilə davam edin</p>
             </button>
             <button>
               <img src="google.png" alt="" />
-              <p>Continue with Facebook Google</p>
+              <p>Google ilə davam edin</p>
             </button>
             <button>
               <img src="apple.png" alt="" />
-              <p>Continue with Facebook Apple</p>
+              <p>Apple ilə davam edin</p>
             </button>
             <button>
               <img src="mail.png" alt="" />
-              <p>Continue with Facebook Email</p>
+              <p>Email ilə davam edin</p>
             </button>
           </div>
         </div>

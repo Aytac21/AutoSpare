@@ -1,29 +1,41 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const ComfirmPhoto = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isPhotoUploaded, setIsPhotoUploaded] = useState(false);
-  const [uploadedPhoto, setUploadedPhoto] = useState(null); // State to store uploaded photo
+  const [uploadedPhoto, setUploadedPhoto] = useState(null);
+  const [isPhotoSelected, setIsPhotoSelected] = useState(false);
   const navigate = useNavigate();
-
-  const handleContinue = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate("/profilephotodone");
-    }, 3000);
-  };
+  const fileInputRef = useRef(null);
 
   const handlePhotoUpload = (event) => {
+    if (isLoading) return;
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
+      console.log("Photo uploaded");
       setUploadedPhoto(reader.result);
       setIsPhotoUploaded(true);
+      setIsPhotoSelected(true);
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+        navigate("/profilephotodone");
+      }, 3000);
     };
     if (file) {
       reader.readAsDataURL(file);
+    }
+  };
+
+  const handleContinue = () => {
+    if (isPhotoUploaded && !isLoading) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+        navigate("/profilephotodone");
+      }, 3000);
     }
   };
 
@@ -34,14 +46,14 @@ const ComfirmPhoto = () => {
           <Link to={"/createprofile"}>
             <i className="fa-solid fa-chevron-left"></i>
           </Link>
-          <p className="login-signup">Create your profile</p>
+          <p className="login-signup">Profilinizi yaradın</p>
         </div>
         <div className="login-comfirm-phone">
           <div className="comfirmstep">
-            <p>Add a profile photo</p>
+            <p>Profil şəkli əlavə edin</p>
             <p>
-              Pick an image that shows your face. Hosts won’t be able to see
-              your profile photo until your reservation is confimed
+              Üzünüzü göstərən bir şəkil seçin. Hesabınız təsdiqlənənə
+              qədər profil şəklinizə baxıla bilməyəcəklər
             </p>
             <div className="login-city login-photo">
               {isPhotoUploaded ? (
@@ -66,19 +78,28 @@ const ComfirmPhoto = () => {
               isLoading ? "loading-confirm" : ""
             }`}
             onClick={handleContinue}
-            disabled={!isPhotoUploaded}
-            style={{ backgroundColor: isPhotoUploaded ? "black" : "" }}
+            style={{ backgroundColor: isPhotoSelected ? "black" : "" }}
           >
             <div>
-              <i
-                className="fa-solid fa-cloud-arrow-up"
-                style={{ visibility: isLoading ? "hidden" : "visible" }}
-              ></i>
-              <span>{isLoading ? "..." : "Upload a photo"}</span>
+              <label htmlFor="upload-photo" className="upload-label">
+                <input
+                  type="file"
+                  id="upload-photo"
+                  accept="image/*"
+                  style={{ display: "none" }}
+                />
+                <i
+                  className="fa-solid fa-cloud-arrow-up"
+                  style={{ visibility: isLoading ? "hidden" : "visible" }}
+                ></i>
+                <span>{isLoading ? "..." : "Upload a photo"}</span>
+              </label>
             </div>
           </button>
 
-          <p className="confirm-later">I’ll do this later</p>
+          <Link to="/">
+            <p className="confirm-later">I’ll do this later</p>
+          </Link>
         </div>
       </div>
     </div>

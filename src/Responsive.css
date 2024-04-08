@@ -17,6 +17,39 @@
   .login-photo i {
     font-size: 100px;
   }
+
+  .login-mail input {
+    padding: 12px 12px;
+  }
+  .next,
+  .decline,
+  .next-comfirm-photo,
+  .change-photo {
+    padding: 12px 24px;
+  }
+  .login-city input {
+    padding: 12px 12px;
+    font-size: 12px;
+  }
+  .error-message {
+    top: 2px;
+    font-size: 10px;
+  }
+
+  .login-city .password button {
+    top: 10px;
+  }
+  .login-city > p:last-of-type {
+    font-size: 11px;
+  }
+  .login-text p a {
+    margin-left: 2px;
+    font-size: 11px;
+  }
+  .login-main-create p,
+  .comfirmstep p:last-of-type {
+    font-size: 15px;
+  }
 }
 
 @media screen and (max-width: 430px) {
