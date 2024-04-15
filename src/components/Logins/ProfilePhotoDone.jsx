@@ -20,14 +20,14 @@ const ProfilePhotoDone = () => {
           <Link to={"/comfirmphoto"}>
             <i className="fa-solid fa-chevron-left"></i>
           </Link>
-          <p className="login-signup">Create your profile</p>
+          <p className="login-signup">Profilinizi yaradın</p>
         </div>
         <div className="login-comfirm-phone">
           <div className="comfirmstep">
-            <p>Add a profile photo</p>
+            <p>Şəkil əlavə edin</p>
             <p>
-              Pick an image that shows your face. Hosts won’t be able to see
-              your profile photo until your reservation is confimed
+              Üzünüzü göstərən bir şəkil seçin. Rezervasyonunuz təsdiqlənənə
+              qədər ev sahibləri profil şəklinizə baxa bilməyəcəklər
             </p>
           </div>
           <hr />
@@ -35,10 +35,10 @@ const ProfilePhotoDone = () => {
             className={`login-done ${isLoading ? "loading" : ""}`}
             onClick={handleContinue}
           >
-            {isLoading ? "..." : "Done"}
+            {isLoading ? "..." : "Bitdi"}
           </button>
           <button className="change-photo">
-            <Link to={"/comfirmphoto"}>Change photo</Link>
+            <Link to={"/comfirmphoto"}>Şəkli dəyişin</Link>
           </button>
         </div>
       </div>

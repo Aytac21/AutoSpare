@@ -52,8 +52,8 @@ const ComfirmPhoto = () => {
           <div className="comfirmstep">
             <p>Profil şəkli əlavə edin</p>
             <p>
-              Üzünüzü göstərən bir şəkil seçin. Hesabınız təsdiqlənənə
-              qədər profil şəklinizə baxıla bilməyəcəklər
+              Üzünüzü göstərən bir şəkil seçin. Hesabınız təsdiqlənənə qədər
+              profil şəklinizə baxıla bilməyəcəklər
             </p>
             <div className="login-city login-photo">
               {isPhotoUploaded ? (
@@ -98,7 +98,7 @@ const ComfirmPhoto = () => {
           </button>
 
           <Link to="/">
-            <p className="confirm-later">I’ll do this later</p>
+            <p className="confirm-later">Bunu sonra edəcəm</p>
           </Link>
         </div>
       </div>

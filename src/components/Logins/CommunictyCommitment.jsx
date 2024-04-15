@@ -17,27 +17,29 @@ const CommunictyCommitment = () => {
     <div className="login">
       <div className="login-div">
         <div className="login-nav-community">
-          <p className="login-community">Our community commitment</p>
+          <p className="login-community">İcma öhdəliklərimiz</p>
         </div>
         <div className="login-main-community">
-          <p>Airbnb is a community where anyone can belong</p>
+          <p>Airbnb hər kəsin aid ola biləcəyi bir cəmiyyətdir</p>
           <p>
-            To ensure this, we’re asking you to commit to the following: <br />
-            <br />I agree to treat everyone in the Airbnb community–regardless
-            of their race, religion, nation origin, ethnicity, skin color,
-            disability, sex, gender identity, sexual orientation or age–with
-            respect, and without judgement or bias.
+            Bunu təmin etmək üçün sizdən aşağıdakıları yerinə yetirməyinizi
+            xahiş edirik: <br /> <br />
+            İrqindən, dinindən, millətindən, etnik mənsubiyyətindən, dəri
+            rəngindən, əlilliyindən, cinsindən, cinsi kimliyindən, cinsi
+            oriyentasiyasından və ya yaşından asılı olmayaraq, Airbnb
+            icmasındakı hər kəsə hörmətlə, mühakimə və ya qərəzsiz davranmağa
+            razıyam.
           </p>
           <p>
-            Learn more<i className="fa-solid fa-chevron-right"></i>
+            Daha ətraflı<i className="fa-solid fa-chevron-right"></i>
           </p>
           <button
             className={`next ${isLoading ? "loading" : ""}`}
             onClick={handleContinue}
           >
-            {isLoading ? "..." : "Agree and continue"}
+            {isLoading ? "..." : "Razılaşın və davam edin"}
           </button>
-          <button className="decline">Decline</button>
+          <button className="decline">İmtina</button>
         </div>
       </div>
     </div>

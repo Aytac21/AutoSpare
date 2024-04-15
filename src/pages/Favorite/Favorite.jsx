@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import Car from "./Car/index";
+import Car from "../Car/index";
 import styled from "./favorite.module.scss";
-import appcss from "../App";
-import image from "../assets/car.svg";
+
+import appcss from "../../App";
+import image from "../../assets/car.svg";
 import { TiTick } from "react-icons/ti";
 import { FaManatSign } from "react-icons/fa6";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import basketimage from "../assets/Cart1.svg";
+import basketimage from "../../assets/Cart1.svg";
 import { Link } from "react-router-dom";
 
 function Favorite() {
@@ -30,7 +31,7 @@ function Favorite() {
           </p>
         </div>
         <section className={styled.favorite}>
-          <div className="row g-5">
+          <a href=""><div className="row">
             <div className="result-list favoritepage">
               <div className="favorite-block">
                 <div className={styled.block}>
@@ -82,8 +83,8 @@ function Favorite() {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="row g-5">
+          </div></a>
+          <a href=""><div className="row">
             <div className="result-list favoritepage">
               <div className="favorite-block">
                 <div className={styled.block}>
@@ -135,8 +136,8 @@ function Favorite() {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="row g-5">
+          </div></a>
+          <a href=""><div className="row">
             <div className="result-list favoritepage">
               <div className="favorite-block">
                 <div className={styled.block}>
@@ -188,8 +189,8 @@ function Favorite() {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="row g-5">
+          </div></a>
+          <a href=""><div className="row">
             <div className="result-list favoritepage">
               <div className="favorite-block">
                 <div className={styled.block}>
@@ -241,8 +242,8 @@ function Favorite() {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="row g-5">
+          </div></a>
+          <a href=""><div className="row">
             <div className="result-list favoritepage">
               <div className="favorite-block">
                 <div className={styled.block}>
@@ -294,60 +295,7 @@ function Favorite() {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="row g-5">
-            <div className="result-list favoritepage">
-              <div className="favorite-block">
-                <div className={styled.block}>
-                  <div className="favoriteimg">
-                    <img src={image} alt="" />
-                    <p className="favorite-img-text">Əyləc sistemi</p>
-                  </div>
-                  <div className={styled.text}>
-                    <div className={styled.name}>
-                      <p>Xırdalan , Bakı</p>
-                      <h5>
-                        <span>
-                          <TiTick />
-                        </span>
-                        AvtoPro
-                      </h5>
-                    </div>
-                    <div className={styled.info}>
-                      <span>2.5 km/40min</span>
-                    </div>
-                    <div className={styled.priceANDcount}>
-                      <div className={styled.price}>
-                        <div className={styled.priceNumber}>
-                          <span>
-                            <FaManatSign />
-                          </span>
-                          <span>6.99</span>
-                        </div>
-                        <div className={styled.resultsCount}>
-                          <i
-                            onClick={decreaseCount}
-                            className="fa-solid fa-chevron-down"
-                          ></i>
-                          {count}
-                          <i
-                            onClick={increaseCount}
-                            className="fa-solid fa-chevron-up"
-                          ></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <Link to="/card">
-                  <div className="basket-class">
-                    <img src={basketimage} alt="image" />
-                    <p>Səbətə at</p>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
+          </div></a>
         </section>
       </div>
     </div>
