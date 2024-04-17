@@ -651,10 +651,17 @@
   padding: 12px 8px 12px 8px;
   border: 1px solid #6c7275;
   border-radius: 4px;
+  flex-wrap: wrap;
+  width: 80px;
+}
+
+.order-detail ul li:first-of-type svg{
+  color: black !important;
+  user-select: none;
 }
 
 .order-detail ul li:first-of-type p {
-  margin-bottom: 0 !important;
+  margin: 0 !important;
 }
 
 .promokod {
@@ -857,6 +864,7 @@
   display: flex;
   gap: 20px;
   padding: 0 !important;
+  margin: 0 !important;
 }
 
 .result-size ul li {
@@ -878,6 +886,8 @@
   display: flex;
   justify-content: space-between;
   padding-left: 20px;
+  font-size: 16px;
+  align-items: center;
 }
 
 .result-size ul li a {
@@ -888,6 +898,7 @@
 .results-filter {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .result-filter-search {
@@ -915,7 +926,7 @@
 
 .result-filter-search > div:first-of-type button {
   font-family: Poppins;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 30px;
   text-align: left;
@@ -925,7 +936,7 @@
 }
 
 .result-filter-search > div:first-of-type img {
-  width: 20px;
+  width: 18px;
   height: max-content;
   color: #373737;
 }
@@ -945,7 +956,7 @@
 
 .result-filter-search > div:last-of-type button {
   font-family: DM Sans;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 26px;
   text-align: left;
@@ -955,7 +966,7 @@
 }
 
 .result-filter-search > div:last-of-type i {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .hr-add > hr {
@@ -971,7 +982,7 @@
   justify-content: space-between;
   height: 41px;
   border-radius: 4px;
-  margin-top: 15px;
+  margin: 10px 8px;
 }
 
 .basket-class a {
@@ -1825,6 +1836,10 @@ svg:not(:host).svg-inline--fa {
   text-decoration: none;
 }
 
+.result-list > a {
+  align-items: center;
+}
+
 .privacypolicy {
   font-family: DM Sans;
   font-size: 12px;
@@ -1847,6 +1862,12 @@ svg:not(:host).svg-inline--fa {
 
 .favorite-block {
   border: 0.5px solid #bcbcbc;
+  border-radius: 10px;
+}
+
+.result-page-div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 /* ////////////////////////////////////// Şahin ///////////////////////////////////////////////////// */

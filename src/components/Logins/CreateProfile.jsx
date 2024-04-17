@@ -21,17 +21,15 @@ const CreateProfile = () => {
             <i className="fa-solid fa-chevron-left"></i>
           </Link>
 
-          <p className="login-signup">Create your profile</p>
+          <p className="login-signup">Profilinizi yaradın</p>
         </div>
         <div className="login-main-create">
-          <p>
-            Discover places to stay and unique experiences around the world.
-          </p>
+          <p>Dünyada qalmaq üçün yerləri və unikal təcrübələri kəşf edin.</p>
           <button
             className={`next-create ${isLoading ? "loading" : ""}`}
             onClick={handleContinue}
           >
-            {isLoading ? "..." : "Continue"}
+            {isLoading ? "..." : "Davam edin"}
           </button>
         </div>
       </div>

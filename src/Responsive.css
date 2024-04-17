@@ -6,6 +6,68 @@
   } */
 }
 
+@media screen and (max-width: 1000px) {
+  .result-size ul li {
+    width: 130px;
+  }
+
+  .result-filter-search > div:last-of-type,
+  .result-filter-search > div:first-of-type {
+    padding: 15px;
+    height: 50px;
+  }
+
+  .result-size ul li a {
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 15px;
+  }
+  .result-size ul li a i {
+    font-size: 15px;
+  }
+
+  .result-filter-search > div:last-of-type button,
+  .result-filter-search > div:first-of-type button {
+    font-size: 16px;
+  }
+  .result-filter-search > div:last-of-type i {
+    font-size: 16px;
+  }
+  .shops-cars-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .favorite-page-text p {
+    font-size: 15px;
+  }
+  .results-filter {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .shops-cars-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .shops-search-input div {
+    width: 40%;
+  }
+  .shops-search-input input {
+  font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .shops-cars-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media screen and (max-width: 550px) {
   .login-main-community > p:first-of-type {
     font-size: 20px;
@@ -52,6 +114,48 @@
   }
 }
 
+@media screen and (max-width: 590px) {
+  .basket-class {
+    width: 120px;
+  }
+  .result-navigation a {
+    font-size: 22px;
+  }
+  .favoriteimg img{
+    height: 90%;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .favoriteimg p {
+    font-size: 14px;
+  }
+  .result-size ul li {
+    width: 120px;
+    line-height: 0;
+    height: 50px;
+  }
+
+  .result-size ul li a,
+  .result-size ul li a i {
+    font-size: 12px;
+  }
+  .result-filter-search > div:last-of-type,
+  .result-filter-search > div:first-of-type {
+    padding: 15px;
+    height: 45px;
+  }
+  .result-navigation a {
+    font-size: 16px;
+  }
+  .shops-search-input div {
+  width: 50%;
+  }
+  .shops-search-input input {
+    font-size: 12px;
+}
+}
+
 @media screen and (max-width: 430px) {
   .gmail button p {
     font-size: 12px;
@@ -61,5 +165,33 @@
   }
   .comfirmstep p:last-of-type {
     font-size: 14px;
+  }
+  .result-size ul li {
+    width: 90px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .result-size ul li a,
+  .result-size ul li a i {
+    font-size: 11px;
+  }
+  .result-size ul {
+    gap: 10px;
+  }
+  .shops-search-input i{
+    font-size: 12px;
+
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .shops-cars-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .shops-car img{
+    height: 4rem;
   }
 }

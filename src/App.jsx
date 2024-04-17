@@ -4,8 +4,8 @@ import "./App.css";
 import "./Responsive.css";
 import Layout from "./features/Layout";
 import Card from "./pages/Card";
-import Results from "./pages/Results";
-import Favorite from "./pages/Favorite";
+import Results from "./pages/Results/Results";
+import Favorite from "./pages/Favorite/Favorite";
 import Shops from "./pages/Shops";
 import ShopType from "./pages/ShopType";
 import FilterPage from "./components/FilterPage/FilterPage";
@@ -48,7 +48,7 @@ function App() {
 
   return (
     <>
-      {routes.includes(route) && <Header />}
+      {/* {routes.includes(route) && <Header />} */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/loginemail/" element={<LoginEmail />} />
@@ -71,7 +71,7 @@ function App() {
 
         {/* -------------------------------------------- */}
       </Routes>
-      {routes.includes(route) && <Footer />}
+      {/* {routes.includes(route) && <Footer />} */}
     </>
   );
 }
