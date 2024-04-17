@@ -20,59 +20,73 @@ const Navbar = () => {
               <div className={styled.search}>
                 <div className="container">
                   <div
-                    className="row"
+                    className="row g-3"
                     style={{
                       display: "flex",
                       justifyContent: "space-between",
                       alignItems: "flex-start",
                     }}
                   >
-                    <div className="col-lg-2">
+                    <div className="col-6 col-lg-2 col-md-2 col-sm-6">
                       <div className={styled.searchBlock}>
-                        <h4>Marka</h4>
-                        <span>
-                          Markanı seçin
+                        <div className={styled.head}>
+                          <h4>Marka</h4>
+                        </div>
+                        <div className={styled.subHead}>
+                          <span className={styled.text}>Markanı seçin</span>
                           <span>
                             <MdKeyboardArrowDown />
                           </span>
-                        </span>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-lg-2">
+                    <div className="col-6 col-lg-2 col-md-2 col-sm-6">
                       <div className={styled.searchBlock}>
-                        <h4>Model</h4>
-                        <span>
-                          Modeli seçin
-                          <span>
-                            <MdKeyboardArrowDown />
+                        <div className={styled.head}>
+                          <h4>Model</h4>
+                        </div>
+                        <div className={styled.subHead}>
+                          <span className={styled.text}>
+                            Modeli seçin
                           </span>
-                        </span>
+                          <span>
+                              <MdKeyboardArrowDown />
+                            </span>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-lg-2">
+                    <div className="col-6 col-lg-2 col-md-2 col-sm-6">
                       <div className={styled.searchBlock}>
-                        <h4>İl</h4>
-                        <span>
+                      <div className={styled.head}>
+                      <h4>İl</h4>
+                        </div>
+                        <div className={styled.subHead}>
+                        <span className={styled.text}>
                           İli seçin
-                          <span>
+                        </span>
+                        <span>
                             <MdKeyboardArrowDown />
                           </span>
-                        </span>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-lg-3">
+                    <div className="col-6 col-lg-3 col-md-3 col-sm-6">
                       <div className={styled.searchBlock}>
-                        <h4>Modifikasiya</h4>
-                        <span>
+                      <div className={styled.head}>
+                      <h4>Modifikasiya</h4>
+                        </div>
+                        <div className={styled.subHead}>
+                        <span className={styled.text}>
                           Modifikasiyanı seçin
-                          <span>
+                        </span>
+                        <span>
                             <MdKeyboardArrowDown />
                           </span>
-                        </span>
+                        </div>
                       </div>
                     </div>
                     <div
-                      className="col-lg-1"
+                      className="col-lg-1 col-md-1"
                       style={{
                         display: "flex",
                         alignItems: "center",

@@ -19,7 +19,7 @@ const Category = () => {
     <section className={styled.searchPage}>
       <div className="container">
         <div className="row" style={{ display: "flex", alignItems: "center" }}>
-          <div className="col-lg-9">
+          <div className="col-lg-9 col-m-9">
             <div className={styled.categories}>
               <div className={styled.category}>
                 <Link to="/results">
@@ -82,7 +82,7 @@ const Category = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-3">
+          <div className="col-lg-3 col-md-3">
             <div className={styled.filterANDsearch}>
               <div className={styled.filter}>
                 <span>

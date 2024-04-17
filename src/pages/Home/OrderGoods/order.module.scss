@@ -6,6 +6,8 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 60px 80px;
+    min-height:300px ;
+    max-height: 550px;
     .text {
       h2 {
         color: #f86338;
@@ -43,5 +45,55 @@
         object-fit: contain;
       }
     }
+  }
+}
+@media(max-width:971px){
+  .block{
+    .text{
+      button{
+        margin-top: 80px !important;
+      }
+    }
+  }
+}
+@media(max-width:765px){
+  .block{
+    display: flex;
+    justify-content: space-between !important;
+    gap: 30px !important;
+    .text{
+      h2{
+        font-size: 35px !important;
+      }
+      h3{
+        font-size: 28px !important;
+      }
+      button{
+        font-size: 15px !important;
+        margin-top: 80px !important;
+        padding: 10px 20px !important;
+      }
+    }
+  }
+}
+@media(max-width:520px){
+  .block{
+    display: flex;
+    .text{
+      h2{
+        font-size: 30px !important;
+      }
+      h3{
+        font-size: 20px !important;
+      }
+      button{
+        font-size: 15px !important;
+        margin-top: 80px !important;
+        padding: 10px 20px !important;
+      }
+    }
+    .image{
+      width: 400px !important;
+     }
   }
 }

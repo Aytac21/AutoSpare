@@ -8,7 +8,7 @@ const OrderGoods = () => {
     <section className={styled.order}>
       <div className="container">
         <div className="row">
-          <div className="col-lg-12">
+          <div className="col-lg-12 col-md-12 col-sm-12 col-12">
             <div className={styled.block}>
               <div className={styled.text}>
                 <h2>

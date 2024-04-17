@@ -15,7 +15,7 @@ const Header = () => {
           className="row"
           style={{ display: "flex", justifyContent: "space-between" }}
         >
-          <div className="col-lg-6">
+          <div className="col-lg-6 col-md-6 col-sm-10 col-10">
             <Link to="/">
               <div className={styled.logo}>
                 <h3>
@@ -25,11 +25,11 @@ const Header = () => {
               </div>
             </Link>
           </div>
-          <div className="col-lg-6">
+          <div className="col-lg-6 col-md-6 col-sm-2 col-2">
             <div className={styled.info}>
               <div className="container">
                 <div className="row">
-                  <div className="col-lg-3">
+                  <div className="col-lg-3 col-md-3 col-sm-12">
                     <div className={styled.tel}>
                       <span className={styled.icon}>
                         <BsTelephone />
@@ -37,7 +37,7 @@ const Header = () => {
                       <span className={styled.text}>Əlaqə</span>
                     </div>
                   </div>
-                  <div className="col-lg-6">
+                  <div className="col-lg-6 col-md-6 col-sm-12">
                     <div className={styled.delivery}>
                       <span className={styled.icon}>
                         <CiDeliveryTruck />
@@ -47,16 +47,16 @@ const Header = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="col-lg-1">
+                  <div className="col-lg-1 col-md-1 col-sm-12">
                     <div className={styled.card}>
                       <span>
                         <PiShoppingCart />
                       </span>
                     </div>
                   </div>
-                  <div className="col-lg-2">
+                  <div className="col-lg-2 col-md-2 col-sm-12">
                     <div className={styled.user}>
-                      <span>
+                      <span className={styled.menu}>
                         <LuMenu />
                       </span>
                       <span className={styled.icon}>
