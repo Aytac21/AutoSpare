@@ -66,7 +66,7 @@ function ShopType() {
       </div>
       <hr />
       <Navbar />
-      <Category />
+      {/* <Category /> */}
       <hr />
       <div className="shop-type-product-number">
         <p>
@@ -252,6 +252,7 @@ function ShopType() {
         <div className="shop-type-product">
           <div>
             <a href="">
+              <i className="fa-solid fa-heart"></i>
               <img src={detail1} alt="" />
             </a>
           </div>

@@ -15,11 +15,6 @@ const LoginPhoneNumber = () => {
     }, 3000);
   };
 
-  // const handleContinue = () => {
-  //   onClose();
-  //   onOpenEmailModal();
-  // };
-
   return (
     <div className="login">
       <div className="login-div">

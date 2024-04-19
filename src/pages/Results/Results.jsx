@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Car from "../Car/index";
 import image from "../../assets/car.svg";
 import { TiTick } from "react-icons/ti";
@@ -10,6 +10,10 @@ import image1 from "../../assets/car.svg";
 import { Link } from "react-router-dom";
 
 function Results() {
+  const [showEniInput, setShowEniInput] = useState(false);
+  const [showHundurlukInput, setShowHundurlukInput] = useState(false);
+  const [showRadiusInput, setShowRadiusInput] = useState(false);
+
   return (
     <div className="hr-add">
       <hr />
@@ -21,21 +25,30 @@ function Results() {
         <div>
           <div className="results-filter">
             <div className="result-size">
-              <ul>
+              <ul className="dropdown-list">
                 <li>
-                  <a href="">
+                  <a href="#" onClick={() => setShowEniInput(!showEniInput)}>
                     Eni <i className="fa-solid fa-chevron-down"></i>
                   </a>
+                  {showEniInput && (
+                    <input className="dropdown-input" type="number" placeholder="Eni daxil edin" />
+                  )}
                 </li>
                 <li>
-                  <a href="">
+                  <a href="#" onClick={() => setShowHundurlukInput(!showHundurlukInput)}>
                     Hündürlük <i className="fa-solid fa-chevron-down"></i>
                   </a>
+                  {showHundurlukInput && (
+                    <input className="dropdown-input" type="number" placeholder="Hündürlüyü daxil edin" />
+                  )}
                 </li>
                 <li>
-                  <a href="">
+                  <a href="#" onClick={() => setShowRadiusInput(!showRadiusInput)}>
                     Radius <i className="fa-solid fa-chevron-down"></i>
                   </a>
+                  {showRadiusInput && (
+                    <input className="dropdown-input" type="number" placeholder="Radiusu daxil edin" />
+                  )}
                 </li>
               </ul>
             </div>
