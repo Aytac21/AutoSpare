@@ -1870,6 +1870,29 @@ svg:not(:host).svg-inline--fa {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.result-size ul input[type="number"] {
+  width: 175px; 
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  z-index: 10;
+  margin-top: 25px;
+  font-size: 16px;
+
+}
+
+.result-size ul input[type="number"]:hover {
+  border-color: #666; 
+}
+
+.result-size ul input[type="number"]:focus {
+  outline: none; 
+  border-color: #007bff; 
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+
+
 /* ////////////////////////////////////// Şahin ///////////////////////////////////////////////////// */
 
 .App {
@@ -1910,3 +1933,4 @@ svg:not(:host).svg-inline--fa {
     transform: rotate(360deg);
   }
 }
+
