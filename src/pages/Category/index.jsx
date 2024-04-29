@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "./category.module.scss";
 import img1 from "../../assets/Car-Battery.svg";
 import img2 from "../../assets/Air-Filter.svg";
@@ -9,73 +9,51 @@ import img6 from "../../assets/Group 4.svg";
 import img7 from "../../assets/Group.svg";
 import img8 from "../../assets/Oil-Filter.svg";
 import img9 from "../../assets/Truck.svg";
+import img10 from "../../assets/Truck.svg";
+import img11 from "../../assets/Truck.svg";
+import img12 from "../../assets/Truck.svg";
 import { MdOutlineSort } from "react-icons/md";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { MdKeyboardArrowLeft } from "react-icons/md";
 
 const Category = () => {
+  const [startIndex, setStartIndex] = useState(0);
+
+  const handleLeftArrowClick = () => {
+    setStartIndex((prevIndex) => Math.max(0, prevIndex - 1));
+  };
+
+  const handleRightArrowClick = () => {
+    setStartIndex((prevIndex) => Math.min(prevIndex + 1,12-9));
+  };
+
+  const renderCategories = () => {
+    const categoryImages = [img7, img9, img5, img4, img8, img2, img1, img3, img6,img10,img11,img12];
+    return categoryImages.slice(startIndex, startIndex + 9).map((image, index) => (
+      <div className={styled.category} key={index}>
+        <Link to="/results">
+          <img src={image} alt="" />
+          <p>Category {startIndex + index + 1}</p>
+        </Link>
+      </div>
+    ));
+  };
+
   return (
     <section className={styled.searchPage}>
       <div className="container">
         <div className="row" style={{ display: "flex", alignItems: "center" }}>
           <div className="col-lg-9 col-m-9">
             <div className={styled.categories}>
-              <div className={styled.category}>
-                <Link to="/results">
-                  <img src={img7} alt="" />
-                  <p className={styled.active}>Ümumi</p>
-                </Link>
+              <div className={styled.arrow} onClick={handleLeftArrowClick}>
+                <span>
+                  <MdKeyboardArrowLeft />
+                </span>
               </div>
-              <div className={styled.category}>
-                <Link to="/results">
-                  <img src={img9} alt="" />
-                  <p>Yük Maşını</p>
-                </Link>
-              </div>
-              <div className={styled.category}>
-                <Link to="/results">
-                  <img src={img5} alt="" />
-                  <p>Ekskavator</p>
-                </Link>
-              </div>
-              <div className={styled.category}>
-                <Link to="/results">
-                  <img src={img4} alt="" />
-                  <p>Motor Filtri</p>
-                </Link>
-              </div>
-              <div className={styled.category}>
-                <Link to="/results">
-                  <img src={img8} alt="" />
-                  <p>Yağ Filtri</p>
-                </Link>
-              </div>
-              <div className={styled.category}>
-                <Link to="/results">
-                  <img src={img2} alt="" />
-                  <p>Hava Filtri</p>
-                </Link>
-              </div>
-              <div className={styled.category}>
-                <Link to="/results">
-                  <img src={img1} alt="" />
-                  <p>Akkumlyator</p>
-                </Link>
-              </div>
-              <div className={styled.category}>
-                <Link to="/results">
-                  <img src={img3} alt="" />
-                  <p>Əyləc sistemi</p>
-                </Link>
-              </div>
-              <div className={styled.category}>
-                <Link to="/results">
-                  <img src={img6} alt="" />
-                  <p>Amortizator</p>
-                </Link>
-              </div>
-              <div className={styled.arrow}>
+              {renderCategories()}
+              <div className={styled.arrow} onClick={handleRightArrowClick}>
                 <span>
                   <MdOutlineKeyboardArrowRight />
                 </span>

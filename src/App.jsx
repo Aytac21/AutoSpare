@@ -73,7 +73,7 @@ function App() {
 
         {/* -------------------------------------------- */}
       </Routes>
-      {/* {routes.includes(route) && <Footer />} */}
+      {routes.includes(route) && <Footer />}
     </>
   );
 }

@@ -43,7 +43,7 @@ const ItemDetails = () => {
     <>
       <section className={styled.itemDetails}>
         <div className="container">
-          <div className="row g-3">
+          <div className="row g-5">
             <div className="col-lg-7 col-md-7 col-sm-12 col-12">
               <div className={styled.app}>
                 <div className="row g-3">
