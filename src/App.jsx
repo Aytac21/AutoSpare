@@ -12,7 +12,7 @@ import FilterPage from "./components/FilterPage/FilterPage";
 import Home from "./pages/Home";
 import MarkDetails from "./pages/RegistrationMark/MarkDetails";
 import ItemDetails from "./pages/Car/ItemDetails";
-
+import CategoryDetails from "./pages/CategoryDetails";
 import LoginEmail from "./components/Logins/LoginEmail";
 import LoginPhoneNumber from "./components/Logins/LoginPhoneNumber";
 import ProfilePhotoDone from "./components/Logins/ProfilePhotoDone";
@@ -44,11 +44,12 @@ function App() {
     "shops",
     "shoptype",
     "1",
+    "categoryDetails"
   ];
 
   return (
     <>
-      {/* {routes.includes(route) && <Header />} */}
+      {routes.includes(route) && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/loginemail/" element={<LoginEmail />} />
@@ -58,6 +59,7 @@ function App() {
         <Route path="/commitment/" element={<CommunictyCommitment />} />
         <Route path="/comfirmphoto/" element={<ComfirmPhoto />} />
         <Route path="/finishingsignup/" element={<FinishingSignup />} />
+        <Route path="/categoryDetails/" element={<CategoryDetails />} />
 
         {/* -------------------------------------------- */}
         <Route path="/filter/" element={<FilterPage />} />

@@ -23,7 +23,7 @@ const RegistrationMark = () => {
                 <input type="search" placeholder="-" />
                 <div className={styled.arrow}>
                   <span className={styled.stick}></span>
-                  <span>
+                  <span className={styled.down}>
                     <MdKeyboardArrowDown />
                   </span>
                 </div>
@@ -32,7 +32,7 @@ const RegistrationMark = () => {
                 <input type="search" placeholder="-" />
                 <div className={styled.arrow}>
                   <span className={styled.stick}></span>
-                  <span>
+                  <span className={styled.down}>
                     <MdKeyboardArrowDown />
                   </span>
                 </div>
@@ -64,7 +64,7 @@ const RegistrationMark = () => {
             </div>
           </div>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>
@@ -143,7 +143,7 @@ const RegistrationMark = () => {
             </div>
             </Link>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>
@@ -222,7 +222,7 @@ const RegistrationMark = () => {
             </div>
             </Link>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>
@@ -301,7 +301,7 @@ const RegistrationMark = () => {
             </div>
             </Link>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>
@@ -380,7 +380,7 @@ const RegistrationMark = () => {
             </div>
             </Link>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>
@@ -459,7 +459,7 @@ const RegistrationMark = () => {
             </div>
             </Link>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>
@@ -538,7 +538,7 @@ const RegistrationMark = () => {
             </div>
             </Link>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>
@@ -617,7 +617,7 @@ const RegistrationMark = () => {
             </div>
             </Link>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>
@@ -696,7 +696,7 @@ const RegistrationMark = () => {
             </div>
             </Link>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>
@@ -775,7 +775,7 @@ const RegistrationMark = () => {
             </div>
             </Link>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>
@@ -854,7 +854,7 @@ const RegistrationMark = () => {
             </div>
             </Link>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>
@@ -933,7 +933,7 @@ const RegistrationMark = () => {
             </div>
             </Link>
           </div>
-          <div className="col-lg-2 col-md-4 col-sm-6" >
+          <div className="col-lg-2 col-md-3 col-sm-4 col-6" >
             <Link to="/1">
             <div className={styled.block}>
               <div className={styled.number}>

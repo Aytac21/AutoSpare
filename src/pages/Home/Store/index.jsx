@@ -25,7 +25,7 @@ const Store = () => {
         </div>
         <div className="row g-3" style={{ marginTop: 25 }}>
           <Link to="/shoptype">
-            <div className="col-lg-12">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-12">
               <div className={styled.block}>
                 <div className={styled.leftSide}>
                   <div className={styled.image}>
@@ -52,7 +52,7 @@ const Store = () => {
             </div>
           </Link>
           <Link to="/shoptype">
-            <div className="col-lg-12">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-12">
               <div className={styled.block}>
                 <div className={styled.leftSide}>
                   <div className={styled.image}>

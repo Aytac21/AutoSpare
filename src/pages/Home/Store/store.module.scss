@@ -29,7 +29,7 @@
           border: none;
           color: #fafafa;
           border-radius: 5px;
-          padding: 5px 20px;
+          padding: 10px 25px;
         }
       }
     }
@@ -40,7 +40,7 @@
     justify-content: space-between;
     background-color: #f6f6f6;
     border-radius: 6px;
-    padding: 25px;
+    padding:30px;
     .leftSide {
       display: flex;
       flex-direction: row;
@@ -103,4 +103,108 @@
       }
     }
   }
+}
+@media(max-width:970px){
+  .store{
+    .block{
+      .leftSide{
+        .nameANDlocation{
+          .name{
+            h3{
+              font-size: 25px;
+            }
+          }
+          .location{
+            p{
+              font-size: 18px;
+            }
+          }
+        }
+      }
+      .rightSide{
+        .button{
+          button{
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width:771px){
+  .store{
+    .header{
+      .head{
+        h2{
+          font-size: 28px;
+        }
+      }
+      .all{
+        a{
+          button{
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .block{
+      .leftSide{
+        .nameANDlocation{
+          .name{
+            h3{
+              font-size: 22px;
+            }
+          }
+          .location{
+            p{
+              font-size: 18px;
+            }
+          }
+        }
+      }
+      .rightSide{
+        .button{
+          button{
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width:747px){
+    .store{
+      .block{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .leftSide{
+          .nameANDlocation{
+            .name{
+              h3{
+                font-size: 22px;
+              }
+            }
+            .location{
+              p{
+                font-size: 18px;
+              }
+            }
+          }
+        }
+        .rightSide{
+          display: flex;
+          align-items: flex-end;
+          .button{
+            width: 150px;
+            button{
+              font-size: 15px;
+              padding: 7px 40px;
+            }
+          }
+        }
+      }
+    }
 }

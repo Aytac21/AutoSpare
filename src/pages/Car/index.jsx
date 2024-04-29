@@ -7,6 +7,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
 const Car = () => {
+  
   return (
    <section className={styled.car}>
     <div className="container">
@@ -19,7 +20,7 @@ const Car = () => {
         </div>
       </div>
         <div className="row g-5">
-            <div className="col-lg-3 col-md-6 col-sm-12">
+            <div className="col-lg-3 col-md-6 col-sm-12 col-12">
                 <Link to="/itemDetails">
                 <div className={styled.block}>
                   <div className={styled.img}>
@@ -46,7 +47,7 @@ const Car = () => {
                 </div>
                 </Link>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-12">
+            <div className="col-lg-3 col-md-6 col-sm-12 col-12">
             <Link to="/itemDetails">
                 <div className={styled.block}>
                   <div className={styled.img}>
@@ -73,7 +74,7 @@ const Car = () => {
                 </div>
                 </Link>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-12">
+            <div className="col-lg-3 col-md-6 col-sm-12 col-12">
             <Link to="/itemDetails">
                 <div className={styled.block}>
                   <div className={styled.img}>
@@ -100,7 +101,7 @@ const Car = () => {
                 </div>
                 </Link>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-12">
+            <div className="col-lg-3 col-md-6 col-sm-12 col-12">
             <Link to="/itemDetails">
                 <div className={styled.block}>
                   <div className={styled.img}>
