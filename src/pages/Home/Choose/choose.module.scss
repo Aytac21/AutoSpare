@@ -1,10 +1,28 @@
 .choose {
   margin-top: 80px;
-  .head {
-    h2 {
-      font-size: 36px;
+  .chooseHead{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .head {
+      h2 {
+        font-size: 36px;
+        font-weight: 500;
+        color: #000000;
+      }
+    }
+    .showAll{
+      button{
+        border: none;
+        background-color: #f86338;
+      color: #fafafa;
+      border-radius: 4px;
+      font-size: 16px;
+      padding: 9px 25px;
+      cursor: pointer;
       font-weight: 500;
-      color: #000000;
+      }
     }
   }
   .block {
@@ -50,7 +68,7 @@
       p {
         font-weight: 500;
         font-size: 30px;
-        line-height: 5px;
+        line-height: 15px;
       }
       .link {
         text-decoration: underline;
@@ -77,12 +95,12 @@
   margin-top: 180px;
   .block{
     background-color: #F3F5F7;
-    min-height: 200px;
+    min-height: 220px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     padding: 20px;
     span{
+      margin-bottom:14px;
      svg{
       width: 40px;
       height: 40px;
@@ -92,7 +110,7 @@
       color: #141718;
       font-weight: 500;
       font-size: 20px;
-      line-height:28px;
+      line-height:33px;
       margin-top: 10px;
     }
     h5{
@@ -101,6 +119,104 @@
       color: #6C7275;
       line-height: 20px;
       width: 70%;
+    }
+  }
+}
+
+@media(max-width:1197px){
+ .choose{
+  .head{
+    h2{
+      font-size: 33px;
+    }
+  }
+  .block{
+    .text{
+      p{
+        font-size: 25px;
+      }
+      .link{
+        span{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .card{
+    .text{
+      p{
+        font-size: 25px;
+      }
+      .link{
+        span{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+ }
+}
+@media(max-width:979px){
+  .choose{
+    .head{
+      h2{
+        font-size: 30px;
+      }
+    }
+    .card{
+      .text{
+        p{
+          line-height: 25px;
+        }
+      }
+    }
+  }
+  .services{
+    .block{
+      span{
+        svg{
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width:1003px){
+  .choose{
+    .chooseHead{
+      .head{
+        h2{
+          font-size: 30px;
+        }
+      }
+      .showAll{
+        a{
+          button{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+@media(max-width:761px){
+  .choose{
+    .chooseHead{
+      .head{
+        h2{
+          font-size: 26px;
+        }
+      }
+      .showAll{
+        a{
+          button{
+            font-size: 12px;
+            padding: 8px 18px;
+          }
+        }
+      }
     }
   }
 }

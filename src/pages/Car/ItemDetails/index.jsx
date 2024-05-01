@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "./itemdetails.module.scss";
 import item1 from "../../../assets/accumulator.svg";
+import item2 from "../../../assets/accumulator.svg";
+import item3 from "../../../assets/aft.png";
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
@@ -12,7 +14,7 @@ import { Link } from "react-router-dom";
 const ItemDetails = () => {
   const [count, setCount] = useState(0);
 
-  const price = 188;
+  const price = 99;
 
   const decreaseCount = () => {
     if (count > 0) {
@@ -24,48 +26,50 @@ const ItemDetails = () => {
   };
   const totalPrice = count * price;
 
+  const imgs = [
+    { id: 0, value: item1 },
+    { id: 1, value: item2 },
+    { id: 2, value: item3 },
+  ];
+
+  const [sliderData, setSliderData] = useState(imgs[0]);
+
+  const handleClick = (index) => {
+    console.log(index);
+    const slider = imgs[index];
+    setSliderData(slider);
+  };
   return (
     <>
       <section className={styled.itemDetails}>
         <div className="container">
-          <div className="row">
-            <div className="col-lg-7">
-              <div className={styled.pictures}>
-                <div className="row">
+          <div className="row g-5">
+            <div className="col-lg-7 col-md-7 col-sm-12 col-12">
+              <div className={styled.app}>
+                <div className="row g-3">
                   <div className="col-lg-12">
-                    <div className={styled.mainImage}>
-                      <img src={item1} alt="" />
+                    <div className={styled.main}>
+                      <img src={sliderData.value} />
                     </div>
                   </div>
-                </div>
-                <div
-                  className="row g-0"
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    marginTop: 20,
-                  }}
-                >
-                  <div className="col-lg-4">
-                    <div className={styled.image}>
-                      <img src={item1} alt="" />
-                    </div>
-                  </div>
-                  <div className="col-lg-4">
-                    <div className={styled.image}>
-                      <img src={item1} alt="" />
-                    </div>
-                  </div>
-                  <div className="col-lg-4">
-                    <div className={styled.image}>
-                      <img src={item1} alt="" />
+                  <div className="col-lg-12">
+                    <div className={styled.otherIMG}>
+                      {imgs.map((data, i) => (
+                        <div className={styled.img} key={data.id}>
+                          <img
+                            className={sliderData.id == i ? "clicked" : ""}
+                            key={data.id}
+                            src={data.value}
+                            onClick={() => handleClick(i)}
+                          />
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col-lg-5">
+            <div className="col-lg-5 col-md-5 col-sm-12 col-12">
               <div className={styled.info}>
                 <div className={styled.name}>
                   <h2>Bosch S5</h2>
@@ -126,21 +130,27 @@ const ItemDetails = () => {
                   </span>
                 </div>
                 <div className={styled.buttons}>
-                  <div className={styled.button1}>
-                    <Link to="/favorite">
-                      <button>Əlavə et</button>
-                      <span>
-                        <CiHeart />
-                      </span>
-                    </Link>
-                  </div>
-                  <div className={styled.button2}>
-                    <Link to="/card">
-                      <button>Səbətə əlavə et</button>
-                      <span>
-                        <PiShoppingCart />
-                      </span>
-                    </Link>
+                  <div className="row g-3" style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+                    <div className="col-lg-5 col-md-12 col-sm-6 col-12">
+                      <div className={styled.button1}>
+                        <Link to="/favorite">
+                          <button>Əlavə et</button>
+                          <span>
+                            <CiHeart />
+                          </span>
+                        </Link>
+                      </div>
+                    </div>
+                    <div className="col-lg-6 col-md-12 col-sm-6 col-12">
+                      <div className={styled.button2}>
+                        <Link to="/card">
+                          <button>Səbətə əlavə et</button>
+                          <span>
+                            <PiShoppingCart />
+                          </span>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

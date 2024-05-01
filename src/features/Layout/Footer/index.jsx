@@ -4,6 +4,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import { Row } from "react-bootstrap";
 
 const Footer = () => {
   return (
@@ -13,8 +14,8 @@ const Footer = () => {
       </section>
       <footer className={styled.footer}>
         <div className="container">
-          <div className="row">
-            <div className="col-lg-3">
+          <div className="row g-5" style={{display:"flex",flexDirection:"row",alignItems:"baseline"}}>
+            <div className="col-lg-3 col-md-3 col-sm-12 col-12">
               <div className={styled.logo}>
                 <h2>
                   Auto<span>Spare</span>.<span>az</span>
@@ -23,8 +24,8 @@ const Footer = () => {
             </div>
             <div className="col-lg-9">
               <div className={styled.lists}>
-                <div className="row">
-                  <div className="col-lg-3">
+                <div className="row g-5">
+                  <div className="col-lg-3 col-md-3 col-sm-3 col-6">
                     <div className={styled.list}>
                       <h3>AutoSpare</h3>
                       <div className={styled.listElements}>
@@ -33,7 +34,7 @@ const Footer = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-3">
+                  <div className="col-lg-3 col-md-3 col-sm-3 col-6">
                     <div className={styled.list}>
                       <h3>Biz Kimik ?</h3>
                       <div className={styled.listElements}>
@@ -42,7 +43,7 @@ const Footer = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-3">
+                  <div className="col-lg-3 col-md-3 col-sm-3 col-6">
                     <div className={styled.list}>
                       <h3>Ünvan</h3>
                       <div className={styled.listElements}>
@@ -52,7 +53,7 @@ const Footer = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-3">
+                  <div className="col-lg-3 col-md-3 col-sm-3 col-6">
                     <div className={styled.list}>
                       <h3>Sosial Şəbəkə</h3>
                       <div className={styled.icon}>
@@ -85,7 +86,7 @@ const Footer = () => {
           </div>
           <div className="col-lg-12">
             <div className={styled.author}>
-              <p>© 2024 RezervAll MMC  | Müəllif hüquqları qorunur</p>
+              <p>© 2024 ReserveAll MMC  | Müəllif hüquqları qorunur</p>
             </div>
           </div>
         </div>

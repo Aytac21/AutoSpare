@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "./header.module.scss";
 import { BsTelephone } from "react-icons/bs";
 import { CiDeliveryTruck } from "react-icons/ci";
@@ -8,13 +8,16 @@ import { PiShoppingCart } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [isUserListOpen, setUserListOpen] = useState(false);
+
+  const toggleUserList = () => {
+    setUserListOpen(!isUserListOpen);
+  };
+
   return (
     <header className={styled.head}>
       <div className="container">
-        <div
-          className="row"
-          style={{ display: "flex", justifyContent: "space-between" }}
-        >
+        <div className="row" style={{ display: "flex", justifyContent: "space-between" }}>
           <div className="col-lg-6 col-md-6 col-sm-10 col-10">
             <Link to="/">
               <div className={styled.logo}>
@@ -27,9 +30,9 @@ const Header = () => {
           </div>
           <div className="col-lg-6 col-md-6 col-sm-2 col-2">
             <div className={styled.info}>
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-3 col-md-3 col-sm-12">
+             <div className="container">
+              <div className="row">
+              <div className="col-lg-3 col-md-3 col-sm-12">
                     <div className={styled.tel}>
                       <span className={styled.icon}>
                         <BsTelephone />
@@ -55,23 +58,30 @@ const Header = () => {
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-2 col-sm-12">
-                    <div className={styled.user}>
-                      <span className={styled.menu}>
-                        <LuMenu />
-                      </span>
-                      <span className={styled.icon}>
-                        <FaCircleUser />
-                      </span>
-                      <div className={styled.list}>
+                  <div className={styled.user} onClick={toggleUserList}>
+                  <span className={styled.menu}>
+                    <LuMenu />
+                  </span>
+                  <span className={styled.icon}>
+                    <FaCircleUser />
+                  </span>
+                  {isUserListOpen && (
+                    <ul className={styled.list}>
+                      <li>
                         <Link to="/login">Qeydiyyat</Link>
+                      </li>
+                      <li>
                         <Link to="/loginemail">Giriş</Link>
-                        <hr />
-                        <a href="">Favorilər</a>
-                      </div>
-                    </div>
-                  </div>
+                      </li>
+                      <li>
+                        <Link to="/favorite">Favorilər</Link>
+                      </li>
+                    </ul>
+                  )}
                 </div>
+                  </div>
               </div>
+             </div>
             </div>
           </div>
         </div>

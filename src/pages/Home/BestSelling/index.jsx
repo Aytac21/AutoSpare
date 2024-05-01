@@ -18,7 +18,7 @@ const BestSelling = () => {
           </div>
         </div>
         <div className="row g-5">
-          <div className="col-lg-3">
+          <div className="col-lg-3 col-md-6 col-sm-12 col-12">
             <Link to="/itemDetails">
               <div className={styled.block}>
                 <div className={styled.img}>
@@ -52,7 +52,7 @@ const BestSelling = () => {
               </div>
             </Link>
           </div>
-          <div className="col-lg-3">
+          <div className="col-lg-3 col-md-6 col-sm-12 col-12">
             <Link to="/itemDetails">
               <div className={styled.block}>
                 <div className={styled.img}>
@@ -86,7 +86,7 @@ const BestSelling = () => {
               </div>
             </Link>
           </div>
-          <div className="col-lg-3">
+          <div className="col-lg-3 col-md-6 col-sm-12 col-12">
             <Link to="/itemDetails">
               <div className={styled.block}>
                 <div className={styled.img}>
@@ -120,7 +120,7 @@ const BestSelling = () => {
               </div>
             </Link>
           </div>
-          <div className="col-lg-3">
+          <div className="col-lg-3 col-md-6 col-sm-12 col-12">
             <Link to="/itemDetails">
               <div className={styled.block}>
                 <div className={styled.img}>
