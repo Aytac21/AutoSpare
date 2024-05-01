@@ -48,7 +48,7 @@ function App() {
 
   return (
     <>
-      {/* {routes.includes(route) && <Header />} */}
+      {routes.includes(route) && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/loginemail/" element={<LoginEmail />} />
@@ -71,7 +71,7 @@ function App() {
 
         {/* -------------------------------------------- */}
       </Routes>
-      {/* {routes.includes(route) && <Footer />} */}
+      {routes.includes(route) && <Footer />}
     </>
   );
 }
