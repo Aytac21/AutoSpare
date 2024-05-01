@@ -57,12 +57,6 @@
       padding-right: 10px;
       padding-bottom: 5px;
       text-align: center;
-      &:hover {
-        .list {
-          visibility: visible;
-          transition: 0.3s ease-in-out;
-        }
-      }
       span {
         font-size: 20px;
       }
@@ -70,16 +64,19 @@
         color: #f86338;
       }
       .list {
-        visibility: hidden;
         position: absolute;
-        top: 32px;
+        top: 36px;
         right: 0;
         background-color: #ffffff;
         border: 1px solid #f7f7f7;
         border-radius: 12px;
         display: flex;
         flex-direction: column;
-        width: 160px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+        gap: 10px;
+        width: 130px;
         a {
           padding: 10px 10px 10px 14px;
           font-weight: 500;
