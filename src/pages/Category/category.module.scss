@@ -31,6 +31,7 @@
       }
     }
     .arrow {
+      margin-top: -15px;
       span {
         border: 1px solid #ebebeb;
         border-radius: 50%;
@@ -115,6 +116,25 @@
           width: 20px;
           height: 20px;
           color: #ebebeb;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width:1182px){
+  .searchPage{
+    .filterANDsearch{
+      .search{
+        p{
+          font-size: 12px;
+        }
+        span{
+          padding:0 5px ;
+          svg{
+            width: 15px;
+            height: 15px;
+          }
         }
       }
     }

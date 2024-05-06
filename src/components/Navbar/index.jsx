@@ -33,10 +33,12 @@ const Navbar = () => {
                           <h4>Marka</h4>
                         </div>
                         <div className={styled.subHead}>
-                          <span className={styled.text}>Markanı seçin</span>
-                          <span>
-                            <MdKeyboardArrowDown />
-                          </span>
+                          <select name="" id="">
+                           <option value="">Markanı seçin</option>
+                           <option value="">1</option>
+                           <option value="">3</option>
+                           <option value="">3</option>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -46,12 +48,12 @@ const Navbar = () => {
                           <h4>Model</h4>
                         </div>
                         <div className={styled.subHead}>
-                          <span className={styled.text}>
-                            Modeli seçin
-                          </span>
-                          <span>
-                              <MdKeyboardArrowDown />
-                            </span>
+                          <select name="" id="">
+                           <option value="">Modeli seçin</option>
+                           <option value="">1</option>
+                           <option value="">3</option>
+                           <option value="">3</option>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -61,12 +63,12 @@ const Navbar = () => {
                       <h4>İl</h4>
                         </div>
                         <div className={styled.subHead}>
-                        <span className={styled.text}>
-                          İli seçin
-                        </span>
-                        <span>
-                            <MdKeyboardArrowDown />
-                          </span>
+                          <select name="" id="">
+                           <option value="" >İli seçin</option>
+                           <option value="">1</option>
+                           <option value="">3</option>
+                           <option value="">3</option>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -76,12 +78,12 @@ const Navbar = () => {
                       <h4>Modifikasiya</h4>
                         </div>
                         <div className={styled.subHead}>
-                        <span className={styled.text}>
-                          Modifikasiyanı seçin
-                        </span>
-                        <span>
-                            <MdKeyboardArrowDown />
-                          </span>
+                          <select name="" id="">
+                           <option value="">Modifikasiyanı seçin</option>
+                           <option value="">1</option>
+                           <option value="">3</option>
+                           <option value="">3</option>
+                          </select>
                         </div>
                       </div>
                     </div>

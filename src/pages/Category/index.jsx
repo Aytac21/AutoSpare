@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "./category.module.scss";
 import img1 from "../../assets/Car-Battery.svg";
 import img2 from "../../assets/Air-Filter.svg";
@@ -20,18 +20,59 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 
 const Category = () => {
   const [startIndex, setStartIndex] = useState(0);
+  const [visibleCategories, setVisibleCategories] = useState(8); // Başlangıçta 8 kategori görünecek.
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 1203) {
+        setVisibleCategories(9);
+      }
+      else if (width >= 1194) {
+        setVisibleCategories(8);
+      } else if (width >= 1188) {
+        setVisibleCategories(7);
+      }else if (width >= 1007) {
+        setVisibleCategories(6);
+      } else if (width >= 506) {
+        setVisibleCategories(5);
+      } else {
+        setVisibleCategories(4);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleLeftArrowClick = () => {
     setStartIndex((prevIndex) => Math.max(0, prevIndex - 1));
   };
 
   const handleRightArrowClick = () => {
-    setStartIndex((prevIndex) => Math.min(prevIndex + 1,12-9));
+    setStartIndex((prevIndex) => Math.min(prevIndex + 1, 12 - visibleCategories));
   };
 
   const renderCategories = () => {
-    const categoryImages = [img7, img9, img5, img4, img8, img2, img1, img3, img6,img10,img11,img12];
-    return categoryImages.slice(startIndex, startIndex + 9).map((image, index) => (
+    const categoryImages = [
+      img7,
+      img9,
+      img5,
+      img4,
+      img8,
+      img2,
+      img1,
+      img3,
+      img6,
+      img10,
+      img11,
+      img12
+    ];
+    return categoryImages.slice(startIndex, startIndex + visibleCategories).map((image, index) => (
       <div className={styled.category} key={index}>
         <Link to="/results">
           <img src={image} alt="" />
@@ -45,7 +86,7 @@ const Category = () => {
     <section className={styled.searchPage}>
       <div className="container">
         <div className="row" style={{ display: "flex", alignItems: "center" }}>
-          <div className="col-lg-9 col-m-9">
+          <div className="col-lg-9 col-md-12 col-sm-12 col-12">
             <div className={styled.categories}>
               <div className={styled.arrow} onClick={handleLeftArrowClick}>
                 <span>
@@ -60,7 +101,7 @@ const Category = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-3 col-md-3">
+          <div className="col-lg-3 col-md-12 col-sm-12 col-12">
             <div className={styled.filterANDsearch}>
               <div className={styled.filter}>
                 <span>

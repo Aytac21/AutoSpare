@@ -16,12 +16,10 @@
                 }
             }
             .subHead{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                span{
+                select{
+                    border: none;
                     color: rgb(121, 118, 118);
-                    font-size: 13px;
+                    font-size: 13px; 
                 }
             }
         }
