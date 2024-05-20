@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Car from "../Car/index";
 import styled from "./favorite.module.scss";
-
 import appcss from "../../App";
 import image from "../../assets/car.svg";
 import { TiTick } from "react-icons/ti";

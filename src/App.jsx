@@ -20,7 +20,7 @@ import CreateProfile from "./components/Logins/CreateProfile";
 import CommunictyCommitment from "./components/Logins/CommunictyCommitment";
 import ComfirmPhoto from "./components/Logins/ComfirmPhoto";
 import FinishingSignup from "./components/Logins/FinishingSignup";
-
+import AllDatas from "./pages/AllDatas";
 import { useEffect, useState } from "react";
 import Footer from "./features/Layout/Footer";
 import Header from "./features/Layout/Header";
@@ -44,7 +44,8 @@ function App() {
     "shops",
     "shoptype",
     "1",
-    "categoryDetails"
+    "categoryDetails",
+    "alldatas"
   ];
 
   return (
@@ -60,7 +61,7 @@ function App() {
         <Route path="/comfirmphoto/" element={<ComfirmPhoto />} />
         <Route path="/finishingsignup/" element={<FinishingSignup />} />
         <Route path="/categoryDetails/" element={<CategoryDetails />} />
-
+        <Route path="/alldatas/" element={<AllDatas />} />
         {/* -------------------------------------------- */}
         <Route path="/filter/" element={<FilterPage />} />
         <Route path="/itemDetails/" element={<ItemDetails />} />

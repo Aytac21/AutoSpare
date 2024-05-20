@@ -7,9 +7,9 @@
     align-items: center;
     .category {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       text-align: center;
       gap: 6px;
       cursor: pointer;
