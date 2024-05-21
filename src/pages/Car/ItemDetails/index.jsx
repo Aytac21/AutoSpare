@@ -10,17 +10,21 @@ import { IoStarSharp } from "react-icons/io5";
 import SwiperPart from "./SwiperPart";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addToBasket } from "../../../helpers/Basket/basket";
 import { useParams } from "react-router-dom";
+
+import { addFavorite } from "../../../helpers/Redux/favoritesSlice"
+  ;
 const ItemDetails = () => {
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
   const [count, setCount] = useState(0);
   const [imgs, setImgs] = useState([]);
   const [part, setPart] = useState({});
   const [sliderData, setSliderData] = useState({});
+  const dispatch = useDispatch();
 
-const {id} = useParams();
+  const { id } = useParams();
 
   const getPart = async () => {
     try {
@@ -66,6 +70,11 @@ const {id} = useParams();
       addToBasket(part.id, count);
     }
   };
+
+  const handleAddToFavorites = () => {
+    dispatch(addFavorite(part));
+  };
+
   return (
     <>
       <section className={styled.itemDetails}>
@@ -142,12 +151,10 @@ const {id} = useParams();
                   <div className="row g-3" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <div className="col-lg-5 col-md-12 col-sm-6 col-12">
                       <div className={styled.button1}>
-                        <Link to="/favorite">
-                          <button>Əlavə et</button>
-                          <span>
-                            <CiHeart />
-                          </span>
-                        </Link>
+                        <button onClick={handleAddToFavorites}>Əlavə et</button>
+                        <span>
+                          <CiHeart />
+                        </span>
                       </div>
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-6 col-12">
@@ -155,7 +162,7 @@ const {id} = useParams();
                         <Link onClick={handleLinkClick} to="/card">
                           <button
                           //  onClick={e=>{if(count>0){addToBasket(part.id,count);}}}
-                           >Səbətə əlavə et</button>
+                          >Səbətə əlavə et</button>
                           <span>
                             <PiShoppingCart />
                           </span>

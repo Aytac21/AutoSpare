@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 // import {login,logout} from '../../actions/authAction'
 
 import AuthActionsComponent from '../../actions/authAction';
@@ -57,8 +57,8 @@ const LoginEmail = () => {
     e.preventDefault();
     console.log(email)
     console.log(password)
-    dispatch(login(email, password));
-    navigate("/");
+    dispatch(login(email, password) || navigate("/"));
+
   };
 
   return (
@@ -85,7 +85,7 @@ const LoginEmail = () => {
             {hasError && <button className="error-message">Email</button>}
           </div>
           <div className="login-city login-mail">
-          <input
+            <input
               type="password"
               placeholder="Password"
               // defaultValue="fallien1"
@@ -97,7 +97,7 @@ const LoginEmail = () => {
           </div>
           <button
             className={`next ${isLoading ? "loading" : ""}`}
-            onClick={e=>handleContinue(e)}
+            onClick={e => handleContinue(e)}
           >
             {isLoading ? "..." : "Davam edin"}
           </button>

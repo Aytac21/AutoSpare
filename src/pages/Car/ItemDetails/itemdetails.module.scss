@@ -99,7 +99,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between; 
+      justify-content: space-between;
       margin-bottom: 15px;
       .name {
         p {
@@ -134,7 +134,7 @@
         font-family: "DM Sans", sans-serif;
         font-size: 14px;
         font-weight: 700;
-        span{
+        span {
           font-size: 20px;
         }
       }
@@ -144,7 +144,7 @@
       display: flex;
       flex-direction: row;
       gap: 25px;
-      .button1{
+      .button1 {
         border: 2px solid #f3692e;
         text-align: center;
         border-radius: 10px;
@@ -152,26 +152,23 @@
         cursor: pointer;
         min-width: 150px;
         width: 100%;
-        a{
-          text-decoration: none;
-          color: inherit;
-          button{
-           background-color: transparent;
-           border: none;
-           color: #f3692e;
-           font-size: 16px;
-           font-weight: 500;
-          }
-          span{
-            svg{
-              font-size: 28px;
-              color: #f3692e;
-              padding-left: 4px;
-            }
+
+        button {
+          background-color: transparent;
+          border: none;
+          color: #f3692e;
+          font-size: 16px;
+          font-weight: 500;
+        }
+        span {
+          svg {
+            font-size: 28px;
+            color: #f3692e;
+            padding-left: 4px;
           }
         }
       }
-      .button2{
+      .button2 {
         background-color: #f3692e;
         text-align: center;
         border-radius: 10px;
@@ -179,18 +176,18 @@
         cursor: pointer;
         min-width: 200px;
         width: 100%;
-        a{
+        a {
           text-decoration: none;
           color: inherit;
-          button{
-           background-color: transparent;
-           border: none;
-           color: white;
-           font-size: 16px;
-           font-weight: 400;
+          button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 400;
           }
-          span{
-            svg{
+          span {
+            svg {
               font-size: 28px;
               color: white;
               padding-left: 4px;
@@ -234,46 +231,46 @@
   }
 }
 
-@media(max-width:974px){
-  .itemDetails{
-    .app{
-      .main{
+@media (max-width: 974px) {
+  .itemDetails {
+    .app {
+      .main {
         height: 350px;
       }
-      .otherIMG{
-       .img{
-        height: 120px;
-       }
+      .otherIMG {
+        .img {
+          height: 120px;
+        }
       }
     }
-    .info{
-      .name{
-        h2{
+    .info {
+      .name {
+        h2 {
           font-size: 40px;
         }
       }
-      .price{
-        p{
+      .price {
+        p {
           font-size: 40px;
-          span{
+          span {
             font-size: 15px;
           }
         }
       }
-      .about{
-        p{
+      .about {
+        p {
           font-size: 12px;
         }
       }
     }
-    .count{
+    .count {
       margin-top: 10px !important;
-      .name{
-        p{
+      .name {
+        p {
           font-size: 15px !important;
         }
       }
-      .increaseANDdecrease{
+      .increaseANDdecrease {
         button {
           font-size: 10px !important;
           svg {
@@ -285,41 +282,42 @@
         }
       }
     }
-    .sum{
-      span{
+    .sum {
+      span {
         font-size: 15px !important;
       }
     }
-    .buttons{
-      .button1,.button2{
+    .buttons {
+      .button1,
+      .button2 {
         padding: 10px 25px !important;
       }
     }
   }
 }
 
-@media(max-width:744px){
-  .itemDetails{
-    .app{
-      .main{
+@media (max-width: 744px) {
+  .itemDetails {
+    .app {
+      .main {
         height: 300px;
       }
-      .otherIMG{
-       .img{
-        height: 110px;
-       }
+      .otherIMG {
+        .img {
+          height: 110px;
+        }
       }
     }
-    .buttons{
-      .button2{
+    .buttons {
+      .button2 {
         padding: 12px 25px !important;
         min-width: 250px !important;
       }
     }
   }
 }
-@media(max-width:600px){
-  .buttons{
+@media (max-width: 600px) {
+  .buttons {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
