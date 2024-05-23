@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Car from "../Car/index";
 import image from "../../assets/car.svg";
 import { TiTick } from "react-icons/ti";
@@ -7,12 +7,32 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import filterimage from "../../assets/Vector.svg";
 import styled from "./results.module.scss";
 import image1 from "../../assets/car.svg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Results() {
   const [showEniInput, setShowEniInput] = useState(false);
   const [showHundurlukInput, setShowHundurlukInput] = useState(false);
   const [showRadiusInput, setShowRadiusInput] = useState(false);
+
+  const [results, setResults] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchResults = async () => {
+      try {
+        const response = await fetch(`https://xchq1l6f-7186.euw.devtunnels.ms/Parts/category/${id}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setResults(data.parts);
+      } catch (error) {
+        console.error('Error fetching results:', error);
+      }
+    };
+
+    fetchResults();
+  }, [id]);
 
   return (
     <div className="hr-add">
@@ -64,258 +84,39 @@ function Results() {
             </div>
           </div>
           <section className={styled.results}>
-            <div className="row">
-              <div className="result-list favoritepage">
-                <Link to="/itemDetails">
-                  <div className={styled.block}>
-                    <div className={styled.img}>
-                      <img src={image1} alt="" />
-                    </div>
-                    <div className={styled.text}>
-                      <div className={styled.name}>
-                        <p>Xırdalan , Bakı</p>
-                        <h5>
-                          <span>
-                            <TiTick />
-                          </span>
-                          AvtoPro
-                        </h5>
-                      </div>
-                      <div className={styled.info}>
-                        <span>2.5 km/40min</span>
-                      </div>
-                      <div className={styled.priceANDcount}>
-                        <div className={styled.price}>
-                          <span>
-                            <FaManatSign />
-                          </span>
-                          <span>6.99</span>
+            {Array.isArray(results) && results.length > 0 ? (
+              results.map((result, index) => (
+                <div key={index} className="row">
+                  <div className="result-list favoritepage">
+                    <Link to="/itemDetails">
+                      <div className={styled.block}>
+                        <div className={styled.img}>
+                          <img src={`data:image/png;base64,${result.image1}`} alt="" />
+                        </div>
+                        <div className={styled.text}>
+                          <div className={styled.name}>
+                            <p>{result.name}</p>
+                            <h5><span><TiTick /></span>AvtoPro</h5>
+                          </div>
+                          <div className={styled.info}>
+                            <span>2.5 km/40min</span>
+                          </div>
+                          <div className={styled.priceANDcount}>
+                            <div className={styled.price}>
+                              <span><FaManatSign /></span>
+                              <span>{result.price}</span>
+                            </div>
+                          </div>
+
                         </div>
                       </div>
-                      <div className={styled.category}>
-                        <p>Əyləc sistemi</p>
-                      </div>
-                    </div>
+                    </Link>
                   </div>
-                </Link>
-              </div>
-            </div>
-            <div className="row">
-              <div className="result-list favoritepage">
-                <Link to="/itemDetails">
-                  <div className={styled.block}>
-                    <div className={styled.img}>
-                      <img src={image1} alt="" />
-                    </div>
-                    <div className={styled.text}>
-                      <div className={styled.name}>
-                        <p>Xırdalan , Bakı</p>
-                        <h5>
-                          <span>
-                            <TiTick />
-                          </span>
-                          AvtoPro
-                        </h5>
-                      </div>
-                      <div className={styled.info}>
-                        <span>2.5 km/40min</span>
-                      </div>
-                      <div className={styled.priceANDcount}>
-                        <div className={styled.price}>
-                          <span>
-                            <FaManatSign />
-                          </span>
-                          <span>6.99</span>
-                        </div>
-                      </div>
-                      <div className={styled.category}>
-                        <p>Əyləc sistemi</p>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-            <div className="row">
-              <div className="result-list favoritepage">
-                <Link to="/itemDetails">
-                  <div className={styled.block}>
-                    <div className={styled.img}>
-                      <img src={image1} alt="" />
-                    </div>
-                    <div className={styled.text}>
-                      <div className={styled.name}>
-                        <p>Xırdalan , Bakı</p>
-                        <h5>
-                          <span>
-                            <TiTick />
-                          </span>
-                          AvtoPro
-                        </h5>
-                      </div>
-                      <div className={styled.info}>
-                        <span>2.5 km/40min</span>
-                      </div>
-                      <div className={styled.priceANDcount}>
-                        <div className={styled.price}>
-                          <span>
-                            <FaManatSign />
-                          </span>
-                          <span>6.99</span>
-                        </div>
-                      </div>
-                      <div className={styled.category}>
-                        <p>Əyləc sistemi</p>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-            <div className="row">
-              <div className="result-list favoritepage">
-                <Link to="/itemDetails">
-                  <div className={styled.block}>
-                    <div className={styled.img}>
-                      <img src={image1} alt="" />
-                    </div>
-                    <div className={styled.text}>
-                      <div className={styled.name}>
-                        <p>Xırdalan , Bakı</p>
-                        <h5>
-                          <span>
-                            <TiTick />
-                          </span>
-                          AvtoPro
-                        </h5>
-                      </div>
-                      <div className={styled.info}>
-                        <span>2.5 km/40min</span>
-                      </div>
-                      <div className={styled.priceANDcount}>
-                        <div className={styled.price}>
-                          <span>
-                            <FaManatSign />
-                          </span>
-                          <span>6.99</span>
-                        </div>
-                      </div>
-                      <div className={styled.category}>
-                        <p>Əyləc sistemi</p>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-            <div className="row">
-              <div className="result-list favoritepage">
-                <Link to="/itemDetails">
-                  <div className={styled.block}>
-                    <div className={styled.img}>
-                      <img src={image1} alt="" />
-                    </div>
-                    <div className={styled.text}>
-                      <div className={styled.name}>
-                        <p>Xırdalan , Bakı</p>
-                        <h5>
-                          <span>
-                            <TiTick />
-                          </span>
-                          AvtoPro
-                        </h5>
-                      </div>
-                      <div className={styled.info}>
-                        <span>2.5 km/40min</span>
-                      </div>
-                      <div className={styled.priceANDcount}>
-                        <div className={styled.price}>
-                          <span>
-                            <FaManatSign />
-                          </span>
-                          <span>6.99</span>
-                        </div>
-                      </div>
-                      <div className={styled.category}>
-                        <p>Əyləc sistemi</p>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-            <div className="row">
-              <div className="result-list favoritepage">
-                <Link to="/itemDetails">
-                  <div className={styled.block}>
-                    <div className={styled.img}>
-                      <img src={image1} alt="" />
-                    </div>
-                    <div className={styled.text}>
-                      <div className={styled.name}>
-                        <p>Xırdalan , Bakı</p>
-                        <h5>
-                          <span>
-                            <TiTick />
-                          </span>
-                          AvtoPro
-                        </h5>
-                      </div>
-                      <div className={styled.info}>
-                        <span>2.5 km/40min</span>
-                      </div>
-                      <div className={styled.priceANDcount}>
-                        <div className={styled.price}>
-                          <span>
-                            <FaManatSign />
-                          </span>
-                          <span>6.99</span>
-                        </div>
-                      </div>
-                      <div className={styled.category}>
-                        <p>Əyləc sistemi</p>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-            <div className="row">
-              <div className="result-list favoritepage">
-                <Link to="/itemDetails">
-                  <div className={styled.block}>
-                    <div className={styled.img}>
-                      <img src={image1} alt="" />
-                    </div>
-                    <div className={styled.text}>
-                      <div className={styled.name}>
-                        <p>Xırdalan , Bakı</p>
-                        <h5>
-                          <span>
-                            <TiTick />
-                          </span>
-                          AvtoPro
-                        </h5>
-                      </div>
-                      <div className={styled.info}>
-                        <span>2.5 km/40min</span>
-                      </div>
-                      <div className={styled.priceANDcount}>
-                        <div className={styled.price}>
-                          <span>
-                            <FaManatSign />
-                          </span>
-                          <span>6.99</span>
-                        </div>
-                      </div>
-                      <div className={styled.category}>
-                        <p>Əyləc sistemi</p>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
+                </div>
+              ))
+            ) : (
+              <p>No results found.</p>
+            )}
           </section>
         </div>
       </div>

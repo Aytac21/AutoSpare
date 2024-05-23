@@ -7,7 +7,7 @@ const initialState = {
   isAuthenticated: false,
   error: false,
   errorMessage: "",
-  mainURL: "https://5cv42ncs-7186.euw.devtunnels.ms",
+  mainURL: "https://xchq1l6f-7186.euw.devtunnels.ms",
   // basketItemIds:{}
 };
 

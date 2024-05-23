@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "./itemdetails.module.scss";
-import item1 from "../../../assets/accumulator.svg";
-import item2 from "../../../assets/accumulator.svg";
-import item3 from "../../../assets/aft.png";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { PiShoppingCart } from "react-icons/pi";
 import { IoStarSharp } from "react-icons/io5";
-import SwiperPart from "./SwiperPart";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addToBasket } from "../../../helpers/Basket/basket";
-import { useParams } from "react-router-dom";
+import { addToFavorites } from "../../../helpers/Redux/favoritesSlice";
+import SwiperPart from "./SwiperPart";
 
-import { addFavorite } from "../../../helpers/Redux/favoritesSlice"
-  ;
 const ItemDetails = () => {
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
   const [count, setCount] = useState(0);
@@ -23,13 +18,11 @@ const ItemDetails = () => {
   const [part, setPart] = useState({});
   const [sliderData, setSliderData] = useState({});
   const dispatch = useDispatch();
-
   const { id } = useParams();
 
   const getPart = async () => {
     try {
       const resp = await axios.get(`${mainURL}/parts/${id}`);
-      // console.log(resp.data.part);
       setPart(resp.data.part);
       setImgs([
         { id: 0, value: `data:image/png;base64,${resp.data.part.image1}` },
@@ -44,7 +37,7 @@ const ItemDetails = () => {
 
   useEffect(() => {
     getPart();
-  }, [mainURL]);
+  }, [mainURL, id]);
 
   const decreaseCount = () => {
     if (count > 0) {
@@ -62,6 +55,7 @@ const ItemDetails = () => {
     const slider = imgs[index];
     setSliderData(slider);
   };
+
   const handleLinkClick = (e) => {
     if (count === 0) {
       e.preventDefault();
@@ -72,7 +66,8 @@ const ItemDetails = () => {
   };
 
   const handleAddToFavorites = () => {
-    dispatch(addFavorite(part));
+    addToFavorites(part); // Use the addToFavorites function to add the part to favorites
+    console.log("Favorite added:", part); // Debugging line
   };
 
   return (
@@ -160,9 +155,7 @@ const ItemDetails = () => {
                     <div className="col-lg-6 col-md-12 col-sm-6 col-12">
                       <div className={styled.button2}>
                         <Link onClick={handleLinkClick} to="/card">
-                          <button
-                          //  onClick={e=>{if(count>0){addToBasket(part.id,count);}}}
-                          >Səbətə əlavə et</button>
+                          <button>Səbətə əlavə et</button>
                           <span>
                             <PiShoppingCart />
                           </span>

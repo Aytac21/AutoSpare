@@ -21,17 +21,17 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 const Category = () => {
   const [startIndex, setStartIndex] = useState(0);
-  const [visibleCategories, setVisibleCategories] = useState(8); // Başlangıçta 8 kategori görünecek.
-  const [categories,setCategories]=useState([]);
+  const [visibleCategories, setVisibleCategories] = useState(8);
+  const [categories, setCategories] = useState([]);
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
-  const getCategories= async ()=>{
+  const getCategories = async () => {
     const response = await axios.get(`${mainURL}/categories`);
-  setCategories(response.data)
-  console.log(response.data)
+    setCategories(response.data)
+    console.log(response.data)
   }
-  useEffect(()=>{
-       getCategories();
-          },[]);
+  useEffect(() => {
+    getCategories();
+  }, []);
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
@@ -42,7 +42,7 @@ const Category = () => {
         setVisibleCategories(8);
       } else if (width >= 1188) {
         setVisibleCategories(7);
-      }else if (width >= 1007) {
+      } else if (width >= 1007) {
         setVisibleCategories(6);
       } else if (width >= 506) {
         setVisibleCategories(5);
@@ -51,8 +51,8 @@ const Category = () => {
       }
     };
 
-  
-   
+
+
     handleResize();
     window.addEventListener("resize", handleResize);
 
@@ -67,7 +67,7 @@ const Category = () => {
 
   const handleRightArrowClick = () => {
     setStartIndex((prevIndex) => Math.min(prevIndex + 1, 12 - visibleCategories));
-  };  
+  };
 
   const renderCategories = () => {
     const categoryImages = [
@@ -85,14 +85,14 @@ const Category = () => {
       img12
     ];
 
-    
+
     return categories.slice(startIndex, startIndex + visibleCategories).map((category, index) => (
       <div className={styled.category} key={index}>
-        <Link to="/results">
-        <img style={{ width: '40px', height: '40px' }} src={`data:image/png;base64,${category.image}`} alt="Category Image" />
-          <p>Category {startIndex + index + 1}</p>
+        <Link to={`/results/${category.id}`}>
+          <img style={{ width: '40px', height: '40px' }} src={`data:image/png;base64,${category.image}`} alt="Category Image" />
+          <p>{category.name}</p>
         </Link>
-      </div>
+      </div >
     ));
   };
 
