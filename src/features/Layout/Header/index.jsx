@@ -30,9 +30,9 @@ const Header = () => {
           </div>
           <div className="col-lg-6 col-md-6 col-sm-2 col-2">
             <div className={styled.info}>
-             <div className="container">
-              <div className="row">
-              <div className="col-lg-3 col-md-3 col-sm-12">
+              <div className="container">
+                <div className="row">
+                  <div className="col-lg-3 col-md-3 col-sm-12">
                     <div className={styled.tel}>
                       <span className={styled.icon}>
                         <BsTelephone />
@@ -58,30 +58,30 @@ const Header = () => {
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-2 col-sm-12">
-                  <div className={styled.user} onClick={toggleUserList}>
-                  <span className={styled.menu}>
-                    <LuMenu />
-                  </span>
-                  <span className={styled.icon}>
-                    <FaCircleUser />
-                  </span>
-                  {isUserListOpen && (
-                    <ul className={styled.list}>
-                      <li>
-                        <Link to="/login">Qeydiyyat</Link>
-                      </li>
-                      <li>
-                        <Link to="/loginemail">Giriş</Link>
-                      </li>
-                      <li>
-                        <Link to="/favorite">Favorilər</Link>
-                      </li>
-                    </ul>
-                  )}
-                </div>
+                    <div className={styled.user} onClick={toggleUserList}>
+                      <span className={styled.menu}>
+                        <LuMenu />
+                      </span>
+                      <span className={styled.icon}>
+                        <FaCircleUser />
+                      </span>
+                      {isUserListOpen && (
+                        <ul className={styled.list}>
+                          <li>
+                            <Link to="/finishingsignup">Qeydiyyat</Link>
+                          </li>
+                          <li>
+                            <Link to="/loginemail">Giriş</Link>
+                          </li>
+                          <li>
+                            <Link to="/favorite">Favorilər</Link>
+                          </li>
+                        </ul>
+                      )}
+                    </div>
                   </div>
+                </div>
               </div>
-             </div>
             </div>
           </div>
         </div>

@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import AuthActionsComponent from '../../actions/authAction';
 
-const FinishingSignup = () => {
-
+const FinishingSignup = ({ onClose }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   // const [birthdate, setBirthdate] = useState("");
@@ -26,12 +23,7 @@ const FinishingSignup = () => {
     return /\S+@\S+\.\S+/.test(email);
   };
 
-  // const error = useSelector((state) => state.auth.error);
-  const dispatch = useDispatch();
-  dispatch(AuthActionsComponent().signup(firstName, lastName, email, password));
-  const handleSignup = () => {
-    dispatch(AuthActionsComponent(firstName, lastName, email, password));
-  };
+
 
   const isSequential = (str) => {
     const sequentialPatterns = [
@@ -301,11 +293,11 @@ const FinishingSignup = () => {
           </div>
           <button
             className={`next ${isLoading ? "loading" : ""}`}
-            disabled={isLoading} onClick={handleSignup}
+            onClick={handleContinue}
+            disabled={isLoading}
           >
             {isLoading ? "..." : "Razılaşın və davam edin"}
           </button>
-          {/* {error && <p>{error}</p>} */}
         </div>
       </div>
     </div>

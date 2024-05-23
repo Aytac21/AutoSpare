@@ -64,7 +64,7 @@ function App() {
         {/* -------------------------------------------- */}
         <Route path="/filter/" element={<FilterPage />} />
         <Route path="/itemDetails/" element={<ItemDetails />} />
-        <Route path="/itemDetails/:categoryId" element={<ItemDetails />} />
+        <Route path="/itemDetails/:id" element={<ItemDetails />} />
         <Route path="/card/" element={<Card />} />
         <Route path="/results/:id" element={<Results />} />
         <Route path="/favorite/" element={<Favorite />} />

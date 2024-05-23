@@ -20,7 +20,7 @@ function Results() {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const response = await fetch(`https://xchq1l6f-7186.euw.devtunnels.ms/Parts/category/${id}`);
+        const response = await fetch(`https://t4l3cl03-7186.euw.devtunnels.ms/Parts/category/${id}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
