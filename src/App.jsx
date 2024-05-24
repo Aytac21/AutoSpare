@@ -70,8 +70,8 @@ function App() {
         <Route path="/favorite/" element={<Favorite />} />
         <Route path="/shops/" element={<Shops />} />
         <Route path="/shoptype" element={<ShopType />} />
-        <Route path="/1/" element={<MarkDetails />} />
-
+        <Route path="/markDetails/" element={<MarkDetails />} />
+        <Route path="/markDetails/:id" element={<MarkDetails />} />
         {/* -------------------------------------------- */}
       </Routes>
       {routes.includes(route) && <Footer />}

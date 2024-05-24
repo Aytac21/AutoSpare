@@ -10,20 +10,25 @@ import { TfiLock } from "react-icons/tfi";
 import { CiCreditCard2 } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import axios from "axios";
-
 
 const Choose = () => {
-  const [categories, setCategories] = useState([]);
+
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
-  const getCategories = async () => {
-    const response = await axios.get(`${mainURL}/categories`);
-    setCategories(response.data.slice(0, 3));
-    console.log(response.data)
-  }
+  const [choose, setChoose] = useState([]);
+
   useEffect(() => {
-    getCategories();
-  }, []);
+    fetch(`${mainURL}/Categories`)
+      .then(response => response.json())
+      .then(data => {
+        setChoose(data);
+        console.log(data);
+      })
+      .catch(error => {
+        console.error('Error fetching categories:', error);
+      });
+  }, [])
+
+  const displayedCategories = choose.slice(0, 4);
 
   return (
     <>
@@ -43,28 +48,29 @@ const Choose = () => {
               </div>
             </div>
           </div>
-          <div className="row g-3" style={{ marginTop: 10 }}>
-            {categories.map((category, index) => (
-              <div className="col-lg-6 col-md-6 col-sm-12" key={index}>
-                <div className={styled.block}>
-                  <div className={styled.image}>
-                    <img src={wheel} src={`data:image/png;base64,${category.image}`} alt="Category Image" />
-                  </div>
-                  <div className={styled.text}>
-                    <p>{category.name}</p>
-                    <div className={styled.link}>
-                      <Link to={`/results/${category.id}`}>
-                        <span>Keçid et</span>
-                        <span>
-                          <FaArrowRight />
-                        </span>
-                      </Link>
+          <div className="row g-3" style={{ marginTop: 30 }}>
+            {
+              displayedCategories.map(choosing => (
+                <div key={choosing.id} className="col-lg-6 col-md-6 col-sm-12">
+                  <div className={styled.card}>
+                    <div className={styled.text}>
+                      <p>{choosing.name}</p>
+                      <div className={styled.link}>
+                        <Link to="/categoryDetails">
+                          <span>Keçid et</span>
+                          <span>
+                            <FaArrowRight />
+                          </span>
+                        </Link>
+                      </div>
+                    </div>
+                    <div className={styled.image}>
+                      <img src={`data:image/png;base64,${choosing.image}`} alt="" />
                     </div>
                   </div>
                 </div>
-              </div>
-
-            ))}
+              ))
+            }
           </div>
         </div>
       </section>

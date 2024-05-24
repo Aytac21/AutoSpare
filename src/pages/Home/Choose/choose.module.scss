@@ -1,6 +1,6 @@
 .choose {
   margin-top: 80px;
-  .chooseHead{
+  .chooseHead {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -12,16 +12,16 @@
         color: #000000;
       }
     }
-    .showAll{
-      button{
+    .showAll {
+      button {
         border: none;
         background-color: #f86338;
-      color: #fafafa;
-      border-radius: 4px;
-      font-size: 16px;
-      padding: 9px 25px;
-      cursor: pointer;
-      font-weight: 500;
+        color: #fafafa;
+        border-radius: 4px;
+        font-size: 16px;
+        padding: 9px 25px;
+        cursor: pointer;
+        font-weight: 500;
       }
     }
   }
@@ -57,13 +57,14 @@
     }
   }
   .card {
-    min-height: 250px;
+    min-height: 320px;
     background-color: #f3f5f7;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
     padding: 30px;
+    overflow: hidden;
     .text {
       p {
         font-weight: 500;
@@ -73,7 +74,7 @@
       .link {
         text-decoration: underline;
         cursor: pointer;
-        a{
+        a {
           text-decoration: none;
           color: inherit;
           span {
@@ -86,7 +87,9 @@
     }
     .image {
       width: 220px;
+      height: 220px;
       img {
+        mix-blend-mode: multiply;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -95,90 +98,90 @@
     }
   }
 }
-.services{
+.services {
   margin-top: 180px;
-  .block{
-    background-color: #F3F5F7;
+  .block {
+    background-color: #f3f5f7;
     min-height: 220px;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    span{
-      margin-bottom:14px;
-     svg{
-      width: 40px;
-      height: 40px;
-     }
+    span {
+      margin-bottom: 14px;
+      svg {
+        width: 40px;
+        height: 40px;
+      }
     }
-    p{
+    p {
       color: #141718;
       font-weight: 500;
       font-size: 20px;
-      line-height:33px;
+      line-height: 33px;
       margin-top: 10px;
     }
-    h5{
+    h5 {
       font-weight: 400;
       font-size: 14px;
-      color: #6C7275;
+      color: #6c7275;
       line-height: 20px;
       width: 70%;
     }
   }
 }
 
-@media(max-width:1197px){
- .choose{
-  .head{
-    h2{
-      font-size: 33px;
-    }
-  }
-  .block{
-    .text{
-      p{
-        font-size: 25px;
+@media (max-width: 1197px) {
+  .choose {
+    .head {
+      h2 {
+        font-size: 33px;
       }
-      .link{
-        span{
-          font-size: 14px;
+    }
+    .block {
+      .text {
+        p {
+          font-size: 25px;
+        }
+        .link {
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .card {
+      .text {
+        p {
+          font-size: 25px;
+        }
+        .link {
+          span {
+            font-size: 14px;
+          }
         }
       }
     }
   }
-  .card{
-    .text{
-      p{
-        font-size: 25px;
-      }
-      .link{
-        span{
-          font-size: 14px;
-        }
-      }
-    }
-  }
- }
 }
-@media(max-width:979px){
-  .choose{
-    .head{
-      h2{
+@media (max-width: 979px) {
+  .choose {
+    .head {
+      h2 {
         font-size: 30px;
       }
     }
-    .card{
-      .text{
-        p{
+    .card {
+      .text {
+        p {
           line-height: 25px;
         }
       }
     }
   }
-  .services{
-    .block{
-      span{
-        svg{
+  .services {
+    .block {
+      span {
+        svg {
           width: 35px;
           height: 35px;
         }
@@ -187,17 +190,17 @@
   }
 }
 
-@media(max-width:1003px){
-  .choose{
-    .chooseHead{
-      .head{
-        h2{
+@media (max-width: 1003px) {
+  .choose {
+    .chooseHead {
+      .head {
+        h2 {
           font-size: 30px;
         }
       }
-      .showAll{
-        a{
-          button{
+      .showAll {
+        a {
+          button {
             font-size: 14px;
           }
         }
@@ -205,17 +208,17 @@
     }
   }
 }
-@media(max-width:761px){
-  .choose{
-    .chooseHead{
-      .head{
-        h2{
+@media (max-width: 761px) {
+  .choose {
+    .chooseHead {
+      .head {
+        h2 {
           font-size: 26px;
         }
       }
-      .showAll{
-        a{
-          button{
+      .showAll {
+        a {
+          button {
             font-size: 12px;
             padding: 8px 18px;
           }

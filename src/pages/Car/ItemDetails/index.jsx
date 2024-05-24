@@ -1,28 +1,31 @@
 import React, { useState, useEffect } from "react";
 import styled from "./itemdetails.module.scss";
+import item1 from "../../../assets/accumulator.svg";
+import item2 from "../../../assets/accumulator.svg";
+import item3 from "../../../assets/aft.png";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { PiShoppingCart } from "react-icons/pi";
 import { IoStarSharp } from "react-icons/io5";
-import { Link, useParams } from "react-router-dom";
-import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import { addToBasket } from "../../../helpers/Basket/basket";
-import { addToFavorites } from "../../../helpers/Redux/favoritesSlice";
 import SwiperPart from "./SwiperPart";
-
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { addToBasket } from "../../../helpers/Basket/basket";
+import { useParams } from "react-router-dom";
 const ItemDetails = () => {
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
   const [count, setCount] = useState(0);
   const [imgs, setImgs] = useState([]);
   const [part, setPart] = useState({});
   const [sliderData, setSliderData] = useState({});
-  const dispatch = useDispatch();
+
   const { id } = useParams();
 
   const getPart = async () => {
     try {
       const resp = await axios.get(`${mainURL}/parts/${id}`);
+      // console.log(resp.data.part);
       setPart(resp.data.part);
       setImgs([
         { id: 0, value: `data:image/png;base64,${resp.data.part.image1}` },
@@ -37,7 +40,7 @@ const ItemDetails = () => {
 
   useEffect(() => {
     getPart();
-  }, [mainURL, id]);
+  }, [mainURL]);
 
   const decreaseCount = () => {
     if (count > 0) {
@@ -55,7 +58,6 @@ const ItemDetails = () => {
     const slider = imgs[index];
     setSliderData(slider);
   };
-
   const handleLinkClick = (e) => {
     if (count === 0) {
       e.preventDefault();
@@ -64,12 +66,6 @@ const ItemDetails = () => {
       addToBasket(part.id, count);
     }
   };
-
-  const handleAddToFavorites = () => {
-    addToFavorites(part); // Use the addToFavorites function to add the part to favorites
-    console.log("Favorite added:", part); // Debugging line
-  };
-
   return (
     <>
       <section className={styled.itemDetails}>
@@ -108,11 +104,7 @@ const ItemDetails = () => {
                     Məhsulun kodu: <span>{part.code}</span>
                   </h5>
                 </div>
-                <div className={styled.icon}>
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i}><IoStarSharp /></span>
-                  ))}
-                </div>
+
                 <div className={styled.price}>
                   <p>
                     {part.price}<span> AZN</span>
@@ -146,16 +138,20 @@ const ItemDetails = () => {
                   <div className="row g-3" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <div className="col-lg-5 col-md-12 col-sm-6 col-12">
                       <div className={styled.button1}>
-                        <button onClick={handleAddToFavorites}>Əlavə et</button>
-                        <span>
-                          <CiHeart />
-                        </span>
+                        <Link to="/favorite">
+                          <button>Əlavə et</button>
+                          <span>
+                            <CiHeart />
+                          </span>
+                        </Link>
                       </div>
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-6 col-12">
                       <div className={styled.button2}>
                         <Link onClick={handleLinkClick} to="/card">
-                          <button>Səbətə əlavə et</button>
+                          <button
+                          //  onClick={e=>{if(count>0){addToBasket(part.id,count);}}}
+                          >Səbətə əlavə et</button>
                           <span>
                             <PiShoppingCart />
                           </span>

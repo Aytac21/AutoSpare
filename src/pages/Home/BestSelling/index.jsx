@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "./bestselling.module.scss";
 import image from "../../../assets/car.svg";
 import { TiTick } from "react-icons/ti";
 import { FaManatSign } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const BestSelling = () => {
+  const [cars, setCars] = useState([]);
+  const mainURL = useSelector(state => state.aspareSlice.mainURL);
+  useEffect(() => {
+    fetch(`${mainURL}/Parts`)
+      .then(response => response.json())
+      .then(data => {
+        setCars(data.result.parts);
+        console.log(data.result.parts);
+      })
+      .catch(error => {
+        console.error('Error fetching categories:', error);
+      });
+  }, []);
+
+  const displayedCars = cars.slice(0, 4);
+  const formatDesc = (desc) => {
+    return desc ? desc.slice(0, 10) : "";
+  };
   return (
     <section className={styled.bestSelling}>
       <div className="container">
@@ -18,142 +37,32 @@ const BestSelling = () => {
           </div>
         </div>
         <div className="row g-5">
-          <div className="col-lg-3 col-md-6 col-sm-12 col-12">
-            <Link to="/itemDetails">
-              <div className={styled.block}>
-                <div className={styled.img}>
-                  <img src={image} alt="" />
-                </div>
-                <div className={styled.text}>
-                  <div className={styled.name}>
-                    <p>Xırdalan , Bakı</p>
-                    <h5>
-                      <span>
-                        <TiTick />
-                      </span>
-                      AvtoPro
-                    </h5>
+          {displayedCars.map(car => (
+            <div key={car.id} className="col-lg-3 col-md-6 col-sm-12 col-12">
+              <Link to={`/itemDetails/${car.id}`}>
+                <div className={styled.block}>
+                  <div className={styled.img}>
+                    <img src={`data:image/png;base64,${car.image1}`} alt="" />
                   </div>
-                  <div className={styled.info}>
-                    <span>2.5 km/40min</span>
-                  </div>
-                  <div className={styled.priceANDcount}>
-                    <div className={styled.price}>
-                      <span>
-                        <FaManatSign />
-                      </span>
-                      <span>6.99</span>
+                  <div className={styled.text}>
+                    <div className={styled.name}>
+                      <p>{car.name}</p>
+                      <h5><span><TiTick /></span>AvtoPro</h5>
+                    </div>
+                    <div className={styled.info}>
+                      <span>{car.description}</span>
+                    </div>
+                    <div className={styled.priceANDcount}>
+                      <div className={styled.price}>
+                        <span><FaManatSign /></span>
+                        <span>{car.price}</span>
+                      </div>
                     </div>
                   </div>
-                  <div className={styled.category}>
-                    <p>Əyləc sistemi</p>
-                  </div>
                 </div>
-              </div>
-            </Link>
-          </div>
-          <div className="col-lg-3 col-md-6 col-sm-12 col-12">
-            <Link to="/itemDetails">
-              <div className={styled.block}>
-                <div className={styled.img}>
-                  <img src={image} alt="" />
-                </div>
-                <div className={styled.text}>
-                  <div className={styled.name}>
-                    <p>Xırdalan , Bakı</p>
-                    <h5>
-                      <span>
-                        <TiTick />
-                      </span>
-                      AvtoPro
-                    </h5>
-                  </div>
-                  <div className={styled.info}>
-                    <span>2.5 km/40min</span>
-                  </div>
-                  <div className={styled.priceANDcount}>
-                    <div className={styled.price}>
-                      <span>
-                        <FaManatSign />
-                      </span>
-                      <span>6.99</span>
-                    </div>
-                  </div>
-                  <div className={styled.category}>
-                    <p>Əyləc sistemi</p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-          <div className="col-lg-3 col-md-6 col-sm-12 col-12">
-            <Link to="/itemDetails">
-              <div className={styled.block}>
-                <div className={styled.img}>
-                  <img src={image} alt="" />
-                </div>
-                <div className={styled.text}>
-                  <div className={styled.name}>
-                    <p>Xırdalan , Bakı</p>
-                    <h5>
-                      <span>
-                        <TiTick />
-                      </span>
-                      AvtoPro
-                    </h5>
-                  </div>
-                  <div className={styled.info}>
-                    <span>2.5 km/40min</span>
-                  </div>
-                  <div className={styled.priceANDcount}>
-                    <div className={styled.price}>
-                      <span>
-                        <FaManatSign />
-                      </span>
-                      <span>6.99</span>
-                    </div>
-                  </div>
-                  <div className={styled.category}>
-                    <p>Əyləc sistemi</p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-          <div className="col-lg-3 col-md-6 col-sm-12 col-12">
-            <Link to="/itemDetails">
-              <div className={styled.block}>
-                <div className={styled.img}>
-                  <img src={image} alt="" />
-                </div>
-                <div className={styled.text}>
-                  <div className={styled.name}>
-                    <p>Xırdalan , Bakı</p>
-                    <h5>
-                      <span>
-                        <TiTick />
-                      </span>
-                      AvtoPro
-                    </h5>
-                  </div>
-                  <div className={styled.info}>
-                    <span>2.5 km/40min</span>
-                  </div>
-                  <div className={styled.priceANDcount}>
-                    <div className={styled.price}>
-                      <span>
-                        <FaManatSign />
-                      </span>
-                      <span>6.99</span>
-                    </div>
-                  </div>
-                  <div className={styled.category}>
-                    <p>Əyləc sistemi</p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,29 +1,29 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import AuthActionsComponent from "../../actions/authAction";
 
 const FinishingSignup = ({ onClose }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  // const [birthdate, setBirthdate] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
-  // const [birthdateError, setBirthdateError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [passwordRight, setPasswordRight] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  // const [birthdateText, setBirthdateText] = useState("Birthdate");
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { signup } = AuthActionsComponent();
 
   const isValidEmail = (email) => {
     return /\S+@\S+\.\S+/.test(email);
   };
-
-
 
   const isSequential = (str) => {
     const sequentialPatterns = [
@@ -50,12 +50,6 @@ const FinishingSignup = ({ onClose }) => {
     } else {
       setLastNameError("");
     }
-
-    // if (!birthdate) {
-    //   setBirthdateError("Doğum tarixi tələb olunur");
-    // } else {
-    //   setBirthdateError("");
-    // }
 
     if (!isValidEmail(email)) {
       setEmailError("Email");
@@ -96,10 +90,15 @@ const FinishingSignup = ({ onClose }) => {
 
     if (inputErrors.length === 0) {
       setIsLoading(true);
-      setTimeout(() => {
-        setIsLoading(false);
-        navigate("/commitment");
-      }, 3000);
+      dispatch(signup(`${firstName} ${lastName}`, firstName, email, password, "123-456-7890"))
+        .then(() => {
+          setIsLoading(false);
+          navigate("/commitment");
+        })
+        .catch((err) => {
+          setIsLoading(false);
+          // Handle error message here if needed
+        });
     }
   };
 
@@ -122,36 +121,6 @@ const FinishingSignup = ({ onClose }) => {
       setFirstName(value);
     } else if (name === "lastName") {
       setLastName(value);
-      // } else if (name === "birthdate") {
-      //   const newValue = value
-      //     .replace(/\D/g, "")
-      //     .replace(/(^\d{2})(\d)/g, "$1/$2")
-      //     .replace(/(^\d{2})\/(\d{2})(\d{4})/, (_, d, m, y) => {
-      //       const day = parseInt(d, 10);
-      //       const month = parseInt(m, 10);
-      //       const year = parseInt(y, 10);
-      //       const filteredDay = Math.min(Math.max(day, 1), 31);
-      //       const filteredMonth = Math.min(Math.max(month, 1), 12);
-      //       const filteredYear = Math.min(year, 2024);
-      //       if (
-      //         day !== filteredDay ||
-      //         month !== filteredMonth ||
-      //         year !== filteredYear
-      //       ) {
-      //         setBirthdateError("Invalid date");
-      //         const today = new Date();
-      //         const formattedDate = `${today.getDate()}/${
-      //           today.getMonth() + 1
-      //         }/${today.getFullYear()}`;
-      //         return formattedDate;
-      //       } else {
-      //         setBirthdateError("");
-      //       }
-      //       return `${filteredDay}/${filteredMonth}/${filteredYear}`;
-      //   })
-      //   .replace(/(^\d{2})\/(\d{2})(\d)/g, "$1/$2/$3")
-      //   .slice(0, 10);
-      // setBirthdate(newValue);
     } else if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
@@ -238,13 +207,13 @@ const FinishingSignup = ({ onClose }) => {
             </p>
 
             <div className="login-city login-phone-number">
-              <span className="placeholderlogin">Ölkə/Region</span>
-              <select name="" id="">
+              {/* <span className="placeholderlogin">Ölkə/Region</span> */}
+              {/* <select name="" id="">
                 <option value="">Azərbaycan (+994)</option>
                 <option value="">Azərbaycan (+994)</option>
                 <option value="">Azərbaycan (+994)</option>
                 <option value="">Azərbaycan (+994)</option>
-              </select>
+              </select> */}
               <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder=" Telefon nömrəsi" required />
             </div>
             <p className="privacypolicy">

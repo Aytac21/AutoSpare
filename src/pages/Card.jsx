@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import img from "../assets/S5_Category-1.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { getBasket,reduceFromBasket,addToBasket, removeFromBasket } from "../helpers/Basket/basket";
+import { getBasket, reduceFromBasket, addToBasket, removeFromBasket } from "../helpers/Basket/basket";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
@@ -91,13 +91,13 @@ function Card() {
       newCounts[id] = (newCounts[id] || 0) + 1;
       return newCounts;
     });
-    addToBasket(id,1);
+    addToBasket(id, 1);
   };
 
   const handleRemove = (id) => {
     // Remove from basket in localStorage
     removeFromBasket(id);
-   
+
     // Remove from parts state
     setParts(parts.filter(part => part.id !== id));
   };
@@ -124,12 +124,12 @@ function Card() {
                     <p>{x.name}</p>
                     <br />
                     <p onClick={() => handleRemove(x.id)}>
-                      <i  className="fa-solid fa-x"></i> Sil
+                      <i className="fa-solid fa-x"></i> Sil
                     </p>
                   </div>
                 </div>
                 <ul>
-                  <li>  
+                  <li>
                     <FontAwesomeIcon icon={faMinus} onClick={() => decreaseCount(x.id)} />
                     <p>{counts[x.id] || x.count}</p>
                     <FontAwesomeIcon icon={faPlus} onClick={() => increaseCount(x.id)} />

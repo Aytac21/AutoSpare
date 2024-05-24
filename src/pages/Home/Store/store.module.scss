@@ -40,7 +40,7 @@
     justify-content: space-between;
     background-color: #f6f6f6;
     border-radius: 6px;
-    padding:30px;
+    padding: 30px;
     .leftSide {
       display: flex;
       flex-direction: row;
@@ -104,26 +104,26 @@
     }
   }
 }
-@media(max-width:970px){
-  .store{
-    .block{
-      .leftSide{
-        .nameANDlocation{
-          .name{
-            h3{
+@media (max-width: 970px) {
+  .store {
+    .block {
+      .leftSide {
+        .nameANDlocation {
+          .name {
+            h3 {
               font-size: 25px;
             }
           }
-          .location{
-            p{
+          .location {
+            p {
               font-size: 18px;
             }
           }
         }
       }
-      .rightSide{
-        .button{
-          button{
+      .rightSide {
+        .button {
+          button {
             font-size: 18px;
           }
         }
@@ -132,40 +132,40 @@
   }
 }
 
-@media(max-width:771px){
-  .store{
-    .header{
-      .head{
-        h2{
+@media (max-width: 771px) {
+  .store {
+    .header {
+      .head {
+        h2 {
           font-size: 28px;
         }
       }
-      .all{
-        a{
-          button{
+      .all {
+        a {
+          button {
             font-size: 15px;
           }
         }
       }
     }
-    .block{
-      .leftSide{
-        .nameANDlocation{
-          .name{
-            h3{
+    .block {
+      .leftSide {
+        .nameANDlocation {
+          .name {
+            h3 {
               font-size: 22px;
             }
           }
-          .location{
-            p{
+          .location {
+            p {
               font-size: 18px;
             }
           }
         }
       }
-      .rightSide{
-        .button{
-          button{
+      .rightSide {
+        .button {
+          button {
             font-size: 15px;
           }
         }
@@ -174,37 +174,37 @@
   }
 }
 
-@media(max-width:747px){
-    .store{
-      .block{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        .leftSide{
-          .nameANDlocation{
-            .name{
-              h3{
-                font-size: 22px;
-              }
-            }
-            .location{
-              p{
-                font-size: 18px;
-              }
+@media (max-width: 747px) {
+  .store {
+    .block {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .leftSide {
+        .nameANDlocation {
+          .name {
+            h3 {
+              font-size: 22px;
             }
           }
-        }
-        .rightSide{
-          display: flex;
-          align-items: flex-end;
-          .button{
-            width: 150px;
-            button{
-              font-size: 15px;
-              padding: 7px 40px;
+          .location {
+            p {
+              font-size: 18px;
             }
           }
         }
       }
+      .rightSide {
+        display: flex;
+        align-items: flex-end;
+        .button {
+          width: 150px;
+          button {
+            font-size: 15px;
+            padding: 7px 40px;
+          }
+        }
+      }
     }
+  }
 }

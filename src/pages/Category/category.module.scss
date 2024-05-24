@@ -7,20 +7,20 @@
     align-items: center;
     .category {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       text-align: center;
-      gap: 6px;
+      gap: 20px;
       cursor: pointer;
       a {
         text-decoration: none;
         img {
-          width: 30px;
-          height: 30px;
+          width: 50px;
+          height: 50px;
         }
         p {
-          font-size: 14px;
+          font-size: 16px;
           color: rgb(134, 132, 132);
         }
         .active {
@@ -57,6 +57,7 @@
       flex-direction: row;
       align-items: baseline;
       gap: 15px;
+      margin-top: -15px;
     }
     .arrow {
       span {
@@ -94,44 +95,51 @@
       }
     }
     .search {
-      display: flex;
-      flex-direction: row;
-      align-items: baseline;
-      justify-content: center;
       border: 1px solid #ebebeb;
       border-radius: 40px;
-      padding: 8px 10px 0px 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
       cursor: pointer;
-      p {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 21px;
-        color: #717171;
+      overflow: hidden;
+      position: relative;
+      input {
+        border: none;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
       }
       span {
-        background-color: #f86338;
+        position: absolute;
+        right: 10px;
+        background-color: #fb5607;
         border-radius: 50%;
-        padding: 6px 7px;
+        padding: 4px 5px;
         svg {
-          width: 20px;
-          height: 20px;
-          color: #ebebeb;
+          color: #ffffff;
+          font-size: 22px;
+          font-weight: 500;
         }
       }
     }
   }
 }
 
-@media(max-width:1182px){
-  .searchPage{
-    .filterANDsearch{
-      .search{
-        p{
+@media (max-width: 1182px) {
+  .searchPage {
+    .filterANDsearch {
+      .search {
+        p {
           font-size: 12px;
         }
-        span{
-          padding:0 5px ;
-          svg{
+        span {
+          padding: 0 5px;
+          svg {
             width: 15px;
             height: 15px;
           }

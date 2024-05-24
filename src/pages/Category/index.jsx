@@ -115,16 +115,10 @@ const Category = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-3 col-md-12 col-sm-12 col-12">
+          <div className="col-lg-3 col-md-3">
             <div className={styled.filterANDsearch}>
-              <div className={styled.filter}>
-                <span>
-                  <MdOutlineSort />
-                </span>
-                <p>Filter</p>
-              </div>
               <div className={styled.search}>
-                <p>Detal kodu</p>
+                <input type="number" placeholder="Detal kodu" />
                 <span>
                   <IoSearchOutline />
                 </span>

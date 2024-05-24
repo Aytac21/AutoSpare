@@ -5,7 +5,7 @@ function Shops() {
   const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
-    fetch('https://t4l3cl03-7186.euw.devtunnels.ms/Companies')
+    fetch('https://blbtd6h4-7186.euw.devtunnels.ms/Companies')
       .then(response => response.json())
       .then(data => {
         setCompanies(data.result.companies);
