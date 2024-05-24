@@ -3,12 +3,14 @@
 
 .main{
     width: 66.15vw;
-    height: 80vw;
+    height: 60vw;
     margin: 0 auto;
-    margin-top: 100px;
+    /* margin-top: 20vw; */
     border: .07vw solid orange;
     border-radius: 0.84vw;
     font-family: "DM Sans";
+    padding-top: 1vw;
+  
 }
 
 .top{
@@ -17,7 +19,7 @@
     font-weight: 500;
     font-size: 1.4vw;
     line-height: 1.26vw;
-    border-bottom: 0.07vw solid #CCCCCC;
+    /* border-bottom: 0.07vw solid #CCCCCC; */
     width: 100%;
     height: 3.82vw;
     
@@ -71,3 +73,6 @@
     gap:3vw;
 }
 
+.brand,.category,.company,.city,.year,.MakeAndModel{
+    margin-top: 1vw;
+}

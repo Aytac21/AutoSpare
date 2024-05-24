@@ -3,15 +3,19 @@ import styled from "./navbar.module.scss";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { IoSearchOutline } from "react-icons/io5";
 import axios from "axios";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { filterSetter } from "../../helpers/Redux/aspareSlicer";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
 
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
 
   const [makes, setMakes] = useState([]);
   const [models, setModels] = useState([]);
-
+  const [selectedYear, setSelectedYear] = useState([]);
+  const [selectedModel, setSelectedModel] = useState([]);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: currentYear - 1920 + 1 }, (_, index) => currentYear - index);
 
@@ -30,6 +34,18 @@ const Navbar = () => {
       console.error("Error fetching makes:", error);
     }
   };
+
+  const handleFilter = () => {
+    dispatch(filterSetter({
+      modelId: selectedModel,
+      year: selectedYear
+    }));
+    console.log({
+      modelId: selectedModel,
+      year: selectedYear
+    });
+    navigate('/alldatas');
+  }
 
   useEffect(() => {
     getMakes();
@@ -80,7 +96,7 @@ const Navbar = () => {
                           <h4>Model</h4>
                         </div>
                         <div className={styled.subHead}>
-                          <select defaultValue={0} name="" id="">
+                          <select onChange={e => setSelectedModel(e.target.value)} defaultValue={0} name="" id="">
                             <option key={0} disabled value="0">Modeli seçin</option>
                             {models.map((x) => (
                               <option key={x.id} value={x.id}>{x.name}</option>
@@ -95,7 +111,7 @@ const Navbar = () => {
                           <h4>İl</h4>
                         </div>
                         <div className={styled.subHead}>
-                          <select name="" id="">
+                          <select onChange={e => setSelectedYear(e.target.value)} name="" id="">
                             <option value="" >İli seçin</option>
                             {years.map((year) => (
                               <option key={year} value={year}>
@@ -127,9 +143,8 @@ const Navbar = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "flex-end",
-                      }}
-                    >
-                      <div className={styled.searchIcon}>
+                      }}>
+                      <div onClick={e => handleFilter()} className={styled.searchIcon}>
                         <span className={styled.icon}>
                           <IoSearchOutline />
                         </span>
