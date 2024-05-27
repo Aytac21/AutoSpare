@@ -14,7 +14,14 @@ const Footer = () => {
       </section>
       <footer className={styled.footer}>
         <div className="container">
-          <div className="row g-5" style={{display:"flex",flexDirection:"row",alignItems:"baseline"}}>
+          <div
+            className="row g-5"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "baseline",
+            }}
+          >
             <div className="col-lg-3 col-md-3 col-sm-12 col-12">
               <div className={styled.logo}>
                 <h2>
@@ -38,8 +45,8 @@ const Footer = () => {
                     <div className={styled.list}>
                       <h3>Biz Kimik ?</h3>
                       <div className={styled.listElements}>
-                      <a href="">Gizlilik Siyasəti</a>
-                      <a href="">Haqqımızda</a>
+                        <a href="">Gizlilik Siyasəti</a>
+                        <a href="">Haqqımızda</a>
                       </div>
                     </div>
                   </div>
@@ -47,9 +54,9 @@ const Footer = () => {
                     <div className={styled.list}>
                       <h3>Ünvan</h3>
                       <div className={styled.listElements}>
-                      <a href="">Şeyx Şamil küçəsi , 34</a>
-                      <a href="">+994 55 934 91 55</a>
-                      <a href="">info@autospare.az</a>
+                        <a href="">Şeyx Şamil küçəsi , 34</a>
+                        <a href="">+994 55 934 91 55</a>
+                        <a href="">info@autospare.az</a>
                       </div>
                     </div>
                   </div>
@@ -57,18 +64,28 @@ const Footer = () => {
                     <div className={styled.list}>
                       <h3>Sosial Şəbəkə</h3>
                       <div className={styled.icon}>
-                        <span>
-                          <FaFacebookF />
-                        </span>
-                        <span>
-                          <RiInstagramFill />
-                        </span>
-                        <span>
-                          <FaTwitter />
-                        </span>
-                        <span>
-                          <FaYoutube />
-                        </span>
+                        <div className="row">
+                          <div className="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <span>
+                              <FaFacebookF />
+                            </span>
+                          </div>
+                          <div className="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <span>
+                              <RiInstagramFill />
+                            </span>
+                          </div>
+                          <div className="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <span>
+                              <FaTwitter />
+                            </span>
+                          </div>
+                          <div className="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <span>
+                              <FaYoutube />
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -79,18 +96,18 @@ const Footer = () => {
         </div>
       </footer>
       <section className={styled.line}>
-       <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-          <hr />
-          </div>
-          <div className="col-lg-12">
-            <div className={styled.author}>
-              <p>© 2024 ReserveAll MMC  | Müəllif hüquqları qorunur</p>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <hr />
+            </div>
+            <div className="col-lg-12">
+              <div className={styled.author}>
+              <p>© 2024 ReserveAll MMC | Müəllif hüquqları qorunur</p>
+              </div>
             </div>
           </div>
         </div>
-       </div>
       </section>
     </>
   );

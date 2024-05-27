@@ -1,4 +1,5 @@
 .footer {
+  overflow: hidden;
   padding-top: 70px;
   padding-bottom: 200px;
   .logo {
@@ -30,11 +31,12 @@
         }
       }
       .icon {
+        overflow: hidden;
         display: flex;
         flex-direction: row;
         gap: 20px;
         span {
-          font-size: 30px;
+          font-size: 25px;
           svg {
             color: #0a142f;
           }
@@ -44,6 +46,7 @@
   }
 }
 .line{
+  overflow: hidden;
     .author{
         p{
             text-align: center;
