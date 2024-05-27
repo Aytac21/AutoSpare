@@ -12,12 +12,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { addToBasket } from "../../../helpers/Basket/basket";
+import { toggleFavorite } from "../../../helpers/Favorites/favorites";
 import { useParams } from "react-router-dom";
 const ItemDetails = () => {
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
   const [count, setCount] = useState(0);
   const [imgs, setImgs] = useState([]);
   const [part, setPart] = useState({});
+
   const [sliderData, setSliderData] = useState({});
 
   const { id } = useParams();
@@ -40,6 +42,7 @@ const ItemDetails = () => {
 
   useEffect(() => {
     getPart();
+    window.scrollTo(0,0); 
   }, [mainURL]);
 
   const decreaseCount = () => {
@@ -59,11 +62,13 @@ const ItemDetails = () => {
     setSliderData(slider);
   };
   const handleLinkClick = (e) => {
-    if (count === 0) {
-      e.preventDefault();
-      alert("Please select a quantity greater than 0");
+    console.log(count)
+    if (count == 0) {
+      // e.preventDefault();
+      alert("Səbətə əlavə etmək üçün say seçin");
     } else {
       addToBasket(part.id, count);
+      alert("Səbətə əlavə olundu")
     }
   };
   return (
@@ -138,24 +143,26 @@ const ItemDetails = () => {
                   <div className="row g-3" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <div className="col-lg-5 col-md-12 col-sm-6 col-12">
                       <div className={styled.button1}>
-                        <Link to="/favorite">
-                          <button>Əlavə et</button>
+                        {/* <Link to="/favorite"> */}
+                        <div className={styled.a}>
+                          <button  onClick={()=>toggleFavorite(part.id)}>Əlavə et</button>
                           <span>
                             <CiHeart />
                           </span>
-                        </Link>
+                          </div>
+                        {/* </Link> */} 
                       </div>
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-6 col-12">
                       <div className={styled.button2}>
-                        <Link onClick={handleLinkClick} to="/card">
+                        <div className={styled.a} onClick={e=>handleLinkClick()} to="/card">
                           <button
                           //  onClick={e=>{if(count>0){addToBasket(part.id,count);}}}
                           >Səbətə əlavə et</button>
                           <span>
                             <PiShoppingCart />
                           </span>
-                        </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

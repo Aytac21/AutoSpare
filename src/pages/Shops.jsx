@@ -9,7 +9,7 @@ function Shops() {
       .then(response => response.json())
       .then(data => {
         setCompanies(data.result.companies);
-        console.log(data.result.companies);
+        // console.log(data.result.companies);
       })
       .catch(error => {
         console.error('Error fetching categories:', error);

@@ -11,13 +11,14 @@ function Card() {
   const [parts, setParts] = useState([]);
   const [counts, setCounts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0)
-  // Fetch parts from the basket
+
   const getPart = async () => {
     var basket = getBasket();
-
+ console.log(basket)
     const fetchedParts = await Promise.all(basket.map(async (item) => {
       try {
         const resp = await axios.get(`${mainURL}/parts/${item.productId}`);
+     console.log(`${mainURL}/parts/${item.productId}`)
         return { product: resp.data.part, count: item.count };
       } catch (error) {
         console.error("Error fetching part data:", error);
@@ -33,13 +34,14 @@ function Card() {
     }, {}));
   };
   useEffect(() => {
-    getPart();
+ getPart();
   }, [mainURL]);
 
-  // useEffect(() => {
-  //   console.log(parts);
-  //   console.log(counts);
-  // }, [parts]);
+
+  useEffect(() => {
+    console.log(parts);
+    console.log(counts);
+  }, [parts]);
 
   useEffect(() => {
     let total = 0;

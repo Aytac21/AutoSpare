@@ -7,8 +7,17 @@ const initialState = {
   isAuthenticated: false,
   error: false,
   errorMessage: "",
-  mainURL: "https://blbtd6h4-7186.euw.devtunnels.ms",
-  filter: {},
+  mainURL: "https://localhost:7186",
+  filter: {}
+  // filter: {
+  //   MinimumPrice: 0,
+  //   MaximumPrice: 9000,
+  //   CategoryId: null,
+  //   BrandId: [],
+  //   CompanyId: [],
+  //   ModelId: null,
+  //   Year: null
+  // }
   // basketItemIds:{}
 };
 

@@ -14,7 +14,7 @@ const ComfirmPhoto = () => {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
-      console.log("Photo uploaded");
+      // console.log("Photo uploaded");
       setUploadedPhoto(reader.result);
       setIsPhotoUploaded(true);
       setIsPhotoSelected(true);

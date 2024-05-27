@@ -15,7 +15,7 @@ const Store = () => {
       .then(response => response.json())
       .then(data => {
         setStore(data.result.companies);
-        console.log(data);
+        // console.log(data);
       })
       .catch(error => {
         console.error("Error fetching store:", error);

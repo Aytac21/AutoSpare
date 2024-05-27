@@ -6,19 +6,57 @@ import { Link } from "react-router-dom";
 import basketimage from "../../assets/Cart1.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { getBasket, reduceFromBasket, addToBasket, removeFromBasket } from "../../helpers/Redux/favoritesSlice";
-
+import {getFavorites,toggleFavorite} from '../../helpers/Favorites/favorites';
+import { useState } from "react";
+import axios from "axios";
 function Favorite() {
-  const favorites = useSelector(selectFavorites);
+   
+  const mainURL = useSelector(state => state.aspareSlice.mainURL);
+  
   const dispatch = useDispatch();
+  const [favorites,setFavoriteParts]=useState([])
 
-  useEffect(() => {
-    console.log("Favoriler:", favorites); // Favori listesini konsola yazdır
-  }, [favorites]);
+  // const getFavoriteParts = async () => {
+  //   const favorites = getFavorites();
+  //   let favoriteParts=[];
+  //   favorites.forEach(async x=>{
+  //    const resp= await axios.get(`${mainURL}/parts/${x}`);
+  //    console.log(resp.data)
+  //    parts.push(resp.data)
+  //   })
+  //   return favoriteParts;
+  // }
 
-
-  const handleRemoveFavorite = (productId) => {
-    dispatch(removeFromFavorites(productId));
+  const getFavoriteParts = async () => {
+    const favorites = getFavorites();
+    
+    // Using Promise.all to handle multiple asynchronous requests
+    const favoriteParts = await Promise.all(favorites.map(async (x) => {
+      try {
+        const resp = await axios.get(`${mainURL}/parts/${x}`);
+        console.log(resp.data);
+        return resp.data.part;
+      } catch (error) {
+        console.error(`Error fetching part data for ${x}:`, error);
+        return null;
+      }
+    }));
+  
+    // Filter out any null responses due to errors
+    return favoriteParts.filter(part => part !== null);
   };
+  useEffect(()=>{
+    const fetchFavoriteParts = async () => {
+      const favParts = await getFavoriteParts();
+      console.log(favParts);
+      setFavoriteParts(favParts);
+    };
+
+    fetchFavoriteParts();
+
+  },[]);
+
+
 
   return (
     <div className="hr-add">
@@ -44,7 +82,7 @@ function Favorite() {
                       <div className="favoriteimg">
                         <img src={`data:image/png;base64,${favorite.image1}`} alt={favorite.name} />
                         <p className="favorite-img-text">{favorite.name}</p>
-                      </div>
+                      </div>  
                       <div className={styled.text}>
                         <div className={styled.name}>
                           <p>Xırdalan , Bakı</p>

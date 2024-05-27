@@ -20,7 +20,7 @@ const MarkDetails = () => {
       const resp = await axios.get(`${mainURL}/Plates/${id}`);
       setPlates(resp.data.plate);
       setSelectedPlate(resp.data.plate);
-      console.log(resp.data.plate);
+      // console.log(resp.data.plate);
     } catch (error) {
       console.error("Error fetching part data:", error);
     }
@@ -35,7 +35,7 @@ const MarkDetails = () => {
       .then((response) => response.json())
       .then((data) => {
         setAnnouncement(data.result.plates);
-        console.log(data);
+        // console.log(data);
       })
       .catch((error) => console.error("Error fetching announcements:", error));
   }, [mainURL]);

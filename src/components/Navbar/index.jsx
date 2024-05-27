@@ -6,6 +6,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { filterSetter } from "../../helpers/Redux/aspareSlicer";
 import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
 
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
@@ -18,6 +19,19 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: currentYear - 1920 + 1 }, (_, index) => currentYear - index);
+  
+
+//  const checkTokenExpiration=()=>{
+//   const token = Cookies.get('token');
+//   if (token) {
+//     const decodedToken = jwtDecode(token);
+//     const expireDate = decodedToken["exp"];
+//     if (expireDate < currentTime) {
+//       dispatch(logout())
+//     } 
+//  }  
+// }
+
 
 
   const makeSelectHandler = async (makeId) => {
@@ -29,7 +43,7 @@ const Navbar = () => {
     try {
       const response = await axios.get(`${mainURL}/Makes`);
       setMakes(response.data.makes);
-      console.log(response.data.makes)
+      // console.log(response.data.makes)
     } catch (error) {
       console.error("Error fetching makes:", error);
     }
@@ -40,10 +54,10 @@ const Navbar = () => {
       modelId: selectedModel,
       year: selectedYear
     }));
-    console.log({
-      modelId: selectedModel,
-      year: selectedYear
-    });
+    // console.log({
+    //   modelId: selectedModel,
+    //   year: selectedYear
+    // });
     navigate('/alldatas');
   }
 
@@ -122,21 +136,6 @@ const Navbar = () => {
                         </div>
                       </div>
                     </div>
-                    {/* <div className="col-6 col-lg-3 col-md-3 col-sm-6">
-                      <div className={styled.searchBlock}>
-                        <div className={styled.head}>
-                          <h4>Modifikasiya</h4>
-                        </div>
-                        <div className={styled.subHead}>
-                          <select name="" id="">
-                            <option value="">Modifikasiyanı seçin</option>
-                            <option value="">1</option>
-                            <option value="">3</option>
-                            <option value="">3</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div> */}
                     <div
                       className="col-lg-1 col-md-1"
                       style={{

@@ -3,7 +3,7 @@
 
 .main{
     width: 66.15vw;
-    height: 60vw;
+    height: 100%;
     margin: 0 auto;
     /* margin-top: 20vw; */
     border: .07vw solid orange;
@@ -12,6 +12,8 @@
     padding-top: 1vw;
   
 }
+
+
 
 .top{
     display: flex;

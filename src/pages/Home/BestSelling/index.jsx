@@ -14,7 +14,7 @@ const BestSelling = () => {
       .then(response => response.json())
       .then(data => {
         setCars(data.result.parts);
-        console.log(data.result.parts);
+        // console.log(data.result.parts);
       })
       .catch(error => {
         console.error('Error fetching categories:', error);

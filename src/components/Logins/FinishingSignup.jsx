@@ -90,15 +90,15 @@ const FinishingSignup = ({ onClose }) => {
 
     if (inputErrors.length === 0) {
       setIsLoading(true);
-      dispatch(signup(`${firstName} ${lastName}`, firstName, email, password, "123-456-7890"))
-        .then(() => {
-          setIsLoading(false);
-          navigate("/commitment");
-        })
-        .catch((err) => {
-          setIsLoading(false);
-          // Handle error message here if needed
-        });
+      dispatch(signup(`${firstName} ${lastName}`, firstName, email, password, "123-456-7890"));
+        // .then(() => {
+        //   setIsLoading(false);
+        //   navigate("/commitment");
+        // })
+        // .catch((err) => {
+        //   setIsLoading(false);
+        //   Handle error message here if needed
+        // });
     }
   };
 
@@ -150,7 +150,7 @@ const FinishingSignup = ({ onClose }) => {
                 name="firstName"
                 value={firstName}
                 onChange={handleInputChange}
-                style={{ borderColor: firstNameError ? "red" : "#ccc" }}
+                style={{ borderColor: firstNameError ? "red" : "#ccc" ,marginBottom:'1vw'}}
               />
               <input
                 type="text"
@@ -262,7 +262,7 @@ const FinishingSignup = ({ onClose }) => {
           </div>
           <button
             className={`next ${isLoading ? "loading" : ""}`}
-            onClick={handleContinue}
+            onClick={()=>handleContinue()}
             disabled={isLoading}
           >
             {isLoading ? "..." : "Razılaşın və davam edin"}

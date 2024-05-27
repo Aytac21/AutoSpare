@@ -55,8 +55,8 @@ const LoginEmail = () => {
   // };
   const handleContinue = (e) => {
     e.preventDefault();
-    console.log(email)
-    console.log(password)
+    // console.log(email)
+    // console.log(password)
     dispatch(login(email, password) || navigate("/"));
 
   };
@@ -74,7 +74,7 @@ const LoginEmail = () => {
           <p>Xoş gəlmisiniz!</p>
           <div className="login-city login-mail">
             <input
-              type="email"
+              type="text"
               placeholder="Email"
               // defaultValue="fallienss"
               value={email}

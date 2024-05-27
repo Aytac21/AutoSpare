@@ -1,33 +1,26 @@
 import React, { useState, useEffect } from "react";
 import styled from "./category.module.scss";
-import img1 from "../../assets/Car-Battery.svg";
-import img2 from "../../assets/Air-Filter.svg";
-import img3 from "../../assets/Group 1 (1).svg";
-import img4 from "../../assets/Group (2).svg";
-import img5 from "../../assets/Group 8.svg";
-import img6 from "../../assets/Group 4.svg";
-import img7 from "../../assets/Group.svg";
-import img8 from "../../assets/Oil-Filter.svg";
-import img9 from "../../assets/Truck.svg";
-import img10 from "../../assets/Truck.svg";
-import img11 from "../../assets/Truck.svg";
-import img12 from "../../assets/Truck.svg";
 import { MdOutlineSort } from "react-icons/md";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { filterSetter } from "../../helpers/Redux/aspareSlicer";
 const Category = () => {
+  const dispatch=useDispatch();
   const [startIndex, setStartIndex] = useState(0);
+  const navigate=useNavigate();
+  const [detailCode,setDetailCode]=useState("")
   const [visibleCategories, setVisibleCategories] = useState(8);
   const [categories, setCategories] = useState([]);
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
   const getCategories = async () => {
     const response = await axios.get(`${mainURL}/categories`);
     setCategories(response.data)
-    console.log(response.data)
+    // console.log(response.data)
   }
   useEffect(() => {
     getCategories();
@@ -68,33 +61,33 @@ const Category = () => {
   const handleRightArrowClick = () => {
     setStartIndex((prevIndex) => Math.min(prevIndex + 1, 12 - visibleCategories));
   };
+  const handleCategorySelect = (categoryid) => {
+    dispatch(filterSetter({
+     categoryId: categoryid
+    }));
+    navigate('/alldatas');
 
+ }
+ 
+ const handleDetailCodeSearch = (detailCode) => {
+  dispatch(filterSetter({
+    detailCode: detailCode
+  }));
+  navigate('/alldatas');
+}
   const renderCategories = () => {
-    const categoryImages = [
-      img7,
-      img9,
-      img5,
-      img4,
-      img8,
-      img2,
-      img1,
-      img3,
-      img6,
-      img10,
-      img11,
-      img12
-    ];
-
-
+   
     return categories.slice(startIndex, startIndex + visibleCategories).map((category, index) => (
-      <div className={styled.category} key={index}>
-        <Link to={`/results/${category.id}`}>
+      <div  className={styled.category} key={index}>
+        <div onClick={e=>handleCategorySelect(category.id)}>
           <img style={{ width: '40px', height: '40px' }} src={`data:image/png;base64,${category.image}`} alt="Category Image" />
           <p>{category.name}</p>
-        </Link>
+        </div>
       </div >
     ));
   };
+
+  
 
   return (
     <section className={styled.searchPage}>
@@ -118,9 +111,9 @@ const Category = () => {
           <div className="col-lg-3 col-md-3">
             <div className={styled.filterANDsearch}>
               <div className={styled.search}>
-                <input type="number" placeholder="Detal kodu" />
+                <input onChange={e=>setDetailCode(e.target.value)} type="text" placeholder="Detal kodu" />
                 <span>
-                  <IoSearchOutline />
+                  <IoSearchOutline onClick={e=>handleDetailCodeSearch(detailCode)}/>
                 </span>
               </div>
             </div>

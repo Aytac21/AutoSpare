@@ -7,9 +7,8 @@ import Slider from '@mui/material/Slider';
 import AsyncSelect from 'react-select/async';
 import CustomSliderStyles from './Customs/CustomSliderStyles';
 import { customSelectStyle, customModelSelectStyle } from './Customs/CustomSelectStyles';
-import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch ,useSelector} from 'react-redux';
 import { filterSetter } from '../../helpers/Redux/aspareSlicer';
 
 const FilterPage = ({ closeModal }) => {
@@ -17,6 +16,7 @@ const FilterPage = ({ closeModal }) => {
     const dispatch = useDispatch();
     const [sliderValues, setSliderValues] = useState([0, 9000]);
     const minDistance = 2;
+    const filters = useSelector(state => state.aspareSlice.filter);
 
     const [makeList, setMakeList] = useState([]);
     const [modelList, setModelList] = useState([]);
@@ -41,7 +41,11 @@ const FilterPage = ({ closeModal }) => {
 
     const getBrands = async () => {
         await axios.get(`${mainURL}/brands`).then(result => {
-            const res = result.data.result.brands.map(x => ({ value: x.id, label: x.name }));
+            // console.log(result.data)
+            let res = result.data.brands.map(x => ({ value: x.id, label: x.name }));
+            if(filters.BrandId){
+              res=res.filter(x=>filters.BrandId.includes(x.brandId))
+            }
             setBrandList(res);
         })
     };
@@ -56,26 +60,25 @@ const FilterPage = ({ closeModal }) => {
     const modelValue = useRef();
 
     useEffect(() => {
+        console.log(filters);
+        console.log([]);
         getMakes();
         getBrands();
         getCompanies();
         getCategories();
     }, []);
 
-    const fetchData = async (url, setter) => {
-        try {
-            const result = await axios.get(url);
-            const data = result.data;
-            setter(data.map(item => ({ value: item.id, label: item.name })));
-        } catch (error) {
-            console.error("Error fetching data", error);
-        }
-    };
+    // const fetchData = async (url, setter) => {
+    //     try {
+    //         const result = await axios.get(url);
+    //         const data = result.data;
+    //         setter(data.map(item => ({ value: item.id, label: item.name })));
+    //     } catch (error) {
+    //         console.error("Error fetching data", error);
+    //     }
+    // };
 
-    // const getCompanies = () => fetchData(`${mainURL}/companies`, setCompanyList);
-    // const getCategories = () => fetchData(`${mainURL}/categories`, setCategoryList);
-    // const getBrands = () => fetchData(`${mainURL}/brands`, setBrandList);
-    // const getMakes = () => fetchData(`${mainURL}/Makes`, setMakeList);
+
 
     const handleSliderChange = (event, newValue, activeThumb) => {
         if (!Array.isArray(newValue)) return;
@@ -106,7 +109,6 @@ const FilterPage = ({ closeModal }) => {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedBrand, setSelectedBrand] = useState([]);
     const [selectedCompany, setSelectedCompany] = useState([]);
-    // const [selectedMake, setSelectedMake] = useState(null);
     const [selectedModel, setSelectedModel] = useState(null);
     const [selectedYear, setSelectedYear] = useState(null);
 
@@ -120,14 +122,10 @@ const FilterPage = ({ closeModal }) => {
             ModelId: selectedModel ? selectedModel.value : null,
             Year: selectedYear ? selectedYear.value : null,
         };
-        // console.log(filterData)
+    
+
         dispatch(filterSetter(filterData))
-        // try {
-        //     const response = await axios.post(`${mainURL}/filter`, filterData);
-        //     console.log(response.data);
-        // } catch (error) {
-        //     console.error("Error submitting filter data", error);
-        // }
+   
     };
 
     return (
@@ -201,7 +199,7 @@ const FilterPage = ({ closeModal }) => {
                 </div>
 
                 <div className={style.submitButton}>
-                    <button style={{ marginTop: "1vw" }} className='btn btn-success' onClick={handleFilterSubmit}>Apply Filters</button>
+                    <button style={{ marginBlock: "1vw" }} className='btn btn-success' onClick={handleFilterSubmit}>Apply Filters</button>
                 </div>
             </div>
         </div>

@@ -5,14 +5,27 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { FaCircleUser } from "react-icons/fa6";
 import { LuMenu } from "react-icons/lu";
 import { PiShoppingCart } from "react-icons/pi";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
+import { useDispatch } from "react-redux";
+import AuthActionsComponent from "../../../actions/authAction";
 const Header = () => {
-  const [isUserListOpen, setUserListOpen] = useState(false);
 
+  const {login,logout}=AuthActionsComponent();
+  const [isUserListOpen, setUserListOpen] = useState(false);
+const dispatch=useDispatch();
+const navigate=useNavigate();
   const toggleUserList = () => {
     setUserListOpen(!isUserListOpen);
   };
+
+  const handleUserLogout = () => {
+    dispatch(logout());
+    navigate(0);
+  }
+
+  const token = Cookies.get('token');
 
   return (
     <header className={styled.head}>
@@ -51,11 +64,13 @@ const Header = () => {
                     </div>
                   </div>
                   <div className="col-lg-1 col-md-1 col-sm-12">
+                    <Link to="/card">
                     <div className={styled.card}>
                       <span>
                         <PiShoppingCart />
                       </span>
                     </div>
+                    </Link>
                   </div>
                   <div className="col-lg-2 col-md-2 col-sm-12">
                     <div className={styled.user} onClick={toggleUserList}>
@@ -67,15 +82,25 @@ const Header = () => {
                       </span>
                       {isUserListOpen && (
                         <ul className={styled.list}>
-                          <li>
-                            <Link to="/finishingsignup">Qeydiyyat</Link>
-                          </li>
-                          <li>
-                            <Link to="/loginemail">Giriş</Link>
-                          </li>
-                          <li>
-                            <Link to="/favorite">Favorilər</Link>
-                          </li>
+                          {token ?
+                            <>
+                              <li>
+                                <Link to="/favorite">Favorilər</Link>
+                              </li>
+                              <li onClick={e => handleUserLogout()}>
+                                <p>Çıxış</p>
+                              </li>
+                            </>
+                            :
+                            <>
+                              <li>
+                                <Link to="/signup">Qeydiyyat</Link>
+                              </li>
+                              <li>
+                                <Link to="/loginemail">Giriş</Link>
+                              </li>
+                            </>
+                          }
                         </ul>
                       )}
                     </div>

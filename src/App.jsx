@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import "./Responsive.css";
@@ -20,19 +21,35 @@ import CreateProfile from "./components/Logins/CreateProfile";
 import CommunictyCommitment from "./components/Logins/CommunictyCommitment";
 import ComfirmPhoto from "./components/Logins/ComfirmPhoto";
 import FinishingSignup from "./components/Logins/FinishingSignup";
-
-import { useEffect, useState } from "react";
 import Footer from "./features/Layout/Footer";
 import Header from "./features/Layout/Header";
-
+import Cookies from 'js-cookie';
+import {jwtDecode} from 'jwt-decode';
 import AllDatas from "./pages/AllDatas";
+import { useDispatch } from "react-redux";
+import AuthActionsComponent from "./actions/authAction";// Make sure to import your logout action
 
 function App() {
-  // useEffect(() => {
-  //   window.scrollTo({
-  //     top: 0,
-  //   });
-  // });
+  const dispatch = useDispatch();
+const {logout}=AuthActionsComponent();
+  useEffect(() => {
+    const checkTokenExpiration = () => {
+      const token = Cookies.get('token');
+      if (token) {
+        const decodedToken = jwtDecode(token);
+        const expireDate = decodedToken["exp"];
+        const currentTime = Math.floor(Date.now() / 1000); 
+        if (expireDate < currentTime) {
+          dispatch(logout());
+        } 
+      }
+    };
+    
+    checkTokenExpiration();
+    const intervalId = setInterval(checkTokenExpiration, 60000);
+    
+    return () => clearInterval(intervalId);
+  }, [dispatch]);
 
   const { pathname } = useLocation();
   const route = pathname.split("/")[1];
@@ -62,10 +79,9 @@ function App() {
         <Route path="/createprofile/" element={<CreateProfile />} />
         <Route path="/commitment/" element={<CommunictyCommitment />} />
         <Route path="/comfirmphoto/" element={<ComfirmPhoto />} />
-        <Route path="/finishingsignup/" element={<FinishingSignup />} />
+        <Route path="/signup/" element={<FinishingSignup />} />
         <Route path="/categoryDetails/" element={<CategoryDetails />} />
         <Route path="/alldatas/" element={<AllDatas />} />
-        {/* -------------------------------------------- */}
         <Route path="/filter/" element={<FilterPage />} />
         <Route path="/itemDetails/" element={<ItemDetails />} />
         <Route path="/itemDetails/:id" element={<ItemDetails />} />
@@ -76,7 +92,6 @@ function App() {
         <Route path="/shoptype" element={<ShopType />} />
         <Route path="/markDetails/" element={<MarkDetails />} />
         <Route path="/markDetails/:id" element={<MarkDetails />} />
-        {/* -------------------------------------------- */}
       </Routes>
       {routes.includes(route) && <Footer />}
     </>

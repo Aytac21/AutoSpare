@@ -36,7 +36,7 @@ const RegistrationMark = () => {
 
   const getPlates = async () => {
     const response = await axios.get(`${mainURL}/plates`);
-    console.log(response.data.result.plates);
+    // console.log(response.data.result.plates);
     setPlates(response.data.result.plates);
   };
 

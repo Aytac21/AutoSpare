@@ -14,7 +14,7 @@ const CategoryDetails = () => {
       .then((response) => response.json())
       .then((data) => {
         setCategoryDetails(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching categories:", error);

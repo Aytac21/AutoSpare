@@ -8,25 +8,35 @@ import { LiaShippingFastSolid } from "react-icons/lia";
 import { BsTelephone } from "react-icons/bs";
 import { TfiLock } from "react-icons/tfi";
 import { CiCreditCard2 } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { filterSetter } from "../../../helpers/Redux/aspareSlicer";
+import { useDispatch } from "react-redux";
 
 const Choose = () => {
 
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
   const [choose, setChoose] = useState([]);
-
+ const dispatch=useDispatch();
+ const navigate=useNavigate();
   useEffect(() => {
     fetch(`${mainURL}/Categories`)
       .then(response => response.json())
       .then(data => {
         setChoose(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch(error => {
         console.error('Error fetching categories:', error);
       });
   }, [])
+
+  const handleCategorySelect = (categoryid) => {
+    dispatch(filterSetter({
+     categoryId: categoryid
+    }));
+    navigate('/alldatas');
+ }
 
   const displayedCategories = choose.slice(0, 4);
 
@@ -56,12 +66,12 @@ const Choose = () => {
                     <div className={styled.text}>
                       <p>{choosing.name}</p>
                       <div className={styled.link}>
-                        <Link to="/categoryDetails">
+                        <div onClick={e=>handleCategorySelect(choosing.id)}>
                           <span>Keçid et</span>
                           <span>
                             <FaArrowRight />
                           </span>
-                        </Link>
+                        </div>
                       </div>
                     </div>
                     <div className={styled.image}>

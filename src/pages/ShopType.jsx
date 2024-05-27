@@ -15,8 +15,8 @@ function ShopType() {
         </section>
       </div>
       <hr />
-      <div className="container">
-        <div className="shops-type-detail">
+      <div  className="container">
+        <div className="shosps-type-detail">
           <div className="shops-type-site-detail">
             <h1>AvtoDetal</h1>
             <div className="shops-type-detail-text">

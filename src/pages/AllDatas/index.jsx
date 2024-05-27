@@ -16,7 +16,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import Modal from 'react-modal';
 import FilterPage from "../../components/FilterPage/FilterPage";
-
+import avtodetal from '../../assets/6zazG73XmCIVX596eIDD.png'
 const customStyles = {
     content: {
         top: '50%',
@@ -26,7 +26,7 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         width: '80%',
-        maxWidth: '69.15vw',
+        maxWidth: '67.15vw',
         padding: '',
         maxHeight: '100vh',
         overflowY: 'auto',
@@ -52,7 +52,7 @@ function AllDatas() {
     const [datas, setDatas] = useState([]);
     const mainURL = useSelector(state => state.aspareSlice.mainURL);
     const filters = useSelector(state => state.aspareSlice.filter);
-
+    const [selectedSingleCompany,setSelectedSingleCompany]=useState("")
     const categoryFetcher = async (categoryId) => {
         let resp = await axios.get(`${mainURL}/categories/getbyid/${categoryId}`);
         return resp.data.name;
@@ -106,15 +106,25 @@ function AllDatas() {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         if (filters != {}) {
+            if(Array.isArray(filters.CompanyId) && filters.CompanyId.length === 1 ){
+             console.log(filters.CompanyId[0]);
+             singleCompanyFetcher(filters.CompanyId[0]);
+            }
             partFetcherWithFilter();
+            console.log(filters)
         } else {
             partFetcher();
         }
-    }, []);
+    }, [filters]);
 
 
-
+const singleCompanyFetcher=async (companyid)=>{
+var resp=await axios.get(`${mainURL}/companies/${companyid}`);
+console.log(resp.data)
+setSelectedSingleCompany(resp.data)
+}
     useEffect(() => {
         //  console.log(filters)
         partFetcherWithFilter();
@@ -122,6 +132,59 @@ function AllDatas() {
     return (
         <div className="hr-add">
             <hr />
+      
+            {Array.isArray(filters.CompanyId) && filters.CompanyId.length === 1 ? (<>      <div className="container">
+                    <div className="shosps-type-detail">
+                        <div className="shops-type-site-detail">
+                            <h1>{selectedSingleCompany.name}</h1>
+                            <div className="shops-type-detail-text">
+                                <div>
+                                    <div>
+                                        <div>
+                                            <i className="fa-solid fa-phone"></i> <p>055 826 26 25</p>
+                                        </div>
+                                        <div>
+                                            <i className="fa-solid fa-location-dot"></i>{" "}
+                                            <p>{selectedSingleCompany.address}</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <i className="fa-solid fa-globe"></i>
+                                            <a href="#">{selectedSingleCompany.website}</a>
+                                        </div>
+                                        <div>
+                                            <i className="fa-regular fa-clock"></i>
+                                            <p>{selectedSingleCompany.workStart} - {selectedSingleCompany.workEnd}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="">
+                                    <ul>
+                                        <li>
+                                            <i className="fa-brands fa-youtube"></i>
+                                        </li>
+                                        <li>
+                                            <i className="fa-brands fa-instagram"></i>
+                                        </li>
+                                        <li>
+                                            <i className="fa-brands fa-whatsapp"></i>
+                                        </li>
+                                        <li>
+                                            <i className="fa-brands fa-facebook"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shops-type-detail-img">
+                            <img src={`data:image/png;base64,${selectedSingleCompany.image}`} alt="" />
+                        </div>
+                    </div>
+                </div>
+</>):<></>}
+
+        
             <div className="container">
                 <section className={styled.header}>
                     <div className={styled.head}>
@@ -150,6 +213,7 @@ function AllDatas() {
           </div> */}
                 </div>
 
+          
                 <section className={styled.favorite}>
                     {datas.map((data) => (
                         <a key={data.id} >
