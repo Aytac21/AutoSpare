@@ -134,7 +134,7 @@ setSelectedSingleCompany(resp.data)
             <hr />
       
             {Array.isArray(filters.CompanyId) && filters.CompanyId.length === 1 ? (<>      <div className="container">
-                    <div className="shosps-type-detail">
+                    <div className="shops-type-detail">
                         <div className="shops-type-site-detail">
                             <h1>{selectedSingleCompany.name}</h1>
                             <div className="shops-type-detail-text">
@@ -222,7 +222,7 @@ setSelectedSingleCompany(resp.data)
                                     <div className="favorite-block">
                                         <div className={styled.block}>
                                             <div className="favoriteimg">
-                                                <img style={{ width: '300px', height: '300px' }} src={`data:image/png;base64,${data.image1}`} alt="" />
+                                                <img style={{  height: '300px',objectFit:"cover" }} src={`data:image/png;base64,${data.image1}`} alt="" />
                                                 <p style={{ zIndex: '0' }} className="favorite-img-text">{data.categoryName}</p>
                                             </div>
                                             <div className={styled.text}>

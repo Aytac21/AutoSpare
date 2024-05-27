@@ -3,12 +3,25 @@ import styled from "./store.module.scss";
 import store2 from "../../../assets/store/store2.svg";
 import store1 from "../../../assets/store/store1.svg";
 import { FaLocationDot } from "react-icons/fa6";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector,useDispatch } from "react-redux";
+import { filterSetter } from "../../../helpers/Redux/aspareSlicer";
 
 const Store = () => {
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
   const [store, setStore] = useState([]);
+  const dispatch=useDispatch();
+const navigate=useNavigate();
+  const routeToFilter=(id)=>{
+  
+      dispatch(filterSetter({
+       CompanyId: [id]
+      }));
+      console.log(id);
+      navigate('/alldatas');
+  
+   
+  }
 
   useEffect(() => {
     fetch(`${ mainURL }/Companies`)
@@ -42,7 +55,7 @@ const Store = () => {
         <div className="row g-3" style={{ marginTop: 25 }}>
           {
             displayedStore.map(stores => (
-              <Link key={stores.id} to="/shoptype">
+              // <Link key={stores.id} to="/shoptype">
                 <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                   <div className={styled.block}>
                     <div className={styled.leftSide}>
@@ -57,18 +70,18 @@ const Store = () => {
                           <span>
                             <FaLocationDot />
                           </span>
-                          <p>Hüseyn Cavid 36</p>
+                          <p>{stores.address}</p>
                         </div>
                       </div>
                     </div>
                     <div className={styled.rightSide}>
-                      <div className={styled.button}>
+                      <div onClick={()=>routeToFilter(stores.id)} className={styled.button}>
                         <button>Keçid et</button>
                       </div>
                     </div>
                   </div>
                 </div>
-              </Link>
+              // </Link>
             ))
           }
         </div>

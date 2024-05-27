@@ -7,7 +7,7 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { PiShoppingCart } from "react-icons/pi";
 import { IoStarSharp } from "react-icons/io5";
-import SwiperPart from "./SwiperPart";
+// import SwiperPart from "./SwiperPart";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -172,7 +172,7 @@ const ItemDetails = () => {
           </div>
         </div>
       </section>
-      <SwiperPart />
+      {/* <SwiperPart / */}
     </>
   );
 };
