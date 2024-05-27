@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 const Car = () => {
   const [cars, setCars] = useState([]);
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
+  const searchQuery = useSelector(state => state.search.query);
 
   useEffect(() => {
     fetch(`${mainURL}/Parts`)
@@ -20,12 +21,16 @@ const Car = () => {
       .catch(error => {
         console.error('Error fetching categories:', error);
       });
-  }, []);
+  }, [mainURL]);
 
-  const displayedCars = cars.slice(0, 4);
+  const displayedCars = cars.filter(car => 
+    car.code.toLowerCase().includes(searchQuery.toLowerCase())
+  ).slice(0, 4);
+
   const formatDesc = (desc) => {
     return desc ? desc.slice(0, 10) : "";
   };
+
   return (
     <section className={styled.car}>
       <div className="container">
@@ -76,6 +81,7 @@ const Car = () => {
       </div>
     </section>
   );
-}
+};
 
 export default Car;
+

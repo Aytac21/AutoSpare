@@ -8,11 +8,12 @@ import { LiaShippingFastSolid } from "react-icons/lia";
 import { BsTelephone } from "react-icons/bs";
 import { TfiLock } from "react-icons/tfi";
 import { CiCreditCard2 } from "react-icons/ci";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { filterSetter } from "../../../helpers/Redux/aspareSlicer";
 const Choose = () => {
-
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
   const [choose, setChoose] = useState([]);
 
@@ -30,6 +31,36 @@ const Choose = () => {
 
   const displayedCategories = choose.slice(0, 4);
 
+  const handleCategorySelected = categoryid => {
+    dispatch(
+      filterSetter({
+        categoryId: categoryid
+      })
+    );
+    navigate("/alldatas");
+  };
+
+  const renderCategories=()=>{
+    return displayedCategories
+    .map((category,index) => (
+      <div key={index} className="col-lg-6 col-md-6 col-sm-12">
+        <div className={styled.card}>
+          <div className={styled.text}>
+            <p>{category.name}</p>
+            <div className={styled.link}>
+                <span onClick={e=>handleCategorySelected(category.id)}>Keçid et</span>
+                <span>
+                  <FaArrowRight />
+                </span>
+            </div>
+          </div>
+          <div className={styled.image}>
+            <img src={`data:image/png;base64,${category.image}`} alt="" />
+          </div>
+        </div>
+      </div>
+    ))
+  }
   return (
     <>
       <section className={styled.choose}>
@@ -49,28 +80,7 @@ const Choose = () => {
             </div>
           </div>
           <div className="row g-3" style={{ marginTop: 30 }}>
-            {
-              displayedCategories.map(choosing => (
-                <div key={choosing.id} className="col-lg-6 col-md-6 col-sm-12">
-                  <div className={styled.card}>
-                    <div className={styled.text}>
-                      <p>{choosing.name}</p>
-                      <div className={styled.link}>
-                        <Link to="/categoryDetails">
-                          <span>Keçid et</span>
-                          <span>
-                            <FaArrowRight />
-                          </span>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className={styled.image}>
-                      <img src={`data:image/png;base64,${choosing.image}`} alt="" />
-                    </div>
-                  </div>
-                </div>
-              ))
-            }
+            {renderCategories()}
           </div>
         </div>
       </section>

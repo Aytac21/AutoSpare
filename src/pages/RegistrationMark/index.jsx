@@ -14,7 +14,7 @@ const RegistrationMark = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [sortBy, setSortBy] = useState("");
   const formatName = (name) => {
-    return `${name.slice(0, 2)} -${name.slice(2, 4)} -${name.slice(4)}`;
+    return `${name.slice(0, 2)}-${name.slice(2, 4)}-${name.slice(4)}`;
   };
 
   const formatDateTime = (dateTimeString) => {

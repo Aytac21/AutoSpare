@@ -57,7 +57,7 @@
             align-items: center;
             span {
               color: #000;
-              font-size: 12px;
+              font-size: 10px;
               font-weight: 600;
               font-family: "Roboto", sans-serif !important;
             }
@@ -246,7 +246,29 @@
     }
   }
 }
-
+@media(max-width:1182px){
+  .registration {
+    .card {
+      a {
+        .block {
+          .number {
+            padding-top: 10px;
+            .num {
+              h3 {
+                font-size: 15px;
+              }
+            }
+          }
+          .price {
+            span {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 @media (max-width: 1127px) {
   .registration {
     .card {
@@ -256,7 +278,7 @@
             padding-top: 10px;
             .num {
               h3 {
-                font-size: 18px;
+                font-size: 14px;
               }
             }
           }
@@ -280,7 +302,7 @@
             padding-top: 10px;
             .num {
               h3 {
-                font-size: 16px;
+                font-size: 13px;
               }
             }
           }
@@ -336,7 +358,7 @@
             }
             .num {
               h3 {
-                font-size: 20px;
+                font-size: 18px;
               }
             }
           }

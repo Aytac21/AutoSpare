@@ -1,44 +1,36 @@
 import React, { useState, useEffect } from "react";
 import styled from "./category.module.scss";
-import img1 from "../../assets/Car-Battery.svg";
-import img2 from "../../assets/Air-Filter.svg";
-import img3 from "../../assets/Group 1 (1).svg";
-import img4 from "../../assets/Group (2).svg";
-import img5 from "../../assets/Group 8.svg";
-import img6 from "../../assets/Group 4.svg";
-import img7 from "../../assets/Group.svg";
-import img8 from "../../assets/Oil-Filter.svg";
-import img9 from "../../assets/Truck.svg";
-import img10 from "../../assets/Truck.svg";
-import img11 from "../../assets/Truck.svg";
-import img12 from "../../assets/Truck.svg";
-import { MdOutlineSort } from "react-icons/md";
 import { IoSearchOutline } from "react-icons/io5";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { Link } from "react-router-dom";
-import { MdKeyboardArrowLeft } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { MdOutlineKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { filterSetter } from "../../helpers/Redux/aspareSlicer";
+import { setSearchQuery } from "../../helpers/Redux/searchSlice";
 import axios from "axios";
+
 const Category = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [startIndex, setStartIndex] = useState(0);
-  const [visibleCategories, setVisibleCategories] = useState(8);
+  const [visibleCategories, setVisibleCategories] = useState(8); 
   const [categories, setCategories] = useState([]);
   const mainURL = useSelector(state => state.aspareSlice.mainURL);
+
   const getCategories = async () => {
     const response = await axios.get(`${mainURL}/categories`);
-    setCategories(response.data)
-    console.log(response.data)
-  }
+    setCategories(response.data);
+  };
+
   useEffect(() => {
     getCategories();
   }, []);
+
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width >= 1203) {
         setVisibleCategories(9);
-      }
-      else if (width >= 1194) {
+      } else if (width >= 1194) {
         setVisibleCategories(8);
       } else if (width >= 1188) {
         setVisibleCategories(7);
@@ -51,8 +43,6 @@ const Category = () => {
       }
     };
 
-
-
     handleResize();
     window.addEventListener("resize", handleResize);
 
@@ -62,44 +52,55 @@ const Category = () => {
   }, []);
 
   const handleLeftArrowClick = () => {
-    setStartIndex((prevIndex) => Math.max(0, prevIndex - 1));
+    setStartIndex(prevIndex => Math.max(0, prevIndex - 1));
   };
 
   const handleRightArrowClick = () => {
-    setStartIndex((prevIndex) => Math.min(prevIndex + 1, 12 - visibleCategories));
+    setStartIndex(prevIndex =>
+      Math.min(prevIndex + 1, categories.length - visibleCategories)
+    );
+  };
+
+  const handleCategorySelect = categoryid => {
+    dispatch(
+      filterSetter({
+        categoryId: categoryid
+      })
+    );
+    navigate("/alldatas");
+  };
+
+  const handleSearchInputChange = (e) => {
+    const query = e.target.value;
+    dispatch(setSearchQuery(query));
   };
 
   const renderCategories = () => {
-    const categoryImages = [
-      img7,
-      img9,
-      img5,
-      img4,
-      img8,
-      img2,
-      img1,
-      img3,
-      img6,
-      img10,
-      img11,
-      img12
-    ];
-
-
-    return categories.slice(startIndex, startIndex + visibleCategories).map((category, index) => (
-      <div className={styled.category} key={index}>
-        <Link to={`/results/${category.id}`}>
-          <img style={{ width: '40px', height: '40px' }} src={`data:image/png;base64,${category.image}`} alt="Category Image" />
+    return categories
+      .slice(startIndex, startIndex + visibleCategories)
+      .map((category, index) => (
+        <div
+          onClick={() => handleCategorySelect(category.id)}
+          className={styled.category}
+          key={index}
+        >
+          <img
+            style={{ width: "40px", height: "40px" }}
+            src={`data:image/png;base64,${category.image}`}
+            alt="Category Image"
+          />
           <p>{category.name}</p>
-        </Link>
-      </div >
-    ));
+        </div>
+      ));
   };
 
   return (
     <section className={styled.searchPage}>
       <div className="container">
-        <div className="row" style={{ display: "flex", alignItems: "center" }}>
+        <div
+          className="row g-3"
+          style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+        >
           <div className="col-lg-9 col-md-12 col-sm-12 col-12">
             <div className={styled.categories}>
               <div className={styled.arrow} onClick={handleLeftArrowClick}>
@@ -115,10 +116,14 @@ const Category = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-3 col-md-3">
+          <div className="col-lg-3 col-md-12 col-sm-12 col-6">
             <div className={styled.filterANDsearch}>
               <div className={styled.search}>
-                <input type="number" placeholder="Detal kodu" />
+                <input 
+                  type="text" 
+                  placeholder="Detal kodu" 
+                  onChange={handleSearchInputChange} 
+                />
                 <span>
                   <IoSearchOutline />
                 </span>
@@ -132,3 +137,4 @@ const Category = () => {
 };
 
 export default Category;
+
