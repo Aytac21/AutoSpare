@@ -7,9 +7,10 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { PiShoppingCart } from "react-icons/pi";
 import { IoStarSharp } from "react-icons/io5";
-// import SwiperPart from "./SwiperPart";
+import SwiperPart from "./SwiperPart";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { addToBasket } from "../../../helpers/Basket/basket";
 import { toggleFavorite } from "../../../helpers/Favorites/favorites";
@@ -21,7 +22,7 @@ const ItemDetails = () => {
   const [part, setPart] = useState({});
 
   const [sliderData, setSliderData] = useState({});
-
+const navigate=useNavigate();
   const { id } = useParams();
 
   const getPart = async () => {
@@ -40,9 +41,11 @@ const ItemDetails = () => {
     }
   };
 
+
   useEffect(() => {
     getPart();
     window.scrollTo(0,0); 
+
   }, [mainURL]);
 
   const decreaseCount = () => {
@@ -172,7 +175,7 @@ const ItemDetails = () => {
           </div>
         </div>
       </section>
-      {/* <SwiperPart / */}
+      <SwiperPart />
     </>
   );
 };

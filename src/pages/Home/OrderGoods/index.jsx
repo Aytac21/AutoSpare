@@ -33,11 +33,11 @@ const OrderGoods = () => {
               <div className={styled.block}>
               <div className={styled.text}>
                 <h2>
-                  Avto<span>Pro</span>
+                  Avto<span>Spare</span>
                 </h2>
                 <h3>Fərqi özün hiss et</h3>
                 <button>
-                  <Link to="/shoptype">İndi sifariş et</Link>
+                  <Link to="/alldatas">İndi sifariş et</Link>
                 </button>
               </div>
               <div className={styled.image}>
@@ -45,86 +45,7 @@ const OrderGoods = () => {
               </div>
             </div>
               </SwiperSlide>
-              <SwiperSlide>
-              <div className={styled.block}>
-              <div className={styled.text}>
-                <h2>
-                  Avto<span>Pro</span>
-                </h2>
-                <h3>Fərqi özün hiss et</h3>
-                <button>
-                  <Link to="/shoptype">İndi sifariş et</Link>
-                </button>
-              </div>
-              <div className={styled.image}>
-                <img src={img} alt="" />
-              </div>
-            </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={styled.block}>
-              <div className={styled.text}>
-                <h2>
-                  Avto<span>Pro</span>
-                </h2>
-                <h3>Fərqi özün hiss et</h3>
-                <button>
-                  <Link to="/shoptype">İndi sifariş et</Link>
-                </button>
-              </div>
-              <div className={styled.image}>
-                <img src={img} alt="" />
-              </div>
-            </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={styled.block}>
-              <div className={styled.text}>
-                <h2>
-                  Avto<span>Pro</span>
-                </h2>
-                <h3>Fərqi özün hiss et</h3>
-                <button>
-                  <Link to="/shoptype">İndi sifariş et</Link>
-                </button>
-              </div>
-              <div className={styled.image}>
-                <img src={img} alt="" />
-              </div>
-            </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={styled.block}>
-              <div className={styled.text}>
-                <h2>
-                  Avto<span>Pro</span>
-                </h2>
-                <h3>Fərqi özün hiss et</h3>
-                <button>
-                  <Link to="/shoptype">İndi sifariş et</Link>
-                </button>
-              </div>
-              <div className={styled.image}>
-                <img src={img} alt="" />
-              </div>
-            </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={styled.block}>
-              <div className={styled.text}>
-                <h2>
-                  Avto<span>Pro</span>
-                </h2>
-                <h3>Fərqi özün hiss et</h3>
-                <button>
-                  <Link to="/shoptype">İndi sifariş et</Link>
-                </button>
-              </div>
-              <div className={styled.image}>
-                <img src={img} alt="" />
-              </div>
-            </div>
-              </SwiperSlide>
+              
             </Swiper>
           </div>
         </div>

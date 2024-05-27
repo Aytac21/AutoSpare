@@ -80,7 +80,7 @@ const navigate=useNavigate();
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>  
               // </Link>
             ))
           }
