@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import Car from "../Car/index";
 import styled from "./favorite.module.scss";
+import appcss from "../../App";
+import image from "../../assets/car.svg";
 import { TiTick } from "react-icons/ti";
 import { FaManatSign } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import basketimage from "../../assets/Cart1.svg";
-import { useSelector, useDispatch } from "react-redux";
-import { getBasket, reduceFromBasket, addToBasket, removeFromBasket } from "../../helpers/Redux/favoritesSlice";
+import { Link } from "react-router-dom";
 
 function Favorite() {
-  const favorites = useSelector(selectFavorites);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log("Favoriler:", favorites); // Favori listesini konsola yazdır
-  }, [favorites]);
-
-
-  const handleRemoveFavorite = (productId) => {
-    dispatch(removeFromFavorites(productId));
+  const [count, setCount] = useState(0);
+  const decreaseCount = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+  const increaseCount = () => {
+    setCount(count + 1);
   };
 
   return (
@@ -26,59 +26,328 @@ function Favorite() {
       <div className="container">
         <div className="favorite-page-text">
           <p>
-            Favorilər <span>({favorites.length})</span>
+            Favorilər <span>(34)</span>
           </p>
         </div>
         <section className={styled.favorite}>
-          {favorites.length === 0 ? (
-            <div className={styled.main}>
-              <img src={basketimage} alt="Empty basket" />
-              <h2>Sizin favori məhsulunuz yoxdur</h2>
-            </div>
-          ) : (
-            favorites.map((favorite, index) => (
-              <div key={index} className="row">
-                <div className="result-list favoritepage">
-                  <div className="favorite-block">
-                    <div className={styled.block}>
-                      <div className="favoriteimg">
-                        <img src={`data:image/png;base64,${favorite.image1}`} alt={favorite.name} />
-                        <p className="favorite-img-text">{favorite.name}</p>
-                      </div>
-                      <div className={styled.text}>
-                        <div className={styled.name}>
-                          <p>Xırdalan , Bakı</p>
-                          <h5>
-                            <span>
-                              <TiTick />
-                            </span>
-                            AvtoPro
-                          </h5>
-                        </div>
-                        <div className={styled.info}>
-                          <span>2.5 km/40min</span>
-                        </div>
-                        <div className={styled.priceANDcount}>
-                          <div className={styled.price}>
-                            <div className={styled.priceNumber}>
-                              <span>
-                                <FaManatSign />
-                              </span>
-                              <span>{favorite.price}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+          <div className="row g-5">
+            <div className="result-list favoritepage">
+              <div className="favorite-block">
+                <div className={styled.block}>
+                  <div className="favoriteimg">
+                    <img src={image} alt="" />
+                    <p className="favorite-img-text">Əyləc sistemi</p>
+                  </div>
+                  <div className={styled.text}>
+                    <div className={styled.name}>
+                      <p>Xırdalan , Bakı</p>
+                      <h5>
+                        <span>
+                          <TiTick />
+                        </span>
+                        AvtoPro
+                      </h5>
                     </div>
-                    <div className="basket-class" onClick={() => handleRemoveFavorite(favorite.id)}>
-                      <img src={basketimage} alt="image" />
-                      <p>Səbətə at</p>
+                    <div className={styled.info}>
+                      <span>2.5 km/40min</span>
+                    </div>
+                    <div className={styled.priceANDcount}>
+                      <div className={styled.price}>
+                        <div className={styled.priceNumber}>
+                          <span>
+                            <FaManatSign />
+                          </span>
+                          <span>6.99</span>
+                        </div>
+                        <div className={styled.resultsCount}>
+                          <i
+                            onClick={decreaseCount}
+                            className="fa-solid fa-chevron-down"
+                          ></i>
+                          {count}
+                          <i
+                            onClick={increaseCount}
+                            className="fa-solid fa-chevron-up"
+                          ></i>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <Link to="/card">
+                  <div className="basket-class">
+                    <img src={basketimage} alt="image" />
+                    <p>Səbətə at</p>
+                  </div>
+                </Link>
               </div>
-            ))
-          )}
+            </div>
+          </div>
+          <div className="row g-5">
+            <div className="result-list favoritepage">
+              <div className="favorite-block">
+                <div className={styled.block}>
+                  <div className="favoriteimg">
+                    <img src={image} alt="" />
+                    <p className="favorite-img-text">Əyləc sistemi</p>
+                  </div>
+                  <div className={styled.text}>
+                    <div className={styled.name}>
+                      <p>Xırdalan , Bakı</p>
+                      <h5>
+                        <span>
+                          <TiTick />
+                        </span>
+                        AvtoPro
+                      </h5>
+                    </div>
+                    <div className={styled.info}>
+                      <span>2.5 km/40min</span>
+                    </div>
+                    <div className={styled.priceANDcount}>
+                      <div className={styled.price}>
+                        <div className={styled.priceNumber}>
+                          <span>
+                            <FaManatSign />
+                          </span>
+                          <span>6.99</span>
+                        </div>
+                        <div className={styled.resultsCount}>
+                          <i
+                            onClick={decreaseCount}
+                            className="fa-solid fa-chevron-down"
+                          ></i>
+                          {count}
+                          <i
+                            onClick={increaseCount}
+                            className="fa-solid fa-chevron-up"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <Link to="/card">
+                  <div className="basket-class">
+                    <img src={basketimage} alt="image" />
+                    <p>Səbətə at</p>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="row g-5">
+            <div className="result-list favoritepage">
+              <div className="favorite-block">
+                <div className={styled.block}>
+                  <div className="favoriteimg">
+                    <img src={image} alt="" />
+                    <p className="favorite-img-text">Əyləc sistemi</p>
+                  </div>
+                  <div className={styled.text}>
+                    <div className={styled.name}>
+                      <p>Xırdalan , Bakı</p>
+                      <h5>
+                        <span>
+                          <TiTick />
+                        </span>
+                        AvtoPro
+                      </h5>
+                    </div>
+                    <div className={styled.info}>
+                      <span>2.5 km/40min</span>
+                    </div>
+                    <div className={styled.priceANDcount}>
+                      <div className={styled.price}>
+                        <div className={styled.priceNumber}>
+                          <span>
+                            <FaManatSign />
+                          </span>
+                          <span>6.99</span>
+                        </div>
+                        <div className={styled.resultsCount}>
+                          <i
+                            onClick={decreaseCount}
+                            className="fa-solid fa-chevron-down"
+                          ></i>
+                          {count}
+                          <i
+                            onClick={increaseCount}
+                            className="fa-solid fa-chevron-up"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <Link to="/card">
+                  <div className="basket-class">
+                    <img src={basketimage} alt="image" />
+                    <p>Səbətə at</p>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="row g-5">
+            <div className="result-list favoritepage">
+              <div className="favorite-block">
+                <div className={styled.block}>
+                  <div className="favoriteimg">
+                    <img src={image} alt="" />
+                    <p className="favorite-img-text">Əyləc sistemi</p>
+                  </div>
+                  <div className={styled.text}>
+                    <div className={styled.name}>
+                      <p>Xırdalan , Bakı</p>
+                      <h5>
+                        <span>
+                          <TiTick />
+                        </span>
+                        AvtoPro
+                      </h5>
+                    </div>
+                    <div className={styled.info}>
+                      <span>2.5 km/40min</span>
+                    </div>
+                    <div className={styled.priceANDcount}>
+                      <div className={styled.price}>
+                        <div className={styled.priceNumber}>
+                          <span>
+                            <FaManatSign />
+                          </span>
+                          <span>6.99</span>
+                        </div>
+                        <div className={styled.resultsCount}>
+                          <i
+                            onClick={decreaseCount}
+                            className="fa-solid fa-chevron-down"
+                          ></i>
+                          {count}
+                          <i
+                            onClick={increaseCount}
+                            className="fa-solid fa-chevron-up"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <Link to="/card">
+                  <div className="basket-class">
+                    <img src={basketimage} alt="image" />
+                    <p>Səbətə at</p>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="row g-5">
+            <div className="result-list favoritepage">
+              <div className="favorite-block">
+                <div className={styled.block}>
+                  <div className="favoriteimg">
+                    <img src={image} alt="" />
+                    <p className="favorite-img-text">Əyləc sistemi</p>
+                  </div>
+                  <div className={styled.text}>
+                    <div className={styled.name}>
+                      <p>Xırdalan , Bakı</p>
+                      <h5>
+                        <span>
+                          <TiTick />
+                        </span>
+                        AvtoPro
+                      </h5>
+                    </div>
+                    <div className={styled.info}>
+                      <span>2.5 km/40min</span>
+                    </div>
+                    <div className={styled.priceANDcount}>
+                      <div className={styled.price}>
+                        <div className={styled.priceNumber}>
+                          <span>
+                            <FaManatSign />
+                          </span>
+                          <span>6.99</span>
+                        </div>
+                        <div className={styled.resultsCount}>
+                          <i
+                            onClick={decreaseCount}
+                            className="fa-solid fa-chevron-down"
+                          ></i>
+                          {count}
+                          <i
+                            onClick={increaseCount}
+                            className="fa-solid fa-chevron-up"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <Link to="/card">
+                  <div className="basket-class">
+                    <img src={basketimage} alt="image" />
+                    <p>Səbətə at</p>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="row g-5">
+            <div className="result-list favoritepage">
+              <div className="favorite-block">
+                <div className={styled.block}>
+                  <div className="favoriteimg">
+                    <img src={image} alt="" />
+                    <p className="favorite-img-text">Əyləc sistemi</p>
+                  </div>
+                  <div className={styled.text}>
+                    <div className={styled.name}>
+                      <p>Xırdalan , Bakı</p>
+                      <h5>
+                        <span>
+                          <TiTick />
+                        </span>
+                        AvtoPro
+                      </h5>
+                    </div>
+                    <div className={styled.info}>
+                      <span>2.5 km/40min</span>
+                    </div>
+                    <div className={styled.priceANDcount}>
+                      <div className={styled.price}>
+                        <div className={styled.priceNumber}>
+                          <span>
+                            <FaManatSign />
+                          </span>
+                          <span>6.99</span>
+                        </div>
+                        <div className={styled.resultsCount}>
+                          <i
+                            onClick={decreaseCount}
+                            className="fa-solid fa-chevron-down"
+                          ></i>
+                          {count}
+                          <i
+                            onClick={increaseCount}
+                            className="fa-solid fa-chevron-up"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <Link to="/card">
+                  <div className="basket-class">
+                    <img src={basketimage} alt="image" />
+                    <p>Səbətə at</p>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </div>
