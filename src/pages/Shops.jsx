@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import avtodetal from "../assets/6zazG73XmCIVX596eIDD.png";
+import { useSelector } from "react-redux";
 
 function Shops() {
   const [companies, setCompanies] = useState([]);
-
+  const mainURL = useSelector(state => state.aspareSlice.mainURL);
   useEffect(() => {
-    fetch('https://blbtd6h4-7186.euw.devtunnels.ms/Companies')
+    fetch(`${mainURL}/Companies`)
       .then(response => response.json())
       .then(data => {
         setCompanies(data.result.companies);

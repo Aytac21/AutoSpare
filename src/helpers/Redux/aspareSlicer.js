@@ -7,7 +7,7 @@ const initialState = {
   isAuthenticated: false,
   error: false,
   errorMessage: "",
-  mainURL: "https://localhost:7186",
+  mainURL: "https://ps5dd7f9-7186.euw.devtunnels.ms",
   filter: {}
   // filter: {
   //   MinimumPrice: 0,

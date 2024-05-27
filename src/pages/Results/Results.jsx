@@ -8,6 +8,7 @@ import filterimage from "../../assets/Vector.svg";
 import styled from "./results.module.scss";
 import image1 from "../../assets/car.svg";
 import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Results() {
   const [showEniInput, setShowEniInput] = useState(false);
@@ -16,11 +17,11 @@ function Results() {
 
   const [results, setResults] = useState([]);
   const { id } = useParams();
-
+  const mainURL = useSelector(state => state.aspareSlice.mainURL);
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const response = await fetch(`https://blbtd6h4-7186.euw.devtunnels.ms/Parts/category/${id}`);
+        const response = await fetch(`${mainURL}/Parts/category/${id}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
