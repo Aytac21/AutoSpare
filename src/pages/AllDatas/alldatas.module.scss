@@ -177,7 +177,7 @@
 .favorite {
   margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
   .head {
@@ -307,7 +307,79 @@
     }
   }
 }
-
+.datas {
+  margin-top: 30px;
+  .block {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+    border: 1px solid #8f959e;
+    border-radius: 20px;
+    .image {
+      width: 100%;
+      height: 230px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+      }
+    }
+    .about {
+      padding: 15px;
+      .category {
+        display: flex;
+        justify-content: end;
+        p {
+          font-size: 15px;
+          border-radius: 6px;
+          padding: 8px 10px;
+          text-align: center;
+          color: white;
+          background-color: #717171;
+          cursor: pointer;
+        }
+      }
+      .info {
+        .name {
+          h2 {
+            font-size: 22px;
+            font-weight: 500;
+            color: #1d1e20;
+          }
+        }
+        .companyName {
+          span {
+            font-size: 24px;
+            color: #1d1e20;
+            font-weight: 500;
+          }
+        }
+        .price {
+          span {
+            font-size: 18px;
+            font-weight: 400;
+            color: #1d1e20;
+          }
+        }
+      }
+      .button {
+        float: right;
+        button {
+          display: inline-block;
+          color: white;
+          background-color: #000000;
+          border-radius: 6px;
+          border: none;
+          padding: 8px 15px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 1000px) {
   .favorite {
     grid-template-columns: repeat(3, 1fr);
